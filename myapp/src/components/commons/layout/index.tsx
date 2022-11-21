@@ -16,7 +16,6 @@ export default function Layout(props: ILayoutProps) {
     return(
         <>
             <Header />
-            <Slick />
             <Body>{props.children}</Body>
         </>
     )

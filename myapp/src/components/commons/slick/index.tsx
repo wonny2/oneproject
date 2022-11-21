@@ -13,8 +13,9 @@ export default function Slick() {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
+        arrows: false,
         // vertical : true, // 세로 방향 슬라이드
-        afterChange: (slide:Number) => setCurrentSlide(slide,Number)
+        // afterChange: (slide:Number) => setCurrentSlide(slide,Number)
       };
 
       const items = [
