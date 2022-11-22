@@ -1,4 +1,4 @@
-export interface IBoardListUIProps {
+export interface IBoardListPropsUI {
     data: any
-    onFetchMore: () => void
+    MoveToWrite: () => void
 }

@@ -13,7 +13,6 @@ export const TitleWrap = styled.div`
     width:1200px;
     align-items:center;
     justify-content:space-between;
-    border: 1px solid black;
 `
 
 export const Title = styled.div`

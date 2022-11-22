@@ -1,24 +1,31 @@
 import * as L from './boardList.styles'
-import { IBoardListUIProps } from './boardList.types'
 import Slick from '../../../commons/slick'
-import InfiniteScroll from 'react-infinite-scroller'
+import Infinite from '../../../commons/infinite'
+import {IBoardListPropsUI} from './boardList.types'
 
 
-export default function BoardListPresenter(props: IBoardListUIProps) {
+export default function BoardListPresenter(props: IBoardListPropsUI) {
     return(
         <L.Wrapper>
             <Slick />
             <L.ContentsWrap>
-                <InfiniteScroll pageStart={0} loadMore={props.onFetchMore} hasMore={true}>
-                    <L.CardWrap>
-                        {props.data?.fetchBoards.map((item:any ) => (
-                            <L.Card>
-                                <L.Title>{item.title}</L.Title>
-                            </L.Card>
-                        ))}
-                    </L.CardWrap>
-                </InfiniteScroll>
+                <L.CardWrap>
+                    {props.data?.fetchBoardsOfTheBest.map((item:any) => (
+                        <L.Card>
+                            <div> title <br /> {item.title}</div>
+                            <div> cotents <br /> {item.contents}</div>
+                            <div> 좋아요 수 <br /> {item.likeCount}</div>
+                        </L.Card>
+                    ))}
+                </L.CardWrap>
+                
+                <L.MenuBar>
+                    <L.TextWrap>
+                        <div onClick={props.MoveToWrite}>글쓰기</div>
+                    </L.TextWrap>
+                </L.MenuBar>
+
             </L.ContentsWrap>
         </L.Wrapper>
     )
-}
+}0
