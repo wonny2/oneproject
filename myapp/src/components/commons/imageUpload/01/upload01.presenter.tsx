@@ -12,15 +12,15 @@ export default function UploadPresenter(props: IUpload01Props) {
         ) : (
                 <W.UploadBtn
                     onClick={props.onClickUpload}>
-                    <>+</>
+                    <span style={{color : "white",fontSize: "28px"}}>+</span>
                 </W.UploadBtn>
         )}
+
         <W.UploadHidden 
             ref={props.imgRef}
             type="file"
             onChange={props.onChangFile}
         />
-        
         </W.RowWrap>
 
     )

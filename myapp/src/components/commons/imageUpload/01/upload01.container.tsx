@@ -26,7 +26,7 @@ export default function UploadContainer(props:any) {
             // 우리가 선택한 사진을 ImageFile변수에 담은 것. 해당 변수를 variables에 넣어서 보내주면 된다.
                const result =  await uploadFile({ variables : {file : ImageFile }})
                     console.log(result.data?.uploadFile.url)
-                    props.onClickFileUrls(result.data.uploadFile.url , props.index)
+                    props.onClickFileUrls(result.data.uploadFile.url , props.index) // 중요한 부분: 얘를 해줘야 boardContainer에 있는 state에 값을 넣어주는 것이다.
         } catch(error) {
             if(error instanceof Error) {
                 alert(error + "여기서 나는 에러입니다.")

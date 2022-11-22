@@ -1,5 +1,5 @@
 import { useMutation } from "@apollo/client";
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
 import BoardWritePresenter from "./boardWrite.presenter";
 import { CREATE_BOARD } from "./boardWrite.queries";
 import {BoardProps} from './boardWrite.types'
@@ -10,7 +10,8 @@ export default function BoardWriteContainer(props:any) {
 
     const [fileUrls, setFileUrls] = useState(["", "", ""])
 
-    // 이 부분이 01로 안 가고 여기에 있는 이유는 createBoard가 있기 때문이다.
+    // 이 부분이 01로 안 가고 여기에 있는 이유는 
+    // state값이 여기에 있기 때문이다.
     const onClickFileUrls = (fileUrl:string, index:number) => {
         const newFileUrls = [...fileUrls];
         newFileUrls[index] = fileUrl;
