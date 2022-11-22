@@ -1,27 +1,21 @@
 import { useMutation } from "@apollo/client";
-import { ChangeEvent } from "react";
+import { ChangeEvent, useState } from "react";
 import BoardWritePresenter from "./boardWrite.presenter";
-import { CREATE_BOARD, UP_LOAD_FILE } from "./boardWrite.queries";
+import { CREATE_BOARD } from "./boardWrite.queries";
+import {BoardProps} from './boardWrite.types'
+export default function BoardWriteContainer(props:any) {
 
-export default function BoardWriteContainer() {
+
     const [createBoard] = useMutation(CREATE_BOARD);
-    const [uploadFile] = useMutation(UP_LOAD_FILE);
 
-    // 이미지 업로드 api
-    const onChangFile = async (event:ChangeEvent<HTMLInputElement>) => {
-        const ImageFile = event.target.files?.[0]
-        
-        try{
-            // 우리가 선택한 사진을 ImageFile변수에 담은 것. 해당 변수를 variables에 넣어서 보내주면 된다.
-               const result =  await uploadFile({
-                    variables : {file : ImageFile}})
-                    console.log(result.data?.uploadFile.url)
-        } catch(error) {
-            if(error instanceof Error) {
-                alert(error)
-            }
-        }
-    }
+    const [fileUrls, setFileUrls] = useState(["", "", ""])
+
+    // 이 부분이 01로 안 가고 여기에 있는 이유는 createBoard가 있기 때문이다.
+    const onClickFileUrls = (fileUrl:string, index:number) => {
+        const newFileUrls = [...fileUrls];
+        newFileUrls[index] = fileUrl;
+        setFileUrls(newFileUrls)
+    };
 
     // 게시글 등록
     const onClickCreateBoard = async () => {
@@ -31,10 +25,13 @@ export default function BoardWriteContainer() {
                     createBoardInput : {
                         title : "시험제목",
                         contents : "시험컨텐츠",
-                        // boardImg: ,
+                        // images: [imageUrl],
+                        password: "1234",
+                        writer: "나요"
                     }
                 }
             })
+            alert('등록되었습니다.')
         } catch(error) {
             if(error instanceof Error) {
                 alert(error)
@@ -47,10 +44,13 @@ export default function BoardWriteContainer() {
         console.log(value)
     }
 
+
     return(
         <BoardWritePresenter 
         onChangeContents={onChangeContents}
-        onChangFile={onChangFile}
+        onClickCreateBoard={onClickCreateBoard}
+        fileUrls={fileUrls}
+        onClickFileUrls={onClickFileUrls}
         />
     )
 }

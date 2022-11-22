@@ -1,10 +1,10 @@
 import * as W from './boardWrite.styles'
 import { IBoardsWritePropsUI } from './boardWrite.types'
-
-
+import UploadContainer from '../../../commons/imageUpload/01/upload01.container'
 
 
 export default function BoardWritePresenter(props: IBoardsWritePropsUI) {
+    
 
 
     return(
@@ -24,12 +24,18 @@ export default function BoardWritePresenter(props: IBoardsWritePropsUI) {
                     <div>내용</div>
                     <W.Quill onChange={props.onChangeContents}/>
                 </W.ContentWrap>
-
-                <W.ContentWrap>
-                    <W.ImgBox type='file' onChange={props.onChangFile}/>
-                </W.ContentWrap>
-
+                {props.fileUrls.map((el,index) => (
+                    <UploadContainer 
+                        key={index}
+                        fileUrl = {el}
+                        index={index}
+                        onClickFileUrls={props.onClickFileUrls} // 이미지 배열
+                    />
+                ))}
+                <button onClick={props.onClickCreateBoard}>등록하기</button>
             </W.SecondWrap>
+
         </W.Wrapper>
+        
     )
 }

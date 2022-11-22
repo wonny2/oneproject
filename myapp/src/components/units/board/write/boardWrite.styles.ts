@@ -13,12 +13,12 @@ export const Wrapper = styled.div`
 
 export const SecondWrap = styled.div`
     width:1200px;
-    height: 900px;
     padding-top: 40px;
     border: 3px solid black;   
 `
 
 export const ContentWrap = styled.div`
+    margin-bottom:70px;
 
     > div {
         font-size: 25px;
@@ -38,9 +38,8 @@ export const Quill = styled(ReactQuill)`
     height: 20rem;
     border:1px solid black;
 `
-
-export const ImgBox = styled.input`
-    width:20px;
-    height:30px;
+export const Boxes = styled.div`
+    width: 100px;
+    height:100px;
 `
 
