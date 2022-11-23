@@ -43,7 +43,7 @@ export default function UploadContainer(props:any) {
             imgRef={imgRef}
             fileUrl={props.fileUrl} // el
             index={props.index}
-            onClickFileUrls={props.onClickFileUrls}
+            onClickFileUrls={props.onClickFileUrls} // state값 바꿀 함수
         />
     )
 }

@@ -14,6 +14,7 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@graphql-codegen/cli": "^2.13.12",
+    "@hookform/resolvers": "^2.9.10",
     "@types/react-dom": "18.0.9",
     "antd": "^5.0.0",
     "apollo-upload-client": "^17.0.0",
@@ -24,11 +25,13 @@
     "next": "12.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-hook-form": "^7.39.5",
     "react-infinite-scroller": "^1.2.6",
     "react-player": "^2.11.0",
     "react-quill": "^2.0.0",
     "react-slick": "^0.29.0",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "yup": "^0.32.11"
   },
   "resolutions": {
     "@types/react": "17.0.2"

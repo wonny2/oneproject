@@ -44,7 +44,7 @@ export const Quill = styled(ReactQuill)`
     border:1px solid black;
 `
 
-export const Row = styled.div`
+export const ImgRowWrap = styled.div`
     width:44rem;
     display:flex;
     flex-direction:row;
@@ -57,7 +57,7 @@ export const Boxes = styled.div`
     height:100px;
 `
 
-export const SubmitBtn = styled.div`
+export const SubmitBtn = styled.button`
     width: 160px;
     height: 55px;
     border: 3px solid green;
@@ -65,4 +65,22 @@ export const SubmitBtn = styled.div`
     line-height:55px;
     text-align:center;
     margin-bottom:100px;
+    background-color: #fff;
+    
+    :hover {
+        background-color: green;
+        color: white;
+    }
+`
+
+export const RowWrap = styled.div`
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+`
+
+export const ErrorMsg = styled.div`
+    color: red;
+    font-size:12px;
+    margin-left: 10px;
 `
