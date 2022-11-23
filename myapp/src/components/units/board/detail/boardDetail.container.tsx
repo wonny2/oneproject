@@ -13,6 +13,8 @@ export default function BoardDetailContainer() {
         variables: {boardId: String(router.query.boardId)}
     });
     
+    console.log(data?.fetchBoard.images)
+
     const onClickMoveToList = () => {
         router.push('/boards')
     }

@@ -1,7 +1,7 @@
-import BoardListContainer from "../../src/components/units/board/list/boardList.container";
+import InfiniteScroll from "../../src/components/commons/infinite"
 
 export default function BoardListPage() {
     return(
-        <BoardListContainer />
+        <InfiniteScroll />
     )
 }

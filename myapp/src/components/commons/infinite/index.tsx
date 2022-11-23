@@ -1,15 +1,20 @@
 import { useQuery } from "@apollo/client"
-import { useState } from "react"
+import Router, { useRouter } from "next/router"
 import Infinite from "./infiniteScroll.presenter"
 import { FETCH_BOARDS } from "./infiniteScroll.queries"
-
+import { MouseEvent } from "react"
 
 export default function InfiniteScroll() {
 
+    const router = useRouter();
     const {data, fetchMore} = useQuery(FETCH_BOARDS)
 
     // const [isShowMore, setIsShowMore] = useState<boolean>(false)
     
+    const moveToDetail = (event: MouseEvent<HTMLDivElement>) => {
+        if(!(event.target instanceof HTMLDivElement)) return;
+         router.push(`/boards/${event.target.id}`)
+    }
 
     const onFetchMore = () => {
         if(!data) return; 
@@ -27,15 +32,11 @@ export default function InfiniteScroll() {
     };
 
     return(
-        // <div>{data?.fetchBoards.map((item:any, index:Number) => (
-        //     <div key={item._id}>
-        //         <div>{item.title}</div>
-        //     </div>
-        // ))}</div>
         <>
             <Infinite 
                 data={data}
                 onFetchMore={onFetchMore}
+                moveToDetail={moveToDetail}
             />
         </>
     )

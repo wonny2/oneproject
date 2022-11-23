@@ -1,6 +1,6 @@
 import { IBoardDetailUIProps } from "./boardDetail.types"
 import * as D from './boardDetail.styles'
-
+import {v4 as uuidv4} from 'uuid'
 
 export default function BoardDetailPresenter(props: IBoardDetailUIProps) {
     return(
@@ -26,7 +26,9 @@ export default function BoardDetailPresenter(props: IBoardDetailUIProps) {
                 <D.ColumnWrap>
                     <D.Text>이미지</D.Text>
                     {props.data?.fetchBoard.images?.filter(item => item).map((el) => (
-                        <img src={`https://storage.googleapis.com/${el}`} />
+                        <D.ImgWrap key={uuidv4()}>
+                            <D.Img src={`https://storage.googleapis.com/${el}`} />
+                        </D.ImgWrap>
                     ))}
                 </D.ColumnWrap>
 

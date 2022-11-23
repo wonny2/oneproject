@@ -28,6 +28,18 @@ export const Text = styled.div`
     font-weight: 700;
 `
 
+export const ImgWrap = styled.div`
+    display:flex;
+    flex-direction: row;
+    width: 30rem;
+    height: 30rem;
+`
+
+export const Img = styled.img`
+    width:100%;
+    height:100%;
+`
+
 export const Button = styled.button`
     width: 160px;
     height: 55px;
