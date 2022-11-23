@@ -27,3 +27,22 @@ export const Text = styled.div`
     font-size: 20px;
     font-weight: 700;
 `
+
+export const Button = styled.button`
+    width: 160px;
+    height: 55px;
+    border: none;
+    border-radius: 50px;
+    line-height:55px;
+    text-align:center;
+    margin-bottom:100px;
+    background-color: green;
+    color: white;
+    font-size:18px;
+    
+    :hover {
+        border: 3px solid green;
+        background-color: #fff;
+        color: black;
+    }
+`

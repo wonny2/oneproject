@@ -4,7 +4,7 @@ import BoardListPresenter from "./mainList.presenter"
 import { FETCH_BOARDS_OF_THE_BEST } from "./mainList.queries"
 
 
-export default function BoardListContainer() {
+export default function MainListContainer() {
 
 const {data} = useQuery(FETCH_BOARDS_OF_THE_BEST);
 console.log(data?.fetchBoardsOfTheBest)

@@ -22,6 +22,15 @@ export default function BoardDetailPresenter(props: IBoardDetailUIProps) {
                         style={{border: "1px solid black"}}
                         dangerouslySetInnerHTML={{__html: String(props.data?.fetchBoard.contents) }} />
                 </D.ColumnWrap>
+
+                <D.ColumnWrap>
+                    <D.Text>이미지</D.Text>
+                    {props.data?.fetchBoard.images?.filter(item => item).map((el) => (
+                        <img src={`https://storage.googleapis.com/${el}`} />
+                    ))}
+                </D.ColumnWrap>
+
+                <D.Button onClick={props.onClickMoveToList}>목록으로</D.Button>
             </D.SecondWrapper>
         </D.Wrapper>
     )

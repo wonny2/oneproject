@@ -8,7 +8,7 @@ export default function InfiniteScroll() {
 
     const {data, fetchMore} = useQuery(FETCH_BOARDS)
 
-    const [isShowMore, setIsShowMore] = useState<boolean>(false)
+    // const [isShowMore, setIsShowMore] = useState<boolean>(false)
     
 
     const onFetchMore = () => {

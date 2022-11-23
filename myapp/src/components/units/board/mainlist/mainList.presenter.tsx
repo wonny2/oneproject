@@ -3,7 +3,7 @@ import Slick from '../../../commons/slick'
 import {IBoardListPropsUI} from './mainList.types'
 
 
-export default function BoardListPresenter(props: IBoardListPropsUI) {
+export default function MainListPresenter(props: IBoardListPropsUI) {
     return(
         <L.Wrapper>
             <Slick />
