@@ -47,7 +47,6 @@ export const Button = styled.button`
     border-radius: 50px;
     line-height:55px;
     text-align:center;
-    margin-bottom:100px;
     background-color: green;
     color: white;
     font-size:18px;
@@ -57,4 +56,13 @@ export const Button = styled.button`
         background-color: #fff;
         color: black;
     }
+`
+
+export const ButtonWrap = styled.div`
+    width: 50rem;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+    border:1px solid red;
+
 `

@@ -20,6 +20,7 @@ export default function MainListPresenter(props: IBoardListPropsUI) {
                 
                 <L.MenuBar>
                     <L.TextWrap>
+                        <div onClick={props.MoveToList}>게시글 리스트</div>
                         <div onClick={props.MoveToWrite}>글쓰기</div>
                     </L.TextWrap>
                 </L.MenuBar>

@@ -10,9 +10,10 @@ export default function BoardWritePresenter(props: IBoardsWritePropsUI) {
     return(
         
         <W.Wrapper>
-            <form onSubmit={props.handleSubmit(props.onClickCreateBoard)}>
+            <form onSubmit={props.handleSubmit(props.isEdit ? props.onClickUpdate : props.onClickCreateBoard)}>
             <W.SecondWrap>
                 <W.ContentWrap>
+                    <W.Title>{props.isEdit ? '수정하기' : '등록하기'}</W.Title>
                     <W.RowWrap>
                         <div>제목</div>
                         <W.ErrorMsg>{props.formState.errors.title?.message}</W.ErrorMsg>
@@ -52,8 +53,7 @@ export default function BoardWritePresenter(props: IBoardsWritePropsUI) {
                         />
                     ))}
                 </W.ImgRowWrap>
-                <div>{props.formState.errors.images?.message}</div>
-                <W.SubmitBtn>등록하기</W.SubmitBtn>
+                <W.SubmitBtn>{props.isEdit ? '수정하기' : '등록하기'}</W.SubmitBtn>
             </W.SecondWrap>
             </form>
         </W.Wrapper>

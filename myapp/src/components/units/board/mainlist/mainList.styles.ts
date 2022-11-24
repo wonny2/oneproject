@@ -64,9 +64,14 @@ export const MenuBar = styled.div`
 export const TextWrap = styled.div`
     color: white;
     font-size: 1.5rem;
-    
+    width: 10rem;
+    border:1px solid black;
+    display:flex;
+    justify-content: space-between;
+
     > div:hover {
         cursor: pointer;
         border-bottom: 2px solid white;
+        
     }
 `

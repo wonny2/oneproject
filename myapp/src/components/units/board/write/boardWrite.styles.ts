@@ -38,6 +38,11 @@ export const ContentWrap = styled.div`
     }
 `
 
+export const Title = styled.div`
+    font-size:30px;
+    font-weight:700;
+`
+
 export const Quill = styled(ReactQuill)`
     width:100%;
     height: 20rem;

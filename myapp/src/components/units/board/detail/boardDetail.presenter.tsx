@@ -25,14 +25,22 @@ export default function BoardDetailPresenter(props: IBoardDetailUIProps) {
 
                 <D.ColumnWrap>
                     <D.Text>이미지</D.Text>
-                    {props.data?.fetchBoard.images?.filter(item => item).map((el) => (
-                        <D.ImgWrap key={uuidv4()}>
-                            <D.Img src={`https://storage.googleapis.com/${el}`} />
-                        </D.ImgWrap>
-                    ))}
+                    <D.ImgWrap>
+                        {props.data?.fetchBoard.images?.filter(item => item).map((el) => (
+                            <div key={uuidv4()}>
+                                {el.includes('https://storage.googleapis.com/')
+                                    ? <div></div>
+                                    : <D.Img src={`https://storage.googleapis.com/${el}`} />
+                                }
+                            </div>
+                        ))}
+                    </D.ImgWrap>
                 </D.ColumnWrap>
-
-                <D.Button onClick={props.onClickMoveToList}>목록으로</D.Button>
+                <D.ButtonWrap>
+                    <D.Button onClick={props.onClickUpdate}>수정하기</D.Button>
+                    <D.Button onClick={props.onClickMoveToList}>목록으로</D.Button>
+                    <D.Button onClick={props.onClickDelete}>삭제하기</D.Button>
+                </D.ButtonWrap>
             </D.SecondWrapper>
         </D.Wrapper>
     )

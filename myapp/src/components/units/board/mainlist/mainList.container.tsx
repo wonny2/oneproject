@@ -15,11 +15,16 @@ const MoveToWrite = () => {
     router.push('/boards/new')
 }
 
+const MoveToList = () => {
+    router.push('/boards')
+}
+
     return(
         <>
             <BoardListPresenter
                 data={data}
                 MoveToWrite={MoveToWrite}
+                MoveToList={MoveToList}
             />
         </>
     )

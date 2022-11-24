@@ -1,23 +1,28 @@
 import { useMutation } from "@apollo/client";
 import { useState } from "react";
 import BoardWritePresenter from "./boardWrite.presenter";
-import { CREATE_BOARD } from "./boardWrite.queries";
+import { CREATE_BOARD ,UPDATE_BOARD} from "./boardWrite.queries";
 import { useForm } from "react-hook-form";
 import * as yup from 'yup'
 import {yupResolver} from '@hookform/resolvers/yup'
 import { useRouter } from "next/router";
+import { IRegisterDataType } from "./boardWrite.types";
 
 export default function BoardWriteContainer(props:any) {
     
+    console.log(props.isEdit ? "수정하러 들어왔다" : "등록하러 들어왔다.")
+
     const router = useRouter();
+
     const [createBoard] = useMutation(CREATE_BOARD);
+    const [updateBoard] = useMutation(UPDATE_BOARD);
+
     const [fileUrls, setFileUrls] = useState(["", "", ""])
 
     // yup 에러조건, 에러메세지 생성
     const schema = yup.object().shape({
         title: yup.string().min(2, "최소 1자리 이상 입력해주세요").max(100,"최대 100자리까지 입력 가능합니다."),
         contents : yup.string().min(2, "내용을 입력해주세요"),
-        images: yup.array().min(1, "최소 1개 이미지를 등록해주세요"),
         writer : yup.string().required("작성자를 입력해주세요")
     });
 
@@ -37,8 +42,6 @@ export default function BoardWriteContainer(props:any) {
         resolver: yupResolver(schema)
     });
 
-
-    
     // quill + react-hook-form
     const onChangeContents = (value:string) => {
         setValue("contents", value === "<p><br></p>" ? "" : value)
@@ -50,7 +53,7 @@ export default function BoardWriteContainer(props:any) {
 
 
     // 게시글 등록
-    const onClickCreateBoard = async (data: any) => {
+    const onClickCreateBoard = async (data:IRegisterDataType) => {
         
         if(!data.contents) {
             return alert("내용을 입력해주세요")
@@ -81,6 +84,30 @@ export default function BoardWriteContainer(props:any) {
         };
     };
 
+    // 수정하기
+    const onClickUpdate = async (data:any) => {
+        try{
+            const result = await updateBoard({
+                variables: {
+                    updateBoardInput: {
+                        title: data.title,
+                        contents: data.contents,
+                        images: fileUrls
+                    },
+                    boardId: String(router.query.boardId),
+                    password: "1234"
+                }
+            })
+            console.log(data.contents);
+            alert("수정되었습니다.");
+            router.push(`/boards/${result.data?.updateBoard._id}`);
+        } catch(error) {
+            if(error instanceof Error) {
+                alert(error.message);
+            }
+        };
+    };
+
     return(
         <BoardWritePresenter 
         onChangeContents={onChangeContents}
@@ -90,6 +117,9 @@ export default function BoardWriteContainer(props:any) {
         register={register}
         handleSubmit={handleSubmit}
         formState={formState}
+        isEdit={props.isEdit}
+        onClickUpdate={onClickUpdate}
+        updateData={props.updateData}
         />
     )
 }
