@@ -13,26 +13,26 @@ const FETCH_BOARD = gql`
             title
             writer
             contents
-            createAt
+            createdAt
             images
         }
     }   
 `
 export default function BoardEditPage() {
 
-    console.log("수정페이지")
-
-
     const router = useRouter();
 
-    const {data: updateData} = useQuery(FETCH_BOARD, {
+    const {data} = useQuery(FETCH_BOARD, {
         variables: {boardId: String(router.query.boardId) }
     });
+
+    console.log(data?.fetchBoard.title)
+    console.log(data?.fetchBoard.contents)
 
     return(
         <BoardWriteContainer
             isEdit={true}
-            data={updateData}
+            data={data}
         />
     )
 }

@@ -21,7 +21,9 @@ export default function BoardWritePresenter(props: IBoardsWritePropsUI) {
                     <input
                         {...props.register("title")}
                         type="text"
-                        placeholder='제목을 입력해주세요'/>
+                        placeholder='제목을 입력해주세요'
+                        defaultValue={props.data?.fetchBoard.title || ""}
+                        />
                 </W.ContentWrap>
 
                 <W.ContentWrap>
@@ -32,7 +34,9 @@ export default function BoardWritePresenter(props: IBoardsWritePropsUI) {
                     <input
                         {...props.register("writer")}
                         type="text"
-                        placeholder='#태그를 입력해주세요'/>
+                        placeholder='#태그를 입력해주세요'
+                        defaultValue={props.data?.fetchBoard.writer || ""}
+                        />
                 </W.ContentWrap>
 
                 <W.ContentWrap>
@@ -40,7 +44,11 @@ export default function BoardWritePresenter(props: IBoardsWritePropsUI) {
                         <div>내용</div>
                         <W.ErrorMsg>{props.formState.errors.contents?.message}</W.ErrorMsg>
                     </W.RowWrap>
-                    <W.Quill onChange={props.onChangeContents} />
+                    <W.Quill
+                        onChange={props.onChangeContents}
+                        defaultValue={props.data?.fetchBoard.contents || ""}
+                        placeholder="내용을 입력해주세요"
+                        />
 
                 </W.ContentWrap>
                 <W.ImgRowWrap>

@@ -11,12 +11,13 @@ export interface IBoardsWritePropsUI {
     handleSubmit: UseFormHandleSubmit<FieldValues>
     formState: FormState<FieldValues>
     isEdit: boolean
-    updateData:any
+    data:any
 }
 
-
-export interface BoardProps {
-
+export interface IUpdateInputValue {
+    title?: string
+    contents?: string
+    images?: string[]
 }
 
 

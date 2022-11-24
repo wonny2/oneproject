@@ -15,8 +15,7 @@ export default function BoardDetailContainer() {
     const {data} = useQuery<Pick<IQuery, "fetchBoard">, IQueryFetchBoardArgs>(FETCH_BOARD, {
         variables: {boardId: String(router.query.boardId)}
     });
-    
-    console.log(data?.fetchBoard.images)
+
 
     const onClickMoveToList = () => {
         router.push('/boards')

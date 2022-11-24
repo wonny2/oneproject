@@ -1,16 +1,15 @@
 import { useMutation } from "@apollo/client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BoardWritePresenter from "./boardWrite.presenter";
 import { CREATE_BOARD ,UPDATE_BOARD} from "./boardWrite.queries";
 import { useForm } from "react-hook-form";
 import * as yup from 'yup'
 import {yupResolver} from '@hookform/resolvers/yup'
 import { useRouter } from "next/router";
-import { IRegisterDataType } from "./boardWrite.types";
+import { IRegisterDataType, IUpdateInputValue } from "./boardWrite.types";
+import { writer } from "repl";
 
 export default function BoardWriteContainer(props:any) {
-    
-    console.log(props.isEdit ? "수정하러 들어왔다" : "등록하러 들어왔다.")
 
     const router = useRouter();
 
@@ -86,13 +85,26 @@ export default function BoardWriteContainer(props:any) {
 
     // 수정하기
     const onClickUpdate = async (data:any) => {
+
+        // 꼭 들어가야 하는 부분을 넣어두고
+        const updatedValue = {
+            title: data.title,
+            contents: "",
+            writer: data.writer
+        };
+
+        // 조건문을 이용해 state가 빈값이 아닌 경우에만 객체에 key,value값을 추가해준다.
+        if(data.contents !== "") {updatedValue.contents = data.contents};
+
+
+
         try{
             const result = await updateBoard({
                 variables: {
                     updateBoardInput: {
-                        title: data.title,
-                        contents: data.contents,
-                        images: fileUrls
+                        title: updatedValue.title,
+                        contents: updatedValue.contents,
+                        images: fileUrls,
                     },
                     boardId: String(router.query.boardId),
                     password: "1234"
@@ -100,6 +112,7 @@ export default function BoardWriteContainer(props:any) {
             })
             console.log(data.contents);
             alert("수정되었습니다.");
+            alert(`${updatedValue.title}`)
             router.push(`/boards/${result.data?.updateBoard._id}`);
         } catch(error) {
             if(error instanceof Error) {
@@ -107,6 +120,13 @@ export default function BoardWriteContainer(props:any) {
             }
         };
     };
+
+
+    useEffect(() => {
+        if(props.data?.fetchBoard.images?.length) {
+            setFileUrls([...props.data.fetchBoard.images])
+        }
+    },[props.data]);
 
     return(
         <BoardWritePresenter 
@@ -119,7 +139,7 @@ export default function BoardWriteContainer(props:any) {
         formState={formState}
         isEdit={props.isEdit}
         onClickUpdate={onClickUpdate}
-        updateData={props.updateData}
+        data={props.data}
         />
     )
 }
