@@ -95,9 +95,7 @@ export default function BoardWriteContainer(props:any) {
 
         // 조건문을 이용해 state가 빈값이 아닌 경우에만 객체에 key,value값을 추가해준다.
         if(data.contents !== "") {updatedValue.contents = data.contents};
-
-
-
+        
         try{
             const result = await updateBoard({
                 variables: {
@@ -121,12 +119,13 @@ export default function BoardWriteContainer(props:any) {
         };
     };
 
-
+    // 수정시 이미지 등록된 이미지 보이도록
     useEffect(() => {
         if(props.data?.fetchBoard.images?.length) {
             setFileUrls([...props.data.fetchBoard.images])
         }
-    },[props.data]);
+    },[props.data])
+
 
     return(
         <BoardWritePresenter 

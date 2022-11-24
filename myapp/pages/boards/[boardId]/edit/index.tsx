@@ -26,8 +26,8 @@ export default function BoardEditPage() {
         variables: {boardId: String(router.query.boardId) }
     });
 
-    console.log(data?.fetchBoard.title)
-    console.log(data?.fetchBoard.contents)
+    console.log("editPage의 data" + data?.fetchBoard.images)
+    
 
     return(
         <BoardWriteContainer
