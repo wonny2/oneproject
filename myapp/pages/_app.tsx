@@ -3,8 +3,8 @@ import type { AppProps } from 'next/app'
 import {ApolloClient, ApolloProvider, InMemoryCache, ApolloLink} from '@apollo/client'
 import {createUploadLink} from 'apollo-upload-client'
 import Layout from '../src/components/commons/layout'
-import { Global } from '@emotion/react'
-import { globalStyles } from '../src/commons/styles/globalstyle'
+// import { Global } from '@emotion/react'
+// import { globalStyles } from '../src/commons/styles/globalstyle'
 
 
 function MyApp({ Component, pageProps } : AppProps) {

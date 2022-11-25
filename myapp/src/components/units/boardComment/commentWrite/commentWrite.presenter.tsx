@@ -9,7 +9,7 @@ export default function CommentPresenter(props:ICommentWriteUI) {
             <form onSubmit={props.handleSubmit(props.onClickCreateComment)}>
             <C.ColumnWrap>
                 <C.Text>작성자</C.Text>
-                <C.Input type='text' {...props.register("writer")}/>
+                <C.Input type='text' {...props.register("writer")} />
             </C.ColumnWrap>
 
             <C.ColumnWrap>

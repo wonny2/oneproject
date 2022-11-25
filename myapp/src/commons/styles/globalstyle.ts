@@ -2,10 +2,6 @@ import {css} from '@emotion/react'
 
 export const globalStyles = css`
     display:flex;
+    flex-direction:column;
     justify-content:center;
-    
-    @font-face {
-        font-family: "firstFont";
-        src: url('/fonts/LeferiBaseRegular.ttf');
-    }
 `

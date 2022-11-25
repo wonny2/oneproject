@@ -42,6 +42,7 @@ export default function BoardDetailPresenter(props: IBoardDetailUIProps) {
                     <D.Button onClick={props.onClickDelete}>삭제하기</D.Button>
                 </D.ButtonWrap>
             </D.SecondWrapper>
+            
         </D.Wrapper>
     )
 }
