@@ -5,4 +5,5 @@ export interface ICommentWriteUI {
     register: UseFormRegister<FieldValues>
     handleSubmit: UseFormHandleSubmit<FieldValues>
     onClickCreateComment: (data: any) => Promise<void>
+    onChangeRate: (event: any) => void
 }

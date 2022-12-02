@@ -27,3 +27,10 @@ export const getDate = (value:string) => {
     const dd = String(date.getDate()).padStart(2, "0")
     return `${yyyy}-${mm}-${dd}`
 }
+
+export function getMonthDay() {
+    const date = new Date();
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    return `${month}/${day}`;
+  }

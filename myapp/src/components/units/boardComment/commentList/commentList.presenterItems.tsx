@@ -14,7 +14,7 @@ export default function CommentListItemsPresenter(props:ICommentItemProps) {
     const [updateBoardComment] = useMutation(UPDATE_BOARD_COMMENTS);
 
     const [contents,setContents] = useState("")
-    const [password,setPassword] = useState(0)
+    const [password,setPassword] = useState("")
 
     const [open, setOpen] = useState(false)
 
@@ -30,7 +30,7 @@ export default function CommentListItemsPresenter(props:ICommentItemProps) {
     }
 
     const onChangePassword = (event:ChangeEvent<HTMLInputElement>) => {
-        setPassword(Number(event.target.value))
+        setPassword(event.target.value)
     };
 
     const onChangeContents = (event:ChangeEvent<HTMLInputElement>) => {
@@ -42,7 +42,7 @@ export default function CommentListItemsPresenter(props:ICommentItemProps) {
         try{
             const result = await deleteBoardComment({
                 variables: {
-                    password: String(password),
+                    password,
                     boardCommentId: props.el._id
                 },
                 refetchQueries : [{

@@ -1,6 +1,6 @@
 import * as C from './commentWrite.styles'
 import { ICommentWriteUI } from './commentWrite.types'
-
+import { Rate } from 'antd'
 
 export default function CommentPresenter(props:ICommentWriteUI) {
     
@@ -19,7 +19,8 @@ export default function CommentPresenter(props:ICommentWriteUI) {
 
             <C.ColumnWrap>
                 <C.Text>별점</C.Text>
-                <C.Input type='number' {...props.register("rating")}/>
+                <Rate allowHalf onChange={props.onChangeRate} defaultValue={2.5}/>
+                {/* <C.Input type='number' {...props.register("rating")}/> */}
             </C.ColumnWrap>
 
             <C.ColumnWrap>

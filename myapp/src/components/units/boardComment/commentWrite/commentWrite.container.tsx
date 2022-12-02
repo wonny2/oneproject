@@ -12,6 +12,12 @@ export default function CommentContainer() {
 
     const router = useRouter();
 
+    const [rate, setRate] = useState(0)
+
+    const onChangeRate =(event:any) => {
+        setRate(event)
+    }
+
 
     const {register, handleSubmit} = useForm({
         mode:"onChange"
@@ -27,7 +33,7 @@ export default function CommentContainer() {
                         writer: data.writer,
                         password: data.password,
                         contents: data.contents,
-                        rating: Number(data.rating)
+                        rating: rate
                     },
                     boardId: String(router.query.boardId)
                 },
@@ -52,6 +58,7 @@ export default function CommentContainer() {
             register={register}
             handleSubmit={handleSubmit}
             onClickCreateComment={onClickCreateComment}
+            onChangeRate={onChangeRate}
         />
     )
 }

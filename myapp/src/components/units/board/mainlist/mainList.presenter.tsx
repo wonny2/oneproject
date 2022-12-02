@@ -1,12 +1,22 @@
 import * as L from './mainList.styles'
-import Slick from '../../../commons/slick'
 import {IBoardListPropsUI} from './mainList.types'
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
 export default function MainListPresenter(props: IBoardListPropsUI) {
+
+    const setting = {
+        infinite: true,
+        speed: 200,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        autoplay: true,
+    };
+
+
     return(
         <L.Wrapper>
-            <Slick />
             <L.ContentsWrap>
                 <L.CardWrap>
                     {props.data?.fetchBoardsOfTheBest.map((item:any) => (

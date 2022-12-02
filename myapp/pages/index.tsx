@@ -1,10 +1,9 @@
-import InfiniteScroll from "../src/components/commons/infinite/"
-import MainListContainer from "../src/components/units/board/mainlist/mainList.container"
+import Main from "../src/components/commons/main"
 
 export default function Home() {
   return (
     <>
-      <MainListContainer />
+        <Main />
     </>
   )
 }

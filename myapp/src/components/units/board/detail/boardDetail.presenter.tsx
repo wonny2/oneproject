@@ -1,6 +1,9 @@
 import { IBoardDetailUIProps } from "./boardDetail.types"
 import * as D from './boardDetail.styles'
 import {v4 as uuidv4} from 'uuid'
+import CommentContainer from "../../boardComment/commentWrite/commentWrite.container"
+import CommentListContainer  from "../../boardComment/commentList/commentList.container"
+
 
 export default function BoardDetailPresenter(props: IBoardDetailUIProps) {
     return(
@@ -41,6 +44,8 @@ export default function BoardDetailPresenter(props: IBoardDetailUIProps) {
                     <D.Button onClick={props.onClickMoveToList}>목록으로</D.Button>
                     <D.Button onClick={props.onClickDelete}>삭제하기</D.Button>
                 </D.ButtonWrap>
+                <CommentContainer />
+            <CommentListContainer />
             </D.SecondWrapper>
             
         </D.Wrapper>
