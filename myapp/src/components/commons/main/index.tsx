@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import MainListContainer from '../../units/board/mainlist/mainList.container';
-import Pagination from '../pagination';
+import Pagination from '../pagination/pagination.container';
 import Slick from "../slick";
 
 const Wrapper = styled.div`
