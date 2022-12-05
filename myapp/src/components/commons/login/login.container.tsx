@@ -1,25 +1,70 @@
 import { useMutation } from "@apollo/client"
-import { useState } from "react"
+import { useRouter } from "next/router"
+import { ChangeEvent, useState } from "react"
 import { useRecoilState } from "recoil"
-import { textState } from "../../../commons/atom"
+import { accessTokenState } from "../../../commons/atom"
+import { IMutation, IMutationLoginUserArgs } from "../../../commons/types/generated/types"
 import LoginPresenter from "./login.presenter"
 import { LOGIN_USER } from "./login.queries"
 
+
+
+
 export default function LoginContainer() {
 
-    const [loginUser] = useMutation(LOGIN_USER)
+    const router = useRouter();
 
-    const [email, setEmail] = useRecoilState(textState)
+    const [loginUser] = useMutation<Pick<IMutation,'loginUser'>,IMutationLoginUserArgs>(LOGIN_USER)
+                                                            // IMutationLoginUserArgs는 아래 variables의 값들의 타입!!
 
-    const onChangeEmail = (event:any) => {
+
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [accessToken, setAccessToken] = useRecoilState(accessTokenState)
+
+
+    const onChangeEmail = (event:ChangeEvent<HTMLInputElement>) => {
         setEmail(event.target.value)
-        console.log(email)
     }
 
+    const onChangePassword = (event:ChangeEvent<HTMLInputElement>) => {
+        setPassword(event.target.value)
+    }
+
+    const onClickLogin = async () => {
+        try{
+            const result =  await loginUser({
+                variables: {
+                    email,
+                    password
+                }
+            })
+            const accessToken = result.data?.loginUser.accessToken;
+
+           if(!accessToken) {
+                return alert("로그인을 다시 시도해주세요")
+            };
+
+            setAccessToken(accessToken);
+            alert("로그인 성공하였습니다");
+            router.push("/boards/loginSuccess")
+        }catch(error){
+            if(error instanceof Error) {
+                alert(error.message)
+            }
+        }
+    }
+
+
+      
+
     return(
-        <LoginPresenter 
-            onChangeEmail={onChangeEmail}
-            email={email}
-        />
+        <>
+            <LoginPresenter 
+                onChangeEmail={onChangeEmail}
+                onChangePassword={onChangePassword}
+                onClickLogin={onClickLogin}
+            />
+        </>
     )
 }
