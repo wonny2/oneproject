@@ -31,4 +31,5 @@ export const PageNum = styled.div`
     background-color: ${(props:PaginationNum) => props.backColor ?  "green" : "none"};
     color: ${(props:PaginationNum) => props.backColor ?  "white" : "black"};
     border-radius:15px;
+    cursor: pointer;
 `

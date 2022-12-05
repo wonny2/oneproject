@@ -10,12 +10,16 @@ export default function Header() {
         router.push('/')
     }
 
+    const MoveToLogin = () => {
+        router.push(`/boards/login`)
+    }
+
     return(
         <H.Wrapper>
             <H.TitleWrap>
                 <H.Title onClick={MoveToHome}>로고</H.Title>
                 <H.LogPart>
-                    <H.Title>로그인</H.Title>
+                    <H.Title onClick={MoveToLogin}>로그인</H.Title>
                     <H.Title>회원가입</H.Title>
                     </H.LogPart>
             </H.TitleWrap>

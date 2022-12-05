@@ -14,8 +14,9 @@ export default function CommentContainer() {
 
     const [rate, setRate] = useState(0)
 
-    const onChangeRate =(event:any) => {
+    const onChangeRate = (event:any) => {
         setRate(event)
+        console.log(event)
     }
 
 

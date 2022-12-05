@@ -1,7 +1,7 @@
 import { useQuery } from "@apollo/client"
 import { useRouter } from "next/router";
-import BoardListPresenter from "./mainList.presenter"
-import { FETCH_BOARDS_OF_THE_BEST } from "./mainList.queries"
+import BoardListPresenter from "./bestBoards.presenter"
+import { FETCH_BOARDS_OF_THE_BEST } from "./bestBoards.queries"
 
 
 export default function MainListContainer() {

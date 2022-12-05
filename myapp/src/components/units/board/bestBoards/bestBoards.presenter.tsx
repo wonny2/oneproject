@@ -1,5 +1,5 @@
-import * as L from './mainList.styles'
-import {IBoardListPropsUI} from './mainList.types'
+import * as L from './bestBoards.styles'
+import {IBoardListPropsUI} from './bestBoards.types'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";

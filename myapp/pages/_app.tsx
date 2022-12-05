@@ -6,6 +6,8 @@ import Layout from '../src/components/commons/layout'
 import { Global } from '@emotion/react'
 import { globalStyles } from '../src/commons/styles/globalstyle'
 import ChannelTalk from '../src/components/commons/channelTalk'
+import { RecoilRoot, atom, selector, useRecoilState, useRecoilValue } from 'recoil'
+
 
 function MyApp({ Component, pageProps } : AppProps) {
 
@@ -21,13 +23,15 @@ function MyApp({ Component, pageProps } : AppProps) {
 
 
   return (
-    <ApolloProvider client={client}>
-      <Global styles={globalStyles} />
-        <Layout>
-          <ChannelTalk />
-            <Component {...pageProps} />
-        </Layout>
-    </ApolloProvider>
+    <RecoilRoot>
+      <ApolloProvider client={client}>
+        <Global styles={globalStyles} />
+          <Layout>
+            <ChannelTalk />
+              <Component {...pageProps} />
+          </Layout>
+      </ApolloProvider>
+    </RecoilRoot>
   )
 }
 

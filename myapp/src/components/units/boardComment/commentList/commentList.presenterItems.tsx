@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
 import { DELETE_BOARD_COMMENT,FETCH_BOARD_COMMENTS,UPDATE_BOARD_COMMENTS } from "./commentList.queries";
 import { ICommentItemProps } from "./commentList.types";
+import { Rate } from "antd";
 import * as C from './commentList.styles'
 import ModalContainer from "../../../commons/modal/modal.container";
 
@@ -100,6 +101,8 @@ export default function CommentListItemsPresenter(props:ICommentItemProps) {
                             />
             </C.RowWrap>
             <C.Writer>{props.el._id}</C.Writer>
+            <Rate allowHalf value={props.el.rating}/>
+            {/* Rate -> value에 값을 넣어야 별점이 고정된다. */}
             <C.Writer>{props.el.writer}</C.Writer>
             <C.Contents>{props.el.contents}</C.Contents>
         </C.Wrapper>

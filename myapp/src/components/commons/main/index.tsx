@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import MainListContainer from '../../units/board/mainlist/mainList.container';
+import MainListContainer from '../../units/board/bestBoards/bestBoards.container';
 import Pagination from '../pagination/pagination.container';
 import Slick from "../slick";
 
