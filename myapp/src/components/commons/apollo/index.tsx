@@ -2,13 +2,13 @@
 // useRecoilState()를 사용하려면 <RecoilRoot></RecoilRoot> 안에서 사용이 가능하기 때문이다!
 
 
-import { ApolloClient, ApolloLink, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { ApolloClient, ApolloLink, ApolloProvider, fromPromise, gql, InMemoryCache } from "@apollo/client";
 import {onError} from '@apollo/client/link/error'
 import { createUploadLink } from "apollo-upload-client";
 import { ReactNode } from "react";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../../commons/atom";
-
+import { getAccessToken } from "../../../commons/libraries/getAccessToken";
 
 interface IApolloSettingProps {
     children: ReactNode;
@@ -19,34 +19,63 @@ export default function ApolloSetting(props: IApolloSettingProps) {
     const APOLLO_CACHE = new InMemoryCache()
     const [accessToken, setAccessToken] = useRecoilState(accessTokenState)
 
+//     // 새로운 accessToken 발급해주는 API
+//     const RESTORE_ACCESS_TOKEN = gql`
+//       mutation restoreAccessToken {
+//         restoreAccessToken {
+//           accessToken
+//         }
+//       }
+// `
 
     // onError는 Apollo-client/link에 있는 기능
     // error가 발생하면 이 함수가 활성화 된다.
-    const errorLink = onError(({graphQLErrors , operation}) => {
+    const errorLink = onError(({graphQLErrors , operation, forward}) => {
       // Apollo를 활용한 useQuery, useMutation에 에러가 생길 때 이 부분이 실행된다. (axios는 상관이 없다.)
 
-      // 1. 1단계 | 에러를 캐치하기
+      // 1-1. 1단계 | 에러를 캐치하기
+      if(graphQLErrors){ // 배열형태로 error가 들어온다.
+        for(const err of graphQLErrors){
 
+          // 1-2. 해당 에러가 토큰 만료 에러인지 체크하기
+            if(err.extensions.code === "UNAUTHENTICATED"){ // err.extensions안에 .code가 있는 것. ==>  ex) result.data.fetchBoards.code 처럼 비슷한 형태임
 
-      // 2. 2단계 | refreshToken으로 accessToken재발급 받기
-
-      // 3. 3단계 | 재발급 받은 accessToken으로 방금 실패한 쿼리 재요청하기
-
-
+              return fromPromise(   // fromPromise는 promise를 ==> observable로 바꾸는 기능!
+              // 분리했던 2-1을 여기서 다시 소환
+            getAccessToken().then(newAccessToken => {
+            
+              // 2-2 | 재발급 받은 accessToken 저장하기(Recoil로 global state에 저장)
+             setAccessToken(newAccessToken)
+  
+             // 3. 3단계 | 재발급 받은 accessToken으로 방금 실패한 쿼리 재요청하기
+                    //  operation.getContext().headers // 기존의 headers 안에 있는 정보 불러오기, => 만료된 토큰이 headers에 저장되어 있는 상태임
+                     operation.setContext({ // header에 새로운 토큰을 넣어주기.
+                       headers : {
+                         ...operation.getContext().headers, // header부분에 accessToken말고도 다른 정보들이 있고, 다른 정보들은 건들이지 않고, 만료된 토큰만 새롭게 변경하기 위해서 일단 기존 header를 전체 복사한 후, accessToken만 바꿔주기!!!!
+                         Authorization : `Bearer ${newAccessToken}`
+                       }
+                     })
+                 }
+              )).flatMap(() => forward(operation))   // 3-2 변경된 operation 재요청하기
+            }
+          }
+        }
     });
 
 
-    // oper
+    //graphQLErrors: / operation: 방금 실패한 쿼리(그 잡채) / forward: operation을 가지고 재발급
+    // graphQLErrors은 이 안에 error들이 있는지 찾고, 찾아서 있으면 accessToken을 재발급 받아서 operation에 새token을 등록해줌, forward안에 operation을 다시 넣어서 refresh된다!!
 
   
-    // apollo 업로드&인증 셋팅
+    // apollo 업로드&인증 셋팅 
     const uploadLink = createUploadLink({
       uri: "https://backend08.codebootcamp.co.kr/graphql",
       headers: { Authorization : `Bearer ${accessToken}` },
-      credentials: "includes",    // credentials는 백엔드와 쿠키를 주고 받을 때 "쿠키에 담겨져 있는 내용은 중요하다."라고 알리는 기능. 이 부분이 있어야 백엔드에 전달이 된다.
+      credentials: "include",    // credentials는 백엔드와 쿠키를 주고 받을 때 "쿠키에 담겨져 있는 내용은 중요하다."라고 알리는 기능. 이 부분이 있어야 백엔드에 전달이 된다.
     });
   
-    // Apollo 기본셋팅
+
+    // Apollo 기본셋팅, client는 Apollo-setting의 완료부분
     const client = new ApolloClient({
       link: ApolloLink.from([errorLink, uploadLink]),
       cache: APOLLO_CACHE,
