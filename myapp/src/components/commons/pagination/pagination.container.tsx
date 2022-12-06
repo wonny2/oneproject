@@ -58,19 +58,6 @@ export default function Pagination() {
         router.push(`/boards/${event.target.id}`)
     }
 
-    const onChangeDate = (value:any) => {
-        // 오래된 순 먼저
-        if(value === "2022-01-01") {
-            refetch({startDate: value, endDate: getDate(new Date()), page:1 , search: keyword})
-        } else {
-            refetch({startDate: value, page:1, search: keyword})
-        }
-        console.log(value === "2022-01-01")
-        console.log(keyword)
-    };
-    
-    const dateSetting = setTimeout( onChangeDate, 100 )
-
  
     return(
 
@@ -85,10 +72,6 @@ export default function Pagination() {
                 activedPage={activedPage}
                 keyword={keyword}
                 MoveToPage={MoveToPage}
-                refetch={refetch}
-                onChangeDate={onChangeDate}
-                date={date}
-                dateSetting={dateSetting}
             />
 
 

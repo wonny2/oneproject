@@ -16,7 +16,7 @@ export default function LoginContainer() {
 
     const [loginUser] = useMutation<Pick<IMutation,'loginUser'>,IMutationLoginUserArgs>(LOGIN_USER)
                                                             // IMutationLoginUserArgs는 아래 variables의 값들의 타입!!
-    const [loginUserExample] = useMutation<Pick<IMutation,'loginUserExample'>,IMutationLoginUserExampleArgs>(LOGIN_USER_EXAMPLE)
+    // const [loginUserExample] = useMutation<Pick<IMutation,'loginUserExample'>,IMutationLoginUserExampleArgs>(LOGIN_USER_EXAMPLE)
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -33,13 +33,13 @@ export default function LoginContainer() {
 
     const onClickLogin = async () => {
         try{
-            const result =  await loginUserExample({
+            const result =  await loginUser({
                 variables: {
                     email,
                     password
                 }
             })
-            const accessToken = result.data?.loginUserExample.accessToken;
+            const accessToken = result.data?.loginUser.accessToken;
 
            if(!accessToken) {
                 return alert("로그인을 다시 시도해주세요")
@@ -47,10 +47,11 @@ export default function LoginContainer() {
 
             setAccessToken(accessToken);
             alert("로그인 성공하였습니다");
-            router.push("/boards/loginSuccess")
+            location.reload()
+            router.push("/boards")
         }catch(error){
             if(error instanceof Error) {
-                alert(error.message)
+                console.log(error.message)
             }
         }
     }

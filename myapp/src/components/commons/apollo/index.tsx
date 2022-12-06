@@ -5,10 +5,12 @@
 import { ApolloClient, ApolloLink, ApolloProvider, fromPromise, gql, InMemoryCache } from "@apollo/client";
 import {onError} from '@apollo/client/link/error'
 import { createUploadLink } from "apollo-upload-client";
-import { ReactNode } from "react";
+import { useEffect , ReactNode} from "react";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../../commons/atom";
 import { getAccessToken } from "../../../commons/libraries/getAccessToken";
+
+
 
 interface IApolloSettingProps {
     children: ReactNode;
@@ -27,6 +29,17 @@ export default function ApolloSetting(props: IApolloSettingProps) {
 //         }
 //       }
 // `
+
+// 이 부분이 있어야 로그인 후 새로고침 할 때 state값이 안 날라감!!!
+// 프리렌더링이 이루워질 때에는 LocalStorage(브라우저영역)가 존재하지 않기 때문에 오류가 발생함
+// 브라우저에서 페이지가 새로고침시에 해당 코드가 실행되도록..!
+useEffect(() => {
+  getAccessToken().then((newAccessToken) => {
+    setAccessToken(newAccessToken)
+  })
+  console.log("새로고침할 때마다 반짤")
+},[])
+
 
     // onError는 Apollo-client/link에 있는 기능
     // error가 발생하면 이 함수가 활성화 된다.
@@ -52,7 +65,7 @@ export default function ApolloSetting(props: IApolloSettingProps) {
                      operation.setContext({ // header에 새로운 토큰을 넣어주기.
                        headers : {
                          ...operation.getContext().headers, // header부분에 accessToken말고도 다른 정보들이 있고, 다른 정보들은 건들이지 않고, 만료된 토큰만 새롭게 변경하기 위해서 일단 기존 header를 전체 복사한 후, accessToken만 바꿔주기!!!!
-                         Authorization : `Bearer ${newAccessToken}`
+                         Authorization : `Bearer ${newAccessToken}`,
                        }
                      })
                  }

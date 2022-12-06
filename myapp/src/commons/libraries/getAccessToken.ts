@@ -17,7 +17,7 @@ export async function getAccessToken() {
 
     try{
         // 2-1 | refreshToken으로 accessToken재발급 받기 (restoreAccessToken API), 이 onError안에서는 useQuery나 mutation이 안 되기 때문
-        const graphqlClient =  new GraphQLClient("https://backend08.codebootcamp.co.kr/graphql",{credentials:"include"})
+        const graphqlClient =  new GraphQLClient("https://backend08.codebootcamp.co.kr/graphql", {credentials:"include"})
         const result = await graphqlClient.request(RESTORE_ACCESS_TOKEN)
         
         // 새롭게 받은 accessToken임
@@ -27,7 +27,7 @@ export async function getAccessToken() {
 
     } catch(error) {
         if(error instanceof Error){
-            alert(error.message)
+            console.log(error.message)
         }
     }
 }

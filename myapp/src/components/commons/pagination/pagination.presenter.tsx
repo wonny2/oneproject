@@ -10,7 +10,6 @@ export default function PaginationPresenter(props:PaginationPropsUI) {
             
                 <P.RowWrap>
                     <input type="text" onChange={props.onChangeInput}/>
-                    <Filter data={props.data} date={props.date} dateSetting={props.onChangeDate}/>
                 </P.RowWrap>
                 {/* {} */}
                 {props.data?.fetchBoards?.map((el:any, index:number) => (
