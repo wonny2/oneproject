@@ -21,6 +21,10 @@ export const Title = styled.div`
 export const Writer = styled.div`
     font-size:15px;
 `
+export const Date = styled.div`
+    font-size: 12px;
+    color: gray;
+`
 
 export const PageNum = styled.div`
     margin:0 10px;

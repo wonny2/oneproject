@@ -1,13 +1,13 @@
 import { useQuery } from "@apollo/client"
 import { useRouter } from "next/router";
-import BoardListPresenter from "./bestBoards.presenter"
+import { IQuery } from "../../../../commons/types/generated/types";
+import BestBoardsPresenter from "./bestBoards.presenter"
 import { FETCH_BOARDS_OF_THE_BEST } from "./bestBoards.queries"
 
 
-export default function MainListContainer() {
+export default function BestBoardsContainer() {
 
 const {data} = useQuery(FETCH_BOARDS_OF_THE_BEST);
-console.log(data?.fetchBoardsOfTheBest)
 
 const router = useRouter()
 
@@ -19,12 +19,17 @@ const MoveToList = () => {
     router.push('/boards')
 }
 
+const onClickDetail = () => {
+    router.push(`/boards/${router.query.id}`)
+}
+
     return(
         <>
-            <BoardListPresenter
+            <BestBoardsPresenter
                 data={data}
                 MoveToWrite={MoveToWrite}
                 MoveToList={MoveToList}
+                onClickDetail={onClickDetail}
             />
         </>
     )

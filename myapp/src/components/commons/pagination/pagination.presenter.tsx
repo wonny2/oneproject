@@ -1,19 +1,24 @@
 import * as P from './pagination.styles'
 import {PaginationPropsUI} from './pagination.types'
 import {v4 as uuidv4} from 'uuid'
-
+import { getDate } from '../../../commons/utils/utils'
+import Filter from '../filter/filter'
 
 export default function PaginationPresenter(props:PaginationPropsUI) {
     return(
         <P.ColumnWrap>
+            
                 <P.RowWrap>
                     <input type="text" onChange={props.onChangeInput}/>
+                    <Filter data={props.data} date={props.date} dateSetting={props.onChangeDate}/>
                 </P.RowWrap>
+                {/* {} */}
                 {props.data?.fetchBoards?.map((el:any, index:number) => (
                         <P.ColumnWrap key={uuidv4()}>
-                        <P.Title onClick={props.MoveToPage} id={el._id}>{el.title}</P.Title>
-                        <P.Writer>{el.writer}</P.Writer>
-                    </P.ColumnWrap>
+                            <P.Title onClick={props.MoveToPage} id={el._id}>{el.title}</P.Title>
+                            <P.Writer>{el.writer}</P.Writer>
+                            <P.Date>{getDate(el.createdAt)}</P.Date>
+                        </P.ColumnWrap>
                 ))}
                 <br />
                 <P.RowWrap>

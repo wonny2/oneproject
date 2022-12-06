@@ -1,7 +1,8 @@
-import Address from "../../src/components/commons/address";
+import Filter from "../../src/components/commons/filter/filter";
+
 
 export default function TestPage() {
     return(
-        <Address />
+        <Filter />
     )
 }

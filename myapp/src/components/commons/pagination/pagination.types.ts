@@ -1,4 +1,5 @@
 import { ChangeEvent, MouseEvent } from "react"
+import { OperationVariables ,ApolloQueryResult } from "@apollo/client"
 
 export interface PaginationPropsUI {
     onClickPage: (event: any) => void
@@ -12,4 +13,8 @@ export interface PaginationPropsUI {
     keyword: string
     MoveToPage: (event: MouseEvent<HTMLDivElement>) => void
     // keywordCheck: boolean
+    refetch: (variables?: Partial<OperationVariables> | undefined) => Promise<ApolloQueryResult<any>>
+    onChangeDate: (value: any) => void
+    date: string
+    dateSetting: NodeJS.Timeout
 }

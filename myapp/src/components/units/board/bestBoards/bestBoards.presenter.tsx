@@ -1,26 +1,17 @@
 import * as L from './bestBoards.styles'
-import {IBoardListPropsUI} from './bestBoards.types'
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
+import {IBestBoardsPropsUI} from './bestBoards.types'
+import {v4 as uuidv4} from 'uuid'
 
-export default function MainListPresenter(props: IBoardListPropsUI) {
 
-    const setting = {
-        infinite: true,
-        speed: 200,
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        autoplay: true,
-    };
 
+export default function BestBoardsPresenter(props: IBestBoardsPropsUI) {
 
     return(
         <L.Wrapper>
             <L.ContentsWrap>
                 <L.CardWrap>
-                    {props.data?.fetchBoardsOfTheBest.map((item:any) => (
-                        <L.Card>
+                    {props.data?.fetchBoardsOfTheBest.map((item:any, index:number) => (
+                        <L.Card key={index} id={item._id} onClick={props.onClickDetail}>
                             <div> title <br /> {item.title}</div>
                             <div> contents <br /> {item.contents}</div>
                             <div> 좋아요 수 <br /> {item.likeCount}</div>

@@ -42,6 +42,7 @@ export const Card = styled.div`
     text-align:center;
     border-radius:15px;
     transition: all 0.3s ease-out;
+    cursor: pointer;
 
     > div:first-child {
         width: 100%;

@@ -1,11 +1,10 @@
 // import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import {ApolloClient, ApolloProvider, InMemoryCache, ApolloLink} from '@apollo/client'
 import Layout from '../src/components/commons/layout'
 import { Global } from '@emotion/react'
 import { globalStyles } from '../src/commons/styles/globalstyle'
 import ChannelTalk from '../src/components/commons/channelTalk'
-import { RecoilRoot, atom, selector, useRecoilState, useRecoilValue } from 'recoil'
+import { RecoilRoot } from 'recoil'
 import ApolloSetting from '../src/components/commons/apollo'
 
 

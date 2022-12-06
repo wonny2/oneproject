@@ -6,6 +6,7 @@ import { debounce } from "lodash";
 import { ChangeEvent, MouseEvent } from "react";
 import PaginationPresenter from "./pagination.presenter";
 import { useRouter } from "next/router";
+import { getDate } from "../../../commons/utils/utils";
 
 export default function Pagination() {
     const router = useRouter();
@@ -14,7 +15,7 @@ export default function Pagination() {
     // const [color, setColor] = useState(false);
     const [activedPage, setActivedPage] = useState(1)
     const [keyword, setKeyword] = useState("");
-    const [keywordCheck, setKeywordCheck] = useState(false)
+    const [date, setDate] = useState("")
 
     const {data, refetch} = useQuery(FETCH_BOARDS);
 
@@ -57,9 +58,22 @@ export default function Pagination() {
         router.push(`/boards/${event.target.id}`)
     }
 
+    const onChangeDate = (value:any) => {
+        // 오래된 순 먼저
+        if(value === "2022-01-01") {
+            refetch({startDate: value, endDate: getDate(new Date()), page:1 , search: keyword})
+        } else {
+            refetch({startDate: value, page:1, search: keyword})
+        }
+        console.log(value === "2022-01-01")
+        console.log(keyword)
+    };
     
+    const dateSetting = setTimeout( onChangeDate, 100 )
+
  
     return(
+
             <PaginationPresenter 
                 onClickPage={onClickPage}
                 onClickPrev={onClickPrev}
@@ -71,6 +85,12 @@ export default function Pagination() {
                 activedPage={activedPage}
                 keyword={keyword}
                 MoveToPage={MoveToPage}
+                refetch={refetch}
+                onChangeDate={onChangeDate}
+                date={date}
+                dateSetting={dateSetting}
             />
+
+
     )
 }
