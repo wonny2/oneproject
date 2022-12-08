@@ -10,3 +10,11 @@ export const CREATE_BOARD_COMMENT = gql`
         }
     }
 `
+
+export const CREATE_USED_ITEM_QUESTION = gql`
+    mutation createUseditemQuestion($createUseditemQuestionInput:CreateUseditemQuestionInput!, $useditemId: ID!) {
+        createUseditemQuestion(createUseditemQuestionInput: $createUseditemQuestionInput, useditemId: $useditemId) {
+            _id
+        }
+    }
+`

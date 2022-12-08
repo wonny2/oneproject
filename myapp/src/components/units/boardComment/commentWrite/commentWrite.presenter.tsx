@@ -6,7 +6,8 @@ export default function CommentPresenter(props:ICommentWriteUI) {
     
     return(
         <C.Wrapper>
-            <form onSubmit={props.handleSubmit(props.onClickCreateComment)}>
+            <form onSubmit={props.handleSubmit(props.isBoard ? props.onClickCreateComment : props.onClickUsedItemQuestion)}>
+                <div>{props.isBoard ? "게시글 댓글 작성하기" : "중고상품 댓글 작성하기"}</div>
             <C.ColumnWrap>
                 <C.Text>작성자</C.Text>
                 <C.Input type='text' {...props.register("writer")} />
@@ -19,7 +20,7 @@ export default function CommentPresenter(props:ICommentWriteUI) {
 
             <C.ColumnWrap>
                 <C.Text>별점</C.Text>
-                <Rate allowHalf onChange={props.onChangeRate} defaultValue={2.5}/>
+                <Rate allowHalf onChange={props.onChangeRate} defaultValue={0}/>
                 {/* <C.Input type='number' {...props.register("rating")}/> */}
             </C.ColumnWrap>
 

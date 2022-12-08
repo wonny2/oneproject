@@ -1,7 +1,9 @@
 import styled from "@emotion/styled";
 
 export interface PaginationNum {
-    backColor: boolean
+    backColor: boolean;
+    title:String;
+    keyword: String;
 }
 
 export const ColumnWrap = styled.div`
@@ -16,6 +18,9 @@ export const RowWrap = styled.div`
 
 export const Title = styled.div`
     font-size: 20px;
+    color: ${(props:PaginationNum) => props.title === props.keyword ? "green" : "black"};
+    color : ${(props:PaginationNum) => 
+        props.title.split(String(props.keyword)).filter((word) => word === props.keyword)[0] === props.keyword ? "black" : "green"};
 `
 
 export const Writer = styled.div`

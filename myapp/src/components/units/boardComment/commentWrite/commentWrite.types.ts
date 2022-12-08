@@ -6,4 +6,10 @@ export interface ICommentWriteUI {
     handleSubmit: UseFormHandleSubmit<FieldValues>
     onClickCreateComment: (data: any) => Promise<void>
     onChangeRate: (event: any) => void
+    isBoard: boolean
+    onClickUsedItemQuestion: () => Promise<void>
+}
+
+export interface ICommentIsBoardProps {
+    isBoard: boolean
 }

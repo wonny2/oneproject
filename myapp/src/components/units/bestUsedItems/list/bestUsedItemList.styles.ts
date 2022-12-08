@@ -46,19 +46,20 @@ export const Card = styled.div`
 
     > div:first-child {
         width: 100%;
-        height: 3rem;
+        height: 12rem;
         text-overflow: ellipsis;
 	    overflow : hidden;
         white-space: nowrap;
+        border:2px solid blue;
     }
 
-    > div:nth-child(2) {
+    /* > div:nth-child(2) {
       
     } 
 
     > div:nth-child(3) {
         
-    }
+    } */
 
     :hover{
         transform: translateY(-30px);

@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import MainListContainer from '../../units/board/bestBoards/bestBoards.container';
+import BestUsedItemContainer from '../../units/bestUsedItems/list/bestUsedItemList.container';
 import Pagination from '../pagination/pagination.container';
 import Slick from "../slick";
 
@@ -14,7 +14,7 @@ export default function Main() {
     return(
         <Wrapper>
             <Slick />
-            <MainListContainer />
+            <BestUsedItemContainer />
             <Pagination />
         </Wrapper>
     )

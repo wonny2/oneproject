@@ -13,10 +13,10 @@ export default function PaginationPresenter(props:PaginationPropsUI) {
                 </P.RowWrap>
                 {/* {} */}
                 {props.data?.fetchBoards?.map((el:any, index:number) => (
-                        <P.ColumnWrap key={uuidv4()}>
-                            <P.Title onClick={props.MoveToPage} id={el._id}>{el.title}</P.Title>
-                            <P.Writer>{el.writer}</P.Writer>
-                            <P.Date>{getDate(el.createdAt)}</P.Date>
+                        <P.ColumnWrap key={uuidv4()} onClick={props.MoveToPage}>
+                            <P.Title id={el._id} title={el.title} keyword={props.keyword}>{el.title}</P.Title>
+                            <P.Writer id={el._id}>{el.writer}</P.Writer>
+                            <P.Date id={el._id}>{getDate(el.createdAt)}</P.Date>
                         </P.ColumnWrap>
                 ))}
                 <br />

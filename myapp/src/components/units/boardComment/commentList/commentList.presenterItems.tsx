@@ -101,7 +101,7 @@ export default function CommentListItemsPresenter(props:ICommentItemProps) {
                             />
             </C.RowWrap>
             <C.Writer>{props.el._id}</C.Writer>
-            <Rate allowHalf value={props.el.rating}/>
+            <Rate allowHalf value={props.el.rating} defaultValue={2.5}/>
             {/* Rate -> value에 값을 넣어야 별점이 고정된다. */}
             <C.Writer>{props.el.writer}</C.Writer>
             <C.Contents>{props.el.contents}</C.Contents>
