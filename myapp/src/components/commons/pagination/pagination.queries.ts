@@ -7,6 +7,7 @@ export const FETCH_BOARDS = gql`
             title
             writer
             contents
+            images
             createdAt
         }
     }

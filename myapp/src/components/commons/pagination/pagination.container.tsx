@@ -15,7 +15,6 @@ export default function Pagination() {
     // const [color, setColor] = useState(false);
     const [activedPage, setActivedPage] = useState(1)
     const [keyword, setKeyword] = useState("");
-    const [date, setDate] = useState("")
 
     const {data, refetch} = useQuery(FETCH_BOARDS);
 
@@ -70,7 +69,6 @@ export default function Pagination() {
                 startPage={startPage}
                 data={data}
                 activedPage={activedPage}
-                keyword={keyword}
                 MoveToPage={MoveToPage}
             />
 

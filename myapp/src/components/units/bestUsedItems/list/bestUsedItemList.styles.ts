@@ -7,23 +7,12 @@ export const Wrapper = styled.div`
     align-items:center;
 `
 
-export const Wrap = styled.div`
-    width:100%;
-    border:2px solid black;
-`
-
-// export const Slide = styled(Slider)`
-//     width: 1000px;
-//     border:1px solid black;
-// `
-
 export const ContentsWrap = styled.div`
     width:75rem;
 `
 
 export const CardWrap = styled.div`
     width:100%;
-    border: 1px solid black;
     display:flex;
     flex-direction:row;
     justify-content:space-around;
@@ -31,10 +20,9 @@ export const CardWrap = styled.div`
 `
 
 export const Card = styled.div`
-    width: 12rem;
-    height: 13rem;
-    border: 2px solid lightcoral;
-    background-color: lightblue;
+    width: 15rem;
+    height: 18rem;
+    box-shadow: 1px 1px 3px gray;
     display:flex;
     flex-direction: column;
     align-items:center; 
@@ -44,22 +32,26 @@ export const Card = styled.div`
     transition: all 0.3s ease-out;
     cursor: pointer;
 
-    > div:first-child {
-        width: 100%;
-        height: 12rem;
-        text-overflow: ellipsis;
-	    overflow : hidden;
-        white-space: nowrap;
-        border:2px solid blue;
+    > img {
+        width:100%;
+        height:19vh;
+        object-fit:cover;
+        border-radius:15px;
     }
 
-    /* > div:nth-child(2) {
-      
+    > div:nth-child(2) {
+        font-size:22px;
+        font-weight: 700;
+        color: rgba(30, 130, 76);
     } 
 
     > div:nth-child(3) {
         
-    } */
+    }
+
+    > :last-child {
+        color: gray;
+    }
 
     :hover{
         transform: translateY(-30px);
@@ -68,8 +60,8 @@ export const Card = styled.div`
 
 export const MenuBar = styled.div`
     width:100%;
-    height: 3.75rem;
-    background-color: lightblue;
+    height: 2.6rem;
+    background-color: rgba(30, 130, 76);
     display:flex;
     justify-content:end;
     align-items:center;
@@ -86,4 +78,11 @@ export const TextWrap = styled.div`
         cursor: pointer;
         border-bottom: 2px solid white;
     }
+`
+
+export const Image = styled.img`
+    width:100%;
+    height:10vh;
+    object-fit:cover;
+    border-radius:15px;
 `

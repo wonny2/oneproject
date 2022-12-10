@@ -10,7 +10,6 @@ export interface PaginationPropsUI {
     startPage: number
     data: any
     activedPage: number
-    keyword: string
     MoveToPage: (event: MouseEvent<HTMLDivElement>) => void
     // keywordCheck: boolean
 

@@ -92,7 +92,8 @@ export default function CommentListItemsPresenter(props:ICommentItemProps) {
                             댓글 비밀번호 :<input onChange={onChangePassword} type="password" />
                             <button onClick={onClickUpdateComment}>수정하기</button>
                         </>
-                    : <></>}
+                    : 
+                        <></>}
                 <ModalContainer 
                     onChangePassword={onChangePassword}
                     onClickDeleteComment={onClickDeleteComment}

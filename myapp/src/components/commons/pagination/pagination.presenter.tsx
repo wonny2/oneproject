@@ -2,24 +2,30 @@ import * as P from './pagination.styles'
 import {PaginationPropsUI} from './pagination.types'
 import {v4 as uuidv4} from 'uuid'
 import { getDate } from '../../../commons/utils/utils'
+import {Row, Col} from 'antd'
 
 export default function PaginationPresenter(props:PaginationPropsUI) {
     return(
-        <P.ColumnWrap>
+        <P.Wrapper>            
             
                 <P.RowWrap>
-                    <input type="text" onChange={props.onChangeInput}/>
+                    <P.Input type="text" placeholder="찾는 제목을 입력해주세요" onChange={props.onChangeInput}/>
                 </P.RowWrap>
-                {/* {} */}
+                
+                <P.MapWrap>    
                 {props.data?.fetchBoards?.map((el:any, index:number) => (
                         <P.ColumnWrap key={uuidv4()} onClick={props.MoveToPage}>
-                            <P.Title id={el._id} title={el.title} keyword={props.keyword}>{el.title}</P.Title>
-                            <P.Writer id={el._id}>{el.writer}</P.Writer>
-                            <P.Date id={el._id}>{getDate(el.createdAt)}</P.Date>
+                            <P.Image id={el._id} src={el.images.length === 0 || el.images.includes("https://storage.googleapis.com/")? "https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg" : `https://storage.googleapis.com/${el.images.filter((i:any) => i)[0]}`} />
+                                <P.ContentsWrap>
+                                    <P.Title id={el._id}>{el.title}</P.Title>
+                                    <P.Writer id={el._id}>{el.writer}</P.Writer>
+                                    <P.Date id={el._id}>{getDate(el.createdAt)}</P.Date>
+                            </P.ContentsWrap>
                         </P.ColumnWrap>
                 ))}
-                <br />
-                <P.RowWrap>
+                </P.MapWrap>
+
+                <P.PageNumWrap>
                     <div onClick={props.onClickPrev}>이전페이지</div>
                     {new Array(10).fill(1).map((_, index) => (
                         (index+props.startPage <= props.lastPage &&  
@@ -28,7 +34,7 @@ export default function PaginationPresenter(props:PaginationPropsUI) {
                             </P.PageNum>)
                     ))}
                     <div onClick={props.onClickNext}>다음페이지</div>
-                </P.RowWrap>
-            </P.ColumnWrap>
+                </P.PageNumWrap>
+            </P.Wrapper>
     )
 }
