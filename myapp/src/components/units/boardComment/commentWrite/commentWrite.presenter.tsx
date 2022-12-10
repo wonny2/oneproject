@@ -18,11 +18,13 @@ export default function CommentPresenter(props:ICommentWriteUI) {
                 <C.Input type='password' {...props.register("password")}/>
             </C.ColumnWrap>
 
+        {props.isBoard && 
             <C.ColumnWrap>
                 <C.Text>별점</C.Text>
                 <Rate allowHalf onChange={props.onChangeRate} defaultValue={0}/>
                 {/* <C.Input type='number' {...props.register("rating")}/> */}
             </C.ColumnWrap>
+        }
 
             <C.ColumnWrap>
                 <C.Text>내용</C.Text>

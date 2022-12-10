@@ -2,7 +2,6 @@ import * as P from './pagination.styles'
 import {PaginationPropsUI} from './pagination.types'
 import {v4 as uuidv4} from 'uuid'
 import { getDate } from '../../../commons/utils/utils'
-import Filter from '../filter/filter'
 
 export default function PaginationPresenter(props:PaginationPropsUI) {
     return(

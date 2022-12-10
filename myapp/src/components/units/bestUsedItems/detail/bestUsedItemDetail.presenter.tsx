@@ -1,3 +1,4 @@
+import CommentListContainer from '../../boardComment/commentList/commentList.container'
 import CommentContainer from '../../boardComment/commentWrite/commentWrite.container'
 import * as D from './bestUsedItemDetail.styles'
 import { IBestUsedItemDetailPropsUI } from './bestUsedItemDetail.types'
@@ -20,8 +21,9 @@ export default function BestItemDetailPresenter(props: IBestUsedItemDetailPropsU
                     <D.Title>내용</D.Title>
                     <div>{props.data?.fetchUseditem.contents}</div>
                 </D.ColumnWrap>
+                <CommentContainer isBoard={false}/>
+                <CommentListContainer />
             </D.SecondeWrap>
-            <CommentContainer isBoard={false}/>
         </D.Wrapper>
     )
 }

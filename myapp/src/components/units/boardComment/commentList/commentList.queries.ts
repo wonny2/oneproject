@@ -28,3 +28,14 @@ export const UPDATE_BOARD_COMMENTS = gql`
         }
     }
 `
+
+//베스트 중고아이템
+
+export const FETCH_USED_ITEM_QUESTIONS = gql`
+    query fetchUseditemQuestions($page: Int, $useditemId: ID!) {
+        fetchUseditemQuestions(page: $page, useditemId: $useditemId) {
+            _id
+            contents
+        }
+    }
+`

@@ -45,7 +45,7 @@ export default function BoardDetailPresenter(props: IBoardDetailUIProps) {
                     <D.Button onClick={props.onClickDelete}>삭제하기</D.Button>
                 </D.ButtonWrap>
                 <CommentContainer isBoard={true}/>
-            <CommentListContainer />
+            <CommentListContainer isBoard={true}/>
             </D.SecondWrapper>
             
         </D.Wrapper>
