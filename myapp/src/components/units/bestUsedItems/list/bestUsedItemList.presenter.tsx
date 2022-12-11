@@ -9,6 +9,7 @@ export default function BestUsedItemPresenter(props: IBestBoardsPropsUI) {
     return(
         <L.Wrapper>
             <L.ContentsWrap>
+                <L.TopFour>Best UsedItem</L.TopFour>
                 <L.CardWrap>
                     {props.usedItems?.fetchUseditemsOfTheBest.map((item:any, index:number) => (
                         <L.Card key={index} onClick={props.onClickDetail} id={item._id}>
@@ -20,7 +21,6 @@ export default function BestUsedItemPresenter(props: IBestBoardsPropsUI) {
                     ))}
                 </L.CardWrap>
             </L.ContentsWrap>
-
                 <L.MenuBar>
                     <L.TextWrap>
                         <div onClick={props.MoveToList}>게시글 리스트</div>
@@ -28,5 +28,6 @@ export default function BestUsedItemPresenter(props: IBestBoardsPropsUI) {
                     </L.TextWrap>
                 </L.MenuBar>
         </L.Wrapper>
+        
     )
 }0

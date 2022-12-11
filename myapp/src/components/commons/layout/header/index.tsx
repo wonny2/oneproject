@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import * as H from './header.presenter'
+import * as H from './header.styles'
 import { useMutation, useQuery } from '@apollo/client';
 import { FETCH_USER_LOGGED_IN , LOG_OUT_USER} from './header.queries';
 
@@ -12,7 +12,6 @@ export default function Header() {
     const router = useRouter();
 
     const MoveToHome = () => {
-        console.log('홈으로')
         router.push('/')
     }
 

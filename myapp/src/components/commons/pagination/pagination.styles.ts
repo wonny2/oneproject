@@ -61,14 +61,17 @@ export const Input = styled.input`
 }
 `
 
-export const ContentsWrap = styled.div`
-    padding: 0 10px;
-`
+
 
 export const Image = styled.img`
     height: 11rem;
     object-fit: cover;
     margin-bottom:10px;
+`
+
+export const ContentsWrap = styled.div`
+    padding: 0 10px;
+    cursor: pointer;
 `
 
 export const Title = styled.div`
