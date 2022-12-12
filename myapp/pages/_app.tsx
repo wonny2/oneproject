@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps } : AppProps) {
       <ApolloSetting>
         <Global styles={globalStyles} />
           <Layout>
-            <ChannelTalk />
+            {/* <ChannelTalk /> */}
               <Component {...pageProps} />
           </Layout>
       </ApolloSetting>

@@ -1,5 +1,4 @@
-import UsedItemsCommentListContainer from '../../bestUsedItemsComment/usedItemCommentList/UsedItemsCommentList.container'
-import CommentListContainer from '../../boardComment/commentList/commentList.container'
+import UsedItemsCommentListContainer from '../../bestUsedItemsComment/usedItemCommentList/usedItemsCommentList.container'
 import CommentContainer from '../../boardComment/commentWrite/commentWrite.container'
 import * as D from './bestUsedItemDetail.styles'
 import { IBestUsedItemDetailPropsUI } from './bestUsedItemDetail.types'

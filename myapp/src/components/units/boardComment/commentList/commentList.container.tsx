@@ -1,8 +1,8 @@
 import { useMutation, useQuery } from "@apollo/client"
 import { useRouter } from "next/router";
-import { IQuery, IQueryFetchBoardCommentsArgs, IQueryFetchUseditemQuestionsArgs } from "../../../../commons/types/generated/types";
+import { IQuery, IQueryFetchBoardCommentsArgs } from "../../../../commons/types/generated/types";
 import CommentListPresenter from "./commentList.presenter";
-import { DELETE_BOARD_COMMENT, FETCH_BOARD_COMMENTS, FETCH_USED_ITEM_QUESTIONS } from "./commentList.queries"
+import { FETCH_BOARD_COMMENTS } from "./commentList.queries"
 
 
 interface CommentListProps {

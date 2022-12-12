@@ -46,7 +46,6 @@ export default function CommentContainer(props:ICommentIsBoardProps) {
                     },
                 ],
             });
-            console.log(result.data?.createBoardComment)
             alert(`${result.data?.createBoardComment.writer}님의 댓글이 등록되었습니다.`)
             location.reload(); // 새로고침 해주는 태그
         } catch(error) {
@@ -66,7 +65,8 @@ export default function CommentContainer(props:ICommentIsBoardProps) {
                     useditemId: String(router.query.useditemId)
                 }
             })
-            console.log(questions.data?.createUseditemQuestion)
+            alert("댓글 등록되었습니다")
+            location.reload(); // 새로고침 해주는 태그
         } catch(error) {
             if(error instanceof Error) {
                 alert(error.message)

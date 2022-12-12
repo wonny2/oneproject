@@ -12,8 +12,6 @@ export default function BestItemDetailContainer() {
     const {data} = useQuery(FETCH_USED_ITEM, {
         variables : {useditemId : String(router.query.useditemId)}
     })
-    // const usedItems = data;
-    console.log(data)
 
 
 

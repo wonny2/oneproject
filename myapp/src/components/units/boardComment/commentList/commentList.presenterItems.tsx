@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
-import { CREATE_USED_ITEM_QUESTION_ANSWER, DELETE_BOARD_COMMENT,FETCH_BOARD_COMMENTS,UPDATE_BOARD_COMMENTS } from "./commentList.queries";
+import { DELETE_BOARD_COMMENT,FETCH_BOARD_COMMENTS,UPDATE_BOARD_COMMENTS } from "./commentList.queries";
 import { ICommentItemProps } from "./commentList.types";
 import { Rate } from "antd";
 import * as C from './commentList.styles'
@@ -17,7 +17,6 @@ export default function CommentListItemsPresenter(props:ICommentItemProps) {
 
     const [contents,setContents] = useState("")
     const [password,setPassword] = useState("")
-    const [answerInput, setAnswerInput] = useState("")
 
     const [open, setOpen] = useState(false)
     const [isEdit, setIsEdit] = useState(false);
@@ -38,10 +37,6 @@ export default function CommentListItemsPresenter(props:ICommentItemProps) {
     const onChangeContents = (event:ChangeEvent<HTMLInputElement>) => {
         setContents(event.target.value)
     };
-
-    const onChangeAnswer = (event:ChangeEvent<HTMLInputElement>) => {
-        setAnswerInput(event.target.value)
-    }
 
 
     const onClickDeleteComment = async () => {

@@ -1,7 +1,6 @@
 import InfiniteScroll from "react-infinite-scroller";
 import { ICommentListPropsUI } from "./commentList.types";
 import {v4 as uuidv4} from 'uuid'
-import ModalContainer from "../../../commons/modal/modal.container";
 import CommentListItemsPresenter from "./commentList.presenterItems";
 
 // 이 곳은 댓글 리스트만!!
@@ -15,8 +14,9 @@ export default function CommentListPresenter(props:ICommentListPropsUI) {
                         <CommentListItemsPresenter 
                             key={uuidv4()}
                             el={el}
+                            isBoard={props.isBoard}
                             // onClickDeleteComment={props.onClickDeleteComment}
-                            />
+                        />
                     ))}
             </InfiniteScroll>
 
