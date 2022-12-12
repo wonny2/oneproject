@@ -27,6 +27,7 @@ export default function CommentContainer(props:ICommentIsBoardProps) {
 
 // 게시글 댓글 작성
     const onClickCreateComment = async (data:any) => {
+        console.log("게시글")
         
         try{
             const result = await createBoardComment({
@@ -57,6 +58,7 @@ export default function CommentContainer(props:ICommentIsBoardProps) {
 
 // 중고상품 댓글 작성
     const onClickUsedItemQuestion = async (data:any) => {
+        console.log("중고상품")
         try{
             const questions = await createUseditemQuestion({
                 variables: {

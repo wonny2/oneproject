@@ -10,7 +10,6 @@ export const SecondeWrap = styled.div`
     width:1200px;
     display:flex;
     flex-direction:column;
-    border:2px solid blue;
 `
 
 export const RowWrap = styled.div`

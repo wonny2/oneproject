@@ -24,18 +24,22 @@ export default function UsedItemsCommentPresenterItems(props:IPresenterItemsProp
         setContents(event.target.value)
     };
 
+    // 대댓글
     const [createUseditemQuestionAnswer] = useMutation(CREATE_USED_ITEM_QUESTION_ANSWER);
 
     const {data} = useQuery(FETCH_USED_ITEM_QUESTION_ANSWERS, {
         variables: {useditemQuestionId: props.el._id}
     });
 
-    const answers = data?.fetchUseditemQuestionAnswers.map((i:any) => i.contents)
+    const answers = data?.fetchUseditemQuestionAnswers.map((i:any) => i.contents);
+    
 
-    // console.log(data?.fetchUseditemQuestionAnswers[1]?.contents)
+    const names = data?.fetchUseditemQuestionAnswers.map((i:any) => i.user.name)
 
-    console.log(data?.fetchUseditemQuestionAnswers)
+    
+    // console.log(data?.fetchUseditemQuestionAnswers[0]?.user.name);
     // console.log(data?.fetchUseditemQuestionAnswers)
+    // console.log(data?.fetchUseditemQuestionAnswers[1]?.contents)
 
     // 대댓글입력
     const onClickAnswer = async () => {
@@ -73,12 +77,11 @@ export default function UsedItemsCommentPresenterItems(props:IPresenterItemsProp
                 {commentOpen
                     ?
                     <C.AnswerWrap>
-                        {answers.map((i:any) => (
-                            <C.ColumnWrap>
+                        {answers.map((i:any, index:number) => (
+                            <C.ColumnWrap key={index}>
                                 <C.RowWrap>
                                     <Avatar icon={<UserOutlined />} />
-                                    <C.Name>{props.el.user.name}</C.Name>
-                                    <div>{}</div>
+                                    <C.Name>{names[index]}</C.Name>
                             </C.RowWrap>
                                 <C.AnswerContents>{i}</C.AnswerContents>
                             </C.ColumnWrap>

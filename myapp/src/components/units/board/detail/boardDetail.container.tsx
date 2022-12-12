@@ -19,7 +19,7 @@ export default function BoardDetailContainer() {
     console.log(data?.fetchBoard.images)
 
     const onClickMoveToList = () => {
-        router.push('/boards')
+        router.push('/')
     }
 
     const onClickDelete = async () => {
@@ -28,7 +28,7 @@ export default function BoardDetailContainer() {
                 await deleteBoard({
                     variables : {boardId : router.query.boardId}
                 })
-                router.push('/boards');
+                router.push('/');
             } catch(error) {
                 if(error instanceof Error) {
                     alert(error.message)

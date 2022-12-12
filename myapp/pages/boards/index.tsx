@@ -4,8 +4,8 @@ import Pagination from "../../src/components/commons/pagination/pagination.conta
 
 export default function BoardListPage() {
     return(
-
-        <Pagination />
+        <></>
+        // <Pagination />
         // <InfiniteScroll />
     )
 }

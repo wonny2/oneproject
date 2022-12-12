@@ -103,6 +103,6 @@ export const AnswerContents = styled.div`
 export const Line = styled.div`
     width: 75%;
     height: 2px;
-    border-top: 1px solid gray;
+    border-top: 1px solid #C5D5C5;
     margin: 20px 0px;
 `

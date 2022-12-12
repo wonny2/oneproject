@@ -15,8 +15,8 @@ export default function PaginationPresenter(props:PaginationPropsUI) {
                 <P.MapWrap>    
                 {props.data?.fetchBoards?.map((el:any, index:number) => (
                         <P.ColumnWrap key={uuidv4()} onClick={props.MoveToPage}>
-                            <P.Image id={el._id} src={el.images.length === 0 || el.images.includes("https://storage.googleapis.com/")? "https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg" : `https://storage.googleapis.com/${el.images.filter((i:any) => i)[0]}`} />
-                                <P.ContentsWrap>
+                            <P.Image src={el.images.length === 0 || el.images.includes("https://storage.googleapis.com/")? "https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg" : `https://storage.googleapis.com/${el.images.filter((i:any) => i)[0]}`} />
+                                <P.ContentsWrap  id={el._id}>
                                     <P.Title id={el._id}>{el.title}</P.Title>
                                     <P.Writer id={el._id}>{el.writer}</P.Writer>
                                     <P.Date id={el._id}>{getDate(el.createdAt)}</P.Date>
