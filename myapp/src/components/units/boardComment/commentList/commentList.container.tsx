@@ -14,14 +14,14 @@ export default function CommentListContainer(props:CommentListProps) {
 
     const router = useRouter();
 
-    const {data, fetchMore}= useQuery<Pick<IQuery,"fetchBoardComments">,IQueryFetchBoardCommentsArgs>(FETCH_BOARD_COMMENTS,
-        {
+    const {data, fetchMore}= useQuery<Pick<IQuery,"fetchBoardComments">,IQueryFetchBoardCommentsArgs>(FETCH_BOARD_COMMENTS,{
             variables: { boardId: String(router.query.boardId)}
         });
 
     // infinite Scroll
     const onLoadMore =  () => {
         if(!data) return;
+        
             fetchMore({
                 variables: {page: Math.ceil(data?.fetchBoardComments.length / 10) + 1},
                 updateQuery: (prev, {fetchMoreResult}) => {
@@ -37,7 +37,7 @@ export default function CommentListContainer(props:CommentListProps) {
                 },
             })
     };
-    
+
 
     return(
         <CommentListPresenter

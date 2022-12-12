@@ -79,6 +79,9 @@ export const Title = styled.div`
     color: rgba(30, 130, 76);
     font-weight: 700;
     margin-bottom: 15px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
 `
 
 export const Writer = styled.div`

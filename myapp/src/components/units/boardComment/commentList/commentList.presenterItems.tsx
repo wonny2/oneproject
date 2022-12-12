@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
-import { DELETE_BOARD_COMMENT,FETCH_BOARD_COMMENTS,UPDATE_BOARD_COMMENTS } from "./commentList.queries";
+import { CREATE_USED_ITEM_QUESTION_ANSWER, DELETE_BOARD_COMMENT,FETCH_BOARD_COMMENTS,UPDATE_BOARD_COMMENTS } from "./commentList.queries";
 import { ICommentItemProps } from "./commentList.types";
 import { Rate } from "antd";
 import * as C from './commentList.styles'
@@ -13,18 +13,19 @@ export default function CommentListItemsPresenter(props:ICommentItemProps) {
     const router = useRouter();
     const [deleteBoardComment] = useMutation(DELETE_BOARD_COMMENT);
     const [updateBoardComment] = useMutation(UPDATE_BOARD_COMMENTS);
+    
 
     const [contents,setContents] = useState("")
     const [password,setPassword] = useState("")
+    const [answerInput, setAnswerInput] = useState("")
 
     const [open, setOpen] = useState(false)
+    const [isEdit, setIsEdit] = useState(false);
+
 
     const onClickOpen = () => {
         setOpen(!open)
     }
-
-
-    const [isEdit, setIsEdit] = useState(false);
 
     const show = () => {
         setIsEdit((prev) => !prev)
@@ -37,6 +38,10 @@ export default function CommentListItemsPresenter(props:ICommentItemProps) {
     const onChangeContents = (event:ChangeEvent<HTMLInputElement>) => {
         setContents(event.target.value)
     };
+
+    const onChangeAnswer = (event:ChangeEvent<HTMLInputElement>) => {
+        setAnswerInput(event.target.value)
+    }
 
 
     const onClickDeleteComment = async () => {
@@ -79,20 +84,24 @@ export default function CommentListItemsPresenter(props:ICommentItemProps) {
                 alert(error.message)
             }
         }
-    }
+    };
+
 
     return(
         <C.Wrapper>
             <C.RowWrap>
                 <C.Text>댓글</C.Text>
                 <C.UpdateBtn onClick={show}>수정</C.UpdateBtn>
-                {isEdit 
-                    ?   <>
+                {isEdit
+                    ?
+                                       
+                        <>
                             수정할 내용 : <input onChange={onChangeContents}type="text"/> 
                             댓글 비밀번호 :<input onChange={onChangePassword} type="password" />
                             <button onClick={onClickUpdateComment}>수정하기</button>
                         </>
-                    : 
+
+                    :
                         <></>}
                 <ModalContainer 
                     onChangePassword={onChangePassword}
@@ -102,7 +111,10 @@ export default function CommentListItemsPresenter(props:ICommentItemProps) {
                             />
             </C.RowWrap>
             <C.Writer>{props.el._id}</C.Writer>
-            <Rate allowHalf value={props.el.rating} defaultValue={2.5}/>
+            {props.isBoard ?
+                <Rate allowHalf value={props.el.rating} defaultValue={2.5}/>
+                :
+                <></>}
             {/* Rate -> value에 값을 넣어야 별점이 고정된다. */}
             <C.Writer>{props.el.writer}</C.Writer>
             <C.Contents>{props.el.contents}</C.Contents>

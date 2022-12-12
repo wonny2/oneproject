@@ -56,14 +56,14 @@ export default function BoardDetailPresenter(props: IBoardDetailUIProps) {
                         </D.ColumnWrap>
                     </D.ContentsWrap>
                 </D.RowWrap>
-{/* ======================================================================== */}
                 <D.ButtonWrap>
                     <D.Button onClick={props.onClickUpdate}>수 정 하 기</D.Button>
                     <D.Button onClick={props.onClickMoveToList}>목 록 으 로</D.Button>
                     <D.Button onClick={props.onClickDelete}>삭 제 하 기</D.Button>
                 </D.ButtonWrap>
+                {/* ======================================================================== */}
                 <CommentContainer isBoard={true}/>
-            <CommentListContainer isBoard={true}/>
+                <CommentListContainer isBoard={true}/>
             </D.SecondWrapper>
         </D.Wrapper>
     )

@@ -7,7 +7,7 @@ export interface ICommentWriteUI {
     onClickCreateComment: (data: any) => Promise<void>
     onChangeRate: (event: any) => void
     isBoard: boolean
-    onClickUsedItemQuestion: () => Promise<void>
+    onClickUsedItemQuestion: (data: any) => Promise<void>
 }
 
 export interface ICommentIsBoardProps {

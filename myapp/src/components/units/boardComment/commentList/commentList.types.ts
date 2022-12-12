@@ -5,11 +5,10 @@ import { Maybe } from "../../../../commons/types/generated/types";
 export interface ICommentListPropsUI {
     data?: Pick<IQuery, "fetchBoardComments">;
     onLoadMore: () => void;
-    isBoard:boolean
-    // onClickDeleteComment: () => void;
+    isBoard:boolean;
 };
 
 export interface ICommentItemProps {
     el: IBoardComment;
-    // onClickDeleteComment: () => void
+    isBoard: boolean;
 }

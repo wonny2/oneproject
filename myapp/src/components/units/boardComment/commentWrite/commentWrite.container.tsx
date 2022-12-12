@@ -57,12 +57,12 @@ export default function CommentContainer(props:ICommentIsBoardProps) {
     };
 
 // 중고상품 댓글 작성
-    const onClickUsedItemQuestion = async () => {
+    const onClickUsedItemQuestion = async (data:any) => {
         try{
             const questions = await createUseditemQuestion({
                 variables: {
                     createUseditemQuestionInput : {
-                        contents: "중고댓글입니다아!"},
+                        contents: data.contents},
                     useditemId: String(router.query.useditemId)
                 }
             })
