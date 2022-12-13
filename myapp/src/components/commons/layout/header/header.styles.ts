@@ -20,9 +20,10 @@ export const Title = styled.div`
     color: white;
     cursor: pointer;
 
-    :hover{
+    /* :hover{
         border-bottom: 1px solid white;
-    }
+        cursor: pointer;
+    } */
 `
 
 export const LogPart = styled.div`

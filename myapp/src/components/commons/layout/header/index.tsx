@@ -19,6 +19,10 @@ export default function Header() {
         router.push(`/boards/login`)
     }
 
+    const MoveToSignUp = () => {
+        router.push('/boards/signup')
+    }
+
     const Logout = async () => {
         try{
             await logoutUser()
@@ -41,7 +45,7 @@ export default function Header() {
                         ? <H.Title onClick={MoveToLogin}>로그인</H.Title>
                         : <H.Title onClick={Logout}>{data.fetchUserLoggedIn.name}님 <br/>로그아웃</H.Title>
                     }
-                    <H.Title>회원가입</H.Title>
+                    <H.Title onClick={MoveToSignUp}>회원가입</H.Title>
                     </H.LogPart>
             </H.TitleWrap>
         </H.Wrapper>
