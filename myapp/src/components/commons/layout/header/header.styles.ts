@@ -19,11 +19,12 @@ export const TitleWrap = styled.div`
 export const Title = styled.div`
     color: white;
     cursor: pointer;
+`
 
-    /* :hover{
-        border-bottom: 1px solid white;
-        cursor: pointer;
-    } */
+export const LogoIcon = styled.img`
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
 `
 
 export const LogPart = styled.div`

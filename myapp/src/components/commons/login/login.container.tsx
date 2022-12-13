@@ -20,18 +20,24 @@ export default function LoginContainer() {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [errorEmail, setErrorEmail] = useState("")
+    const [errorPassword, setErrorPassword] = useState("")
+
     const [accessToken, setAccessToken] = useRecoilState(accessTokenState)
 
 
     const onChangeEmail = (event:ChangeEvent<HTMLInputElement>) => {
         setEmail(event.target.value)
-    }
+    };
 
     const onChangePassword = (event:ChangeEvent<HTMLInputElement>) => {
         setPassword(event.target.value)
-    }
+    };
 
     const onClickLogin = async () => {
+        if(!email) return alert("이메일을 입력해주세요")
+        if(!password) return alert("비밀번호를 입력해주세요")
+
         try{
             const result =  await loginUser({
                 variables: {
@@ -47,11 +53,10 @@ export default function LoginContainer() {
 
             setAccessToken(accessToken);
             alert("로그인 성공하였습니다");
-            location.reload()
-            router.push("/boards")
+            router.push("/")
         }catch(error){
             if(error instanceof Error) {
-                console.log(error.message)
+                alert(error.message)
             }
         }
     }
