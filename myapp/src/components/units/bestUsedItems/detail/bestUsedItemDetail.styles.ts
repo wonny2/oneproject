@@ -7,13 +7,16 @@ export const Wrapper = styled.div`
 `
 
 export const SecondeWrap = styled.div`
-    width:1200px;
+    width:1000px;
     display:flex;
     flex-direction:column;
 `
 
 export const RowWrap = styled.div`
     display:flex;
+    width:100%;
+    justify-content:center;
+    margin-top:15px;
 `
 
 export const ColumnWrap = styled.div`
@@ -22,11 +25,42 @@ export const ColumnWrap = styled.div`
 `
 
 export const Title = styled.div`
+    width:200px;
+    height:50px;
+    line-height:50px;
+    font-size: 30px;
     font-weight: 700;
-    font-size: 15px;
 `
 
 export const Contents = styled.div`
-    background-color: lightgreen;
-    width: 100%;
+    font-size: 18px;
+    width:100%;
+    height: 50px;
+    line-height:50px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    margin-bottom: 20px;
+    padding-left: 40px;
+    border: 1px solid gray;
+    border-radius: 10px;
+`
+
+export const Button = styled.div`
+    width: 9rem;
+    height: 35px;
+    line-height:35px;
+    text-align:center;
+    border-radius: 20px;
+    background-color: rgba(30, 130, 76);
+    color: white;
+    margin-bottom: 70px;
+    font-size: 16px;
+    cursor: pointer;
+
+    :hover {
+        border: 3px solid rgba(30, 130, 76);
+        background-color: #fff;
+        color: black;
+    }
 `

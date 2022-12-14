@@ -6,6 +6,7 @@ export const FETCH_USED_ITEM_QUESTIONS = gql`
         fetchUseditemQuestions(page: $page, useditemId: $useditemId) {
             _id
             contents
+            createdAt
             user{
                 name
             }
@@ -18,6 +19,7 @@ export const CREATE_USED_ITEM_QUESTION_ANSWER = gql`
         createUseditemQuestionAnswer(createUseditemQuestionAnswerInput: $createUseditemQuestionAnswerInput, useditemQuestionId: $useditemQuestionId) {
             _id
             contents
+            createdAt
         }
     }
 `

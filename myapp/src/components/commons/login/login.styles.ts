@@ -1,5 +1,10 @@
 import styled from "@emotion/styled";
 
+interface BackColorProps {
+    isActive: boolean
+}
+
+
 export const Wrapper = styled.div`
     width: 100%;
     display:flex;
@@ -65,7 +70,8 @@ export const LoginBtn = styled.button`
     font-size: 18px;
     border: 2px solid rgba(30, 130, 76);
     border-radius: 10px;
-    background-color: white;
+    background-color: ${(props:BackColorProps) => props.isActive ? "rgba(30, 130, 76)" : "white"};
+    color: ${(props:BackColorProps) => props.isActive ? "white" : "black"};
     cursor: pointer;
 `
 

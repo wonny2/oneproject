@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 import { ChangeEvent, useState } from 'react'
 import { Avatar } from 'antd'
 import { UserOutlined } from '@ant-design/icons';
-
+import { getDate } from '../../../../commons/utils/utils'
 
 export default function UsedItemsCommentPresenterItems(props:IPresenterItemsProps) {
 
@@ -32,10 +32,10 @@ export default function UsedItemsCommentPresenterItems(props:IPresenterItemsProp
     });
 
     const answers = data?.fetchUseditemQuestionAnswers.map((i:any) => i.contents);
-    
-
     const names = data?.fetchUseditemQuestionAnswers.map((i:any) => i.user.name)
+    const createdAt = data?.fetchUseditemQuestionAnswers.map((i:any) => i.createdAt)
 
+    console.log(createdAt)
     
     // console.log(data?.fetchUseditemQuestionAnswers[0]?.user.name);
     // console.log(data?.fetchUseditemQuestionAnswers)
@@ -65,10 +65,14 @@ export default function UsedItemsCommentPresenterItems(props:IPresenterItemsProp
     return(
         <C.Wrapper>
             <C.ContentsWrap id={props.el._id}>
-                    <C.RowWrap>
-                        <Avatar icon={<UserOutlined />} />
-                        <C.Name>{props.el.user.name[0]}</C.Name> 
-                    </C.RowWrap>
+                    <C.UserWrap>
+                        <C.RowWrap>
+                            <Avatar icon={<UserOutlined />} />
+                            <C.Name>{props.el.user.name[0]}</C.Name>
+                        </C.RowWrap>
+                            <C.Date>{getDate(props.el.createdAt)}</C.Date>
+                        
+                    </C.UserWrap>
                     <C.Contents>{props.el.contents}</C.Contents>
                 <C.CommentOpenWrap>
                     <div style={{color: "gray"}}>{data?.fetchUseditemQuestionAnswers.length}개의 댓글</div>
@@ -79,17 +83,20 @@ export default function UsedItemsCommentPresenterItems(props:IPresenterItemsProp
                     <C.AnswerWrap>
                         {answers.map((i:any, index:number) => (
                             <C.ColumnWrap key={index}>
-                                <C.RowWrap>
-                                    <Avatar icon={<UserOutlined />} />
-                                    <C.Name>{names[index]}</C.Name>
-                            </C.RowWrap>
+                                <C.UserWrap>
+                                    <C.RowWrap>
+                                        <Avatar icon={<UserOutlined />} />
+                                        <C.Name>{names[index]}</C.Name>
+                                    </C.RowWrap>
+                                    <C.Date>{getDate(createdAt[index])}</C.Date>
+                                </C.UserWrap>
                                 <C.AnswerContents>{i}</C.AnswerContents>
                             </C.ColumnWrap>
                         ))}
-                        <C.RowWrap>
+                        <C.UserWrap>
                             <C.AnswerInput type='text' onChange={onChangeContents}/>
                             <C.AnswerBtn onClick={onClickAnswer}>댓글등록</C.AnswerBtn>
-                        </C.RowWrap>
+                        </C.UserWrap>
                     </C.AnswerWrap>
                     :
                     <></>

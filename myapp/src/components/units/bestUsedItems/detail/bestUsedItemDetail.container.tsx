@@ -11,13 +11,19 @@ export default function BestItemDetailContainer() {
 
     const {data} = useQuery(FETCH_USED_ITEM, {
         variables : {useditemId : String(router.query.useditemId)}
-    })
+    });
+
+
+    const MoveToList = () => {
+        router.push('/')
+    }
 
 
 
     return(
         <BestItemDetailPresenter 
             data={data}
+            MoveToList={MoveToList}
         />
     )
 }

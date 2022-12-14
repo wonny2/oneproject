@@ -115,6 +115,7 @@ export const Button = styled.div`
     color: white;
     font-size: 16px;
     margin: 0 15px;
+    cursor: pointer;
     
     :hover {
         border: 3px solid rgba(30, 130, 76);

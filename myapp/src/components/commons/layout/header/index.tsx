@@ -25,7 +25,6 @@ export default function Header() {
     const Logout = async () => {
         try{
             await logoutUser()
-            console.log("여기서 나는 것")
             location.reload()
         } catch(error) {
             if(error instanceof Error){
@@ -45,7 +44,7 @@ export default function Header() {
                         : <H.Title onClick={Logout}>{data.fetchUserLoggedIn.name}님 <br/>로그아웃</H.Title>
                     }
                     <H.Title onClick={MoveToSignUp}>회원가입</H.Title>
-                    </H.LogPart>
+                </H.LogPart>
             </H.TitleWrap>
         </H.Wrapper>
     )

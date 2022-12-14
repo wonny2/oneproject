@@ -18,10 +18,11 @@ export default function LoginContainer() {
                                                             // IMutationLoginUserArgs는 아래 variables의 값들의 타입!!
     // const [loginUserExample] = useMutation<Pick<IMutation,'loginUserExample'>,IMutationLoginUserExampleArgs>(LOGIN_USER_EXAMPLE)
 
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-    const [errorEmail, setErrorEmail] = useState("")
-    const [errorPassword, setErrorPassword] = useState("")
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [errorEmail, setErrorEmail] = useState("");
+    const [errorPassword, setErrorPassword] = useState("");
+    const [isActive, setIsActive] = useState(false);
 
     const [accessToken, setAccessToken] = useRecoilState(accessTokenState)
 
@@ -32,6 +33,12 @@ export default function LoginContainer() {
 
     const onChangePassword = (event:ChangeEvent<HTMLInputElement>) => {
         setPassword(event.target.value)
+        
+        if(event.target.value && email) {
+            setIsActive(true)
+        } else {
+            setIsActive(false)
+        };
     };
 
     const onClickLogin = async () => {
@@ -56,7 +63,7 @@ export default function LoginContainer() {
             router.push("/")
         }catch(error){
             if(error instanceof Error) {
-                alert(error.message)
+                alert("로그인을 다시 시도해주세요")
             }
         }
     }
@@ -70,6 +77,7 @@ export default function LoginContainer() {
                 onChangeEmail={onChangeEmail}
                 onChangePassword={onChangePassword}
                 onClickLogin={onClickLogin}
+                isActive={isActive}
             />
         </>
     )

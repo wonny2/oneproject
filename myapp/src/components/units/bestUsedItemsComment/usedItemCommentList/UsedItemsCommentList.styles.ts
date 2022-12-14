@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-    width: 100%;
     display:flex;
     flex-direction:column;
     margin-top:20px;
@@ -9,30 +8,41 @@ export const Wrapper = styled.div`
 `
 
 export const ContentsWrap = styled.div`
-    width: 1200px;
     display:flex;
     flex-direction:column;
 `
-export const RowWrap = styled.div`
+export const UserWrap = styled.div`
     display:flex;
     flex-direction:row;
     align-items: center;
-    /* border:1px solid black;
-    width:70%; */
+    justify-content:space-between;
+    width:90%;
 `
+
+export const RowWrap = styled.div`
+    display:flex;
+    flex-direction:row;
+`
+
 
 export const ColumnWrap = styled.div`
     display:flex;
     flex-direction:column;
+    margin-top:20px;
 `
 
 export const CommentOpenWrap = styled.div`
-    width: 70%;
+    width: 90%;
     display:flex;
     flex-direction:row;
     align-items:center;
     justify-content: space-between;
     /* border: 1px solid black; */
+`
+
+export const Date = styled.div`
+    font-size: 12px;
+    color: gray;
 `
 
 export const Title = styled.div`
@@ -54,7 +64,7 @@ export const Contents = styled.div`
 `
 
 export const CommentOpen = styled.div`
-    width:80px;
+    width: 80px;
     height: 40px;
     line-height:40px;
     text-align:center;
@@ -72,7 +82,7 @@ export const AnswerWrap = styled.div`
 `
 
 export const AnswerInput = styled.input`
-    width:50%;
+    width: 38rem;
     height: 35px;
     border-radius: 20px;
     border:1px solid #c5d5c5;
@@ -101,7 +111,7 @@ export const AnswerContents = styled.div`
 `
 
 export const Line = styled.div`
-    width: 75%;
+    width: 90%;
     height: 2px;
     border-top: 1px solid #C5D5C5;
     margin: 20px 0px;
