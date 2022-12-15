@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../../commons/styles/media";
 
 export const Wrapper = styled.div`
     width:100%;
@@ -14,6 +15,18 @@ export const TitleWrap = styled.div`
     width:1200px;
     align-items:center;
     justify-content:space-between;
+
+    @media ${breakPoints.mobile} {
+        justify-content: space-around;
+    }
+
+    @media ${breakPoints.tablet} {
+        justify-content: space-around;
+    }
+
+    @media ${breakPoints.desktop} {
+        justify-content: space-around;
+    }
 `
 
 export const Title = styled.div`

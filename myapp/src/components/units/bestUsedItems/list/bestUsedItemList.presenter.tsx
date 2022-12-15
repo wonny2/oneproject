@@ -13,10 +13,10 @@ export default function BestUsedItemPresenter(props: IBestBoardsPropsUI) {
                 <L.CardWrap>
                     {props.usedItems?.fetchUseditemsOfTheBest.map((item:any, index:number) => (
                         <L.Card key={index} onClick={props.onClickDetail} id={item._id}>
-                                <img src={`https://storage.googleapis.com/${item.images[0]}`} />
-                                <div id={item._id}>{item.name}</div>
-                                <div id={item._id} dangerouslySetInnerHTML={{__html: String(item.contents) }} />
-                                <div id={item._id}>{getDate(item.createdAt)}</div>
+                                <L.Image src={`https://storage.googleapis.com/${item.images[0]}`} />
+                                <L.Name id={item._id}>{item.name}</L.Name>
+                                <L.Contents id={item._id} dangerouslySetInnerHTML={{__html: String(item.contents) }} />
+                                <L.Time id={item._id}>{getDate(item.createdAt)}</L.Time>
                         </L.Card>
                     ))}
                 </L.CardWrap>

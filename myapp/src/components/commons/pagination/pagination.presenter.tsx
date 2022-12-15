@@ -6,8 +6,7 @@ import {Row, Col} from 'antd'
 
 export default function PaginationPresenter(props:PaginationPropsUI) {
     return(
-        <P.Wrapper>            
-            
+        <P.Wrapper>
                 <P.RowWrap>
                     <P.Input type="text" placeholder="찾는 제목을 입력해주세요" onChange={props.onChangeInput}/>
                 </P.RowWrap>
@@ -26,14 +25,14 @@ export default function PaginationPresenter(props:PaginationPropsUI) {
                 </P.MapWrap>
 
                 <P.PageNumWrap>
-                    <div onClick={props.onClickPrev}>이전페이지</div>
+                    <div style={{cursor: "pointer"}} onClick={props.onClickPrev}>{" < "}</div>
                     {new Array(10).fill(1).map((_, index) => (
                         (index+props.startPage <= props.lastPage &&  
                             <P.PageNum onClick={props.onClickPage} id={String(index+props.startPage)} key={index+props.startPage} backColor={props.startPage+index === props.activedPage}>
                                 {index+props.startPage}
                             </P.PageNum>)
                     ))}
-                    <div onClick={props.onClickNext}>다음페이지</div>
+                    <div style={{cursor: "pointer"}} onClick={props.onClickNext}>{" > "}</div>
                 </P.PageNumWrap>
             </P.Wrapper>
     )

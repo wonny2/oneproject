@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../commons/styles/media";
 
 
 export interface PaginationNum {
@@ -7,36 +8,31 @@ export interface PaginationNum {
 
 export const Wrapper = styled.div`
     margin-top:60px;
-    width:100%;
+    max-width:1200px;
     display:flex;
     flex-direction:column;
     align-items:center;
+
+    @media ${breakPoints.mobile} {
+        max-width: 47.938rem;
+    }
+
+    @media ${breakPoints.tablet} {
+        max-width: 62rem;
+    }
 `
+
 export const RowWrap = styled.div`
-    width:1090px;
+    width:100%;
     display:flex;
     flex-direction:row;
     margin-bottom:30px;
-`
 
-export const MapWrap = styled.div`
-    width:100%;
-    display:grid;
-    grid-template-columns: repeat(5, 13.75rem);
-    gap: 20px 30px;
-    justify-content:center;
-    margin-bottom: 30px;
 
-`
-
-export const ColumnWrap = styled.div`
-    display:flex;
-    flex-direction:column;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    border-radius: 8px;
-    box-shadow: .3px .3px 3px gray;
-    cursor: pointer;
+    @media ${breakPoints.mobile} {
+        width: 22.438rem ;
+    }
+    
 `
 
 export const Input = styled.input`
@@ -62,12 +58,43 @@ export const Input = styled.input`
 }
 `
 
+export const MapWrap = styled.div`
+    width:100%;
+    display:grid;
+    grid-template-columns: repeat(5, 13.75rem);
+    gap: 20px 30px;
+    justify-content:center;
+    margin-bottom: 30px;
+
+    @media ${breakPoints.mobile} {
+        width: 23.438rem;
+        grid-template-columns: repeat(2, 10rem);
+    }
+
+    @media ${breakPoints.tablet} {
+        max-width: 62rem;
+        grid-template-columns: repeat(2, 13.75rem);
+    }
+
+`
+
+export const ColumnWrap = styled.div`
+    display:flex;
+    flex-direction:column;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-radius: 8px;
+    box-shadow: .3px .3px 3px gray;
+    cursor: pointer;
+`
+
 
 
 export const Image = styled.img`
     height: 11rem;
     object-fit: cover;
     margin-bottom:10px;
+    
 `
 
 export const ContentsWrap = styled.div`
@@ -83,6 +110,7 @@ export const Title = styled.div`
     overflow:hidden;
     text-overflow:ellipsis;
     white-space:nowrap;
+
 `
 
 export const Writer = styled.div`
@@ -99,6 +127,14 @@ export const PageNumWrap = styled.div`
     flex-direction:row;
     justify-content:center;
     margin-bottom:20px;
+
+    @media ${breakPoints.mobile} {
+        width: 23.438rem;
+    }
+
+    @media ${breakPoints.tablet} {
+        max-width: 62rem;
+    }
 `
 
 
