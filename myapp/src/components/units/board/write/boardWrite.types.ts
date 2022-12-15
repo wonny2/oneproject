@@ -12,6 +12,7 @@ export interface IBoardsWritePropsUI {
     formState: FormState<FieldValues>
     isEdit: boolean
     data:any
+    MoveToList: () => void
 }
 
 export interface IUpdateInputValue {

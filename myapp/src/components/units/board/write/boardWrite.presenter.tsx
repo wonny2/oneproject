@@ -61,7 +61,11 @@ export default function BoardWritePresenter(props: IBoardsWritePropsUI) {
                         />
                     ))}
                 </W.ImgRowWrap>
-                <W.SubmitBtn>{props.isEdit ? '수정하기' : '등록하기'}</W.SubmitBtn>
+                <W.RowWrap>
+                    <W.ListBtn onClick={props.MoveToList}>목 록 으 로</W.ListBtn>
+                    <W.SubmitBtn>{props.isEdit ? '수 정 하 기' : '등 록 하 기'}</W.SubmitBtn>
+                </W.RowWrap>
+
             </W.SecondWrap>
             </form>
         </W.Wrapper>

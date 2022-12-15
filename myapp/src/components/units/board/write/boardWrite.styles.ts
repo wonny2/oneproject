@@ -14,7 +14,6 @@ export const Wrapper = styled.div`
 export const SecondWrap = styled.div`
     width:1200px;
     padding-top: 40px;
-    border: 3px solid black;
     display:flex;
     flex-direction: column;
     align-items:center;
@@ -62,6 +61,22 @@ export const Boxes = styled.div`
     height:100px;
 `
 
+export const ListBtn = styled.div`
+    width: 160px;
+    height: 55px;
+    border: 3px solid green;
+    border-radius: 50px;
+    line-height:55px;
+    text-align:center;
+    background-color: #fff;
+    font-size: 20px;
+    
+    :hover {
+        background-color: green;
+        color: white;
+    }
+`
+
 export const SubmitBtn = styled.button`
     width: 160px;
     height: 55px;
@@ -69,8 +84,9 @@ export const SubmitBtn = styled.button`
     border-radius: 50px;
     line-height:55px;
     text-align:center;
-    margin-bottom:100px;
     background-color: #fff;
+    font-size: 20px;
+    cursor: pointer;
     
     :hover {
         background-color: green;
@@ -79,9 +95,14 @@ export const SubmitBtn = styled.button`
 `
 
 export const RowWrap = styled.div`
+    width: 350px;
     display:flex;
     flex-direction:row;
+    justify-content:space-between;
     align-items:center;
+    border:1px solid black;
+    margin-bottom:100px;
+    cursor: pointer;    
 `
 
 export const ErrorMsg = styled.div`

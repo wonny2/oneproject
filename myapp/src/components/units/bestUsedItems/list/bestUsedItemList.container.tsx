@@ -15,10 +15,6 @@ const MoveToWrite = () => {
     router.push('/boards/new')
 }
 
-const MoveToList = () => {
-    router.push('/boards')
-}
-
 // const onClickDetail = (event: MouseEvent<HTMLDivElement>) => {
 //     if(!(event.target instanceof HTMLDivElement)) return;
 //     router.push(`/boards/${event.target.id}`)
@@ -34,7 +30,6 @@ const onClickDetail = (event: MouseEvent<HTMLDivElement>) => {
             <BestUsedItemPresenter
                 usedItems={usedItems}
                 MoveToWrite={MoveToWrite}
-                MoveToList={MoveToList}
                 onClickDetail={onClickDetail}
             />
         </>

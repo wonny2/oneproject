@@ -126,6 +126,10 @@ export default function BoardWriteContainer(props:any) {
         }
     },[props.data])
 
+    const MoveToList = () => {
+        router.push('/')
+    }
+
 
     return(
         <BoardWritePresenter 
@@ -139,6 +143,7 @@ export default function BoardWriteContainer(props:any) {
         isEdit={props.isEdit}
         onClickUpdate={onClickUpdate}
         data={props.data}
+        MoveToList={MoveToList}
         />
     )
 }

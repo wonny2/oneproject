@@ -23,7 +23,6 @@ export default function BestUsedItemPresenter(props: IBestBoardsPropsUI) {
             </L.ContentsWrap>
                 <L.MenuBar>
                     <L.TextWrap>
-                        <div onClick={props.MoveToList}>게시글 리스트</div>
                         <div onClick={props.MoveToWrite}>글쓰기</div>
                     </L.TextWrap>
                 </L.MenuBar>
