@@ -6,9 +6,9 @@ import { debounce } from "lodash";
 import { ChangeEvent, MouseEvent } from "react";
 import PaginationPresenter from "./pagination.presenter";
 import { useRouter } from "next/router";
-import { getDate } from "../../../commons/utils/utils";
+import { PaginationBasketProps } from "./pagination.types";
 
-export default function Pagination() {
+export default function Pagination(props:PaginationBasketProps ) {
     const router = useRouter();
 
     const [startPage, setStartPage] = useState(1);
@@ -70,6 +70,7 @@ export default function Pagination() {
                 data={data}
                 activedPage={activedPage}
                 MoveToPage={MoveToPage}
+                onClickBasket={props.onClickBasket}
             />
 
 

@@ -35,11 +35,11 @@ useEffect(() => {
 
     return(
         <Col>
-            <h1>나만의 장바구니! (비회원전용) </h1>
+            <h1>나만의 장바구니! (비회원전용) | 담은 게시글 목록</h1>
             {basketItems.map((el:IBoard) => (
                 <Col key={el._id}>
-                    <Row>{el.title}</Row>
-                    <Row>{el.writer}</Row>
+                    <Row>제목 : {el.title}</Row>
+                    <Row>작성자 : {el.writer}</Row>
                 </Col>
             ))}
 

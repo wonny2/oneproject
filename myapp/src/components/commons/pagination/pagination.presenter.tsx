@@ -3,6 +3,8 @@ import {PaginationPropsUI} from './pagination.types'
 import {v4 as uuidv4} from 'uuid'
 import { getDate } from '../../../commons/utils/utils'
 import {Row, Col} from 'antd'
+import {  HeartTwoTone } from '@ant-design/icons';
+
 
 export default function PaginationPresenter(props:PaginationPropsUI) {
     return(
@@ -18,6 +20,8 @@ export default function PaginationPresenter(props:PaginationPropsUI) {
                                 <P.ContentsWrap  id={el._id}>
                                     <P.Title id={el._id}>{el.title}</P.Title>
                                     <P.Writer id={el._id}>{el.writer}</P.Writer>
+                                    <HeartTwoTone twoToneColor="#D3D3D3" />
+                                    {/* <HeartTwoTone twoToneColor="#D5D5D5" #eb2f96 /> */}
                                     <P.Date id={el._id}>{getDate(el.createdAt)}</P.Date>
                             </P.ContentsWrap>
                         </P.ColumnWrap>

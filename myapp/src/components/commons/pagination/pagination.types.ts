@@ -12,5 +12,10 @@ export interface PaginationPropsUI {
     activedPage: number
     MoveToPage: (event: MouseEvent<HTMLDivElement>) => void
     // keywordCheck: boolean
+    onClickBasket: (basket: any) => () => void
 
+}
+
+export interface PaginationBasketProps {
+    onClickBasket: (basket: any) => () => void
 }

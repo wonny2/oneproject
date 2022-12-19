@@ -101,6 +101,7 @@ export const Card = styled.div`
     border-radius:15px;
     transition: all 0.2s ease-out;
     cursor: pointer;
+    z-index: 999;
 
 
     :hover{
@@ -121,6 +122,7 @@ export const Image = styled.img`
     border-top-left-radius:10px;
     border-top-right-radius:10px;
     margin-bottom: 15px;
+    z-index: 0;
 `
 
 export const Name = styled.div`

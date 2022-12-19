@@ -32,6 +32,14 @@ export const TitleWrap = styled.div`
 export const Title = styled.div`
     color: white;
     cursor: pointer;
+
+    @media ${breakPoints.mobile} {
+        font-size: 15px;
+    }
+
+    @media ${breakPoints.tablet} {
+        font-size: 15px;
+    }
 `
 
 export const LogoIcon = styled.img`
