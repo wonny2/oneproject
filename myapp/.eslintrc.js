@@ -8,17 +8,22 @@ module.exports = {
     'standard-with-typescript',
     'prettier'
   ],
+  parser: "@typescript-eslint/parser",
   overrides: [
   ],
   parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
   plugins: [
-    'react'
+    "react", "@typescript-eslint"
   ],
   rules: {
     'react/react-in-jsx-scope': 'off',
-		'react/prop-types': 'off'
+		'react/prop-types': 'off',
+    "react/display-name": "off"
   }
 }

@@ -104,6 +104,7 @@ export const Card = styled.div`
     z-index: 999;
 
 
+
     :hover{
         transform: translateY(-20px);
     }
@@ -122,7 +123,7 @@ export const Image = styled.img`
     border-top-left-radius:10px;
     border-top-right-radius:10px;
     margin-bottom: 15px;
-    z-index: 0;
+    
 `
 
 export const Name = styled.div`

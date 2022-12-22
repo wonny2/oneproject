@@ -3,11 +3,11 @@ import * as D from './boardDetail.styles'
 import {v4 as uuidv4} from 'uuid'
 import CommentContainer from "../../boardComment/commentWrite/commentWrite.container"
 import CommentListContainer  from "../../boardComment/commentList/commentList.container"
-import * as Arrows from './boardDetail.styles'
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import { Button } from 'antd';
+import 'antd/dist/reset.css';
 
 export default function BoardDetailPresenter(props: IBoardDetailUIProps) {
     const settings = {
@@ -36,7 +36,7 @@ export default function BoardDetailPresenter(props: IBoardDetailUIProps) {
                                         }      
                                     </D.Images>
                             ))}
-                        </Slider>                        
+                        </Slider>
                     </D.ImgWrap>
                     <D.ContentsWrap>
                         <D.ColumnWrap>
@@ -54,6 +54,11 @@ export default function BoardDetailPresenter(props: IBoardDetailUIProps) {
                             <D.Contents 
                                 dangerouslySetInnerHTML={{__html: String(props.data?.fetchBoard.contents) }} />
                         </D.ColumnWrap>
+                        <div style={{display: "flex", justifyContent:"end"}}>
+
+                            {/* <D.BasketBtn>장바구니 담기</D.BasketBtn> */}
+                            <Button onClick={props.success}>장바구니 담기</Button>
+                        </div>
                     </D.ContentsWrap>
                 </D.RowWrap>
                 <D.ButtonWrap>

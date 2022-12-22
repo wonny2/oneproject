@@ -6,17 +6,16 @@ import { debounce } from "lodash";
 import { ChangeEvent, MouseEvent } from "react";
 import PaginationPresenter from "./pagination.presenter";
 import { useRouter } from "next/router";
-import { PaginationBasketProps } from "./pagination.types";
 
 
-export default function Pagination(props:PaginationBasketProps) {
+
+export default function Pagination( ) {
     const router = useRouter();
 
     const [startPage, setStartPage] = useState(1);
     // const [color, setColor] = useState(false);
     const [activedPage, setActivedPage] = useState(1)
     const [keyword, setKeyword] = useState("");
-    const [isActive, setIsActive] = useState(false);
 
     const {data, refetch} = useQuery(FETCH_BOARDS);
 
@@ -55,14 +54,10 @@ export default function Pagination(props:PaginationBasketProps) {
     }
 
     const MoveToPage = (event: MouseEvent<HTMLDivElement>) => {
-        if(!(event.target instanceof HTMLDivElement)) return;
-        router.push(`/boards/${event.target.id}`)
+        if(!(event.currentTarget instanceof HTMLDivElement)) return;
+        router.push(`/boards/${event.currentTarget.id}`)
     }
 
-    const onClickBtn = () => {
-        setIsActive(true);
-        console.log("하트버튼")
-    }
 
  
     return(
@@ -77,9 +72,6 @@ export default function Pagination(props:PaginationBasketProps) {
                 data={data}
                 activedPage={activedPage}
                 MoveToPage={MoveToPage}
-                onClickBasket={props.onClickBasket}
-                // isActive={props.isActive}
-                onClickBtn={onClickBtn}
             />
 
 

@@ -1,7 +1,12 @@
+import { Button,message } from "antd";
 import { useEffect, useRef, useState } from "react"
+import 'antd/dist/reset.css';
+
+
 
 export default function TestPage() {
-
+    const [messageApi, contextHolder] = message.useMessage();
+    
     const [count, setCount] = useState(1);
 
     const renderCount = useRef(1);
@@ -9,12 +14,22 @@ export default function TestPage() {
     useEffect(() => {
         renderCount.current = renderCount.current + 1
         console.log( "렌더링 수 :" ,renderCount)
-    })
+    },[])
+
+
+    const success = () => {
+        messageApi.open({
+          type: 'success',
+          content: 'This is a success message',
+        });
+        console.log("클릭")
+      };
+
     
     return(
         <div>
             <div>count : {count}</div>
-            <button onClick={() => setCount(count+1)}>올려!</button>
+            <Button onClick={success}>올려!</Button>
         </div>
     )
 }

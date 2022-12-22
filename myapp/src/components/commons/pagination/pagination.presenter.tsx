@@ -2,8 +2,7 @@ import * as P from './pagination.styles'
 import {PaginationPropsUI} from './pagination.types'
 import {v4 as uuidv4} from 'uuid'
 import { getDate } from '../../../commons/utils/utils'
-import {Row, Col} from 'antd'
-import {  HeartTwoTone } from '@ant-design/icons';
+
 
 
 export default function PaginationPresenter(props:PaginationPropsUI) {
@@ -14,15 +13,13 @@ export default function PaginationPresenter(props:PaginationPropsUI) {
                 </P.RowWrap>
                 
                 <P.MapWrap>    
-                {props.data?.fetchBoards?.map((el:any, index:number) => (
-                        <P.ColumnWrap key={uuidv4()} onClick={props.MoveToPage}>
+                {props.data?.fetchBoards?.map((el:any) => (
+                        <P.ColumnWrap key={uuidv4()} onClick={props.MoveToPage} id={el._id}>
                             <P.Image src={el.images.length === 0 || el.images.includes("https://storage.googleapis.com/")? "https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg" : `https://storage.googleapis.com/${el.images.filter((i:any) => i)[0]}`} />
-                                <P.ContentsWrap  id={el._id}>
-                                    <P.Title id={el._id}>{el.title}</P.Title>
-                                    <P.Writer id={el._id}>{el.writer}</P.Writer>
-                                    <HeartTwoTone id={el._id} onClick={props.onClickBasket(el._id)} twoToneColor="#d5d5d5" />
-                                    {/* <HeartTwoTone twoToneColor="#030303" #eb2f96 /> */}
-                                    <P.Date id={el._id}>{getDate(el.createdAt)}</P.Date>
+                                <P.ContentsWrap>
+                                    <P.Title>{el.title}</P.Title>
+                                    <P.Writer>{el.writer}</P.Writer>
+                                    <P.Date>{getDate(el.createdAt)}</P.Date>
                             </P.ContentsWrap>
                         </P.ColumnWrap>
                 ))}

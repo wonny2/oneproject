@@ -5,4 +5,8 @@ export interface IBoardDetailUIProps {
     onClickMoveToList: () => void
     onClickDelete: () => void
     onClickUpdate: () => void
+    onClickBasket: (basket: any) => () => void
+    isActive: boolean
+    onClickCancelBtn: (board: any) => () => void
+    success: () => void
 }

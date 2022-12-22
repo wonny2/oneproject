@@ -43,7 +43,6 @@ const Button = styled.button`
 export default function Basket() {
     
     const {data} = useQuery(FETCH_BOARDS);
-    const [isActive, setIsActive] = useState(false);
     
 
 // const onClickBtn = a => b => {return a + b}
@@ -56,7 +55,7 @@ export default function Basket() {
 
 
     const onClickBasket = (basket:any) => () => {
-        setIsActive(true);
+
         console.log("장바구니로!")
 
         console.log(basket)
@@ -79,19 +78,18 @@ export default function Basket() {
         localStorage.setItem("baskets", JSON.stringify(baskets)) // 로컬스토리지에 담을 때는 JSON방식으로 담아줘야 한다. {"name" : "길동"} => key값에도 따옴표!!
     };
 
-    return(
 
-            <Pagination
-                onClickBasket={onClickBasket} />
-        // <Col>
-        //     {data?.fetchBoards.map((el:any) => (
-        //         <Col key={el._id}>
-        //             <Row>{el._id}</Row>
-        //             <Row>{el.title}</Row>
-        //             <Row>{el.writer}</Row>
-        //             <Button onClick={onClickBtn(el)}>로컬 스토리지 장바구니 담기</Button>
-        //         </Col>
-        //     ))}
-        // </Col>
+    return( 
+    
+        <Col>
+            {data?.fetchBoards.map((el:any) => (
+                <Col key={el._id}>
+                    <Row>{el._id}</Row>
+                    <Row>{el.title}</Row>
+                    <Row>{el.writer}</Row>
+                    <Button onClick={onClickBasket(el)}>로컬 스토리지 장바구니 담기</Button>
+                </Col>
+            ))}
+        </Col>
     )
 }

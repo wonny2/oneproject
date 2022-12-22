@@ -15,7 +15,7 @@ export default function Slick() {
         autoplay: true,
         arrows: false,
         // vertical : true, // 세로 방향 슬라이드
-        afterChange: (slide:Number) => setCurrentSlide(slide,Number)
+        beforeChange: (slide:number) => setCurrentSlide(slide)
       };
 
       const items = [
@@ -33,11 +33,9 @@ export default function Slick() {
         <S.Wrapper>
             <Slider {...settings}>
                 {items.map((item) => (
-                    <>
                         <S.ImgWrap key={item.id}>
                             <img src={item.url} alt={item.url}/>
                         </S.ImgWrap>
-                    </>
                 ))}
             </Slider>
             <S.Num>{currentSlide + 1} / {items.length}</S.Num>

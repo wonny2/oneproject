@@ -2,6 +2,8 @@ import styled from "@emotion/styled";
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { HeartTwoTone } from '@ant-design/icons';
+import 'antd/dist/reset.css';
 
 
 export const Wrapper = styled.div`
@@ -34,6 +36,11 @@ export const RowWrap = styled.div`
 export const ImgWrap = styled.div`
     width:400px;
     height:400px;
+    /* display:flex;
+    flex-direction:column;
+    align-items: flex-end; */
+
+
     /* line-height:400px; // 이미지,dots빼고 arrow만 중앙정렬 됨 */
 
 
@@ -55,6 +62,21 @@ export const ImgWrap = styled.div`
     }
 `
 
+export const HeartIcon = styled(HeartTwoTone)`
+    font-size: 35px;
+`
+
+export const BasketBtn = styled.div`
+    width: 8rem;
+    height: 3rem;
+    line-height:3rem;
+    text-align:center;
+    color:white;
+    background-color: #6CAF66;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+`
 
 export const Img = styled.img`
     width:100%;
