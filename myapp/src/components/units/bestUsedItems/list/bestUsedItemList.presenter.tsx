@@ -16,9 +16,9 @@ export default function BestUsedItemPresenter(props: IBestBoardsPropsUI) {
                     {props.usedItems?.fetchUseditemsOfTheBest.map((item:any, index:number) => (
                         <L.Card key={item._id} onClick={props.onClickDetail} id={item.id}> 
                                 <L.Image id={item.id} src={`https://storage.googleapis.com/${item.images[0]}`} />
-                                <L.Name>{item.name}</L.Name>
-                                <L.Contents dangerouslySetInnerHTML={{__html: String(item.contents) }} />
-                                <L.Time>{getDate(item.createdAt)}</L.Time>
+                                <L.Name id={item.id}>{item.name}</L.Name>
+                                <L.Contents id={item.id} dangerouslySetInnerHTML={{__html: String(item.contents) }} />
+                                <L.Time id={item.id} >{getDate(item.createdAt)}</L.Time>
                         </L.Card>
                     ))}
                 </L.CardWrap>

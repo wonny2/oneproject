@@ -45,7 +45,6 @@ export const Title = styled.div`
 export const Quill = styled(ReactQuill)`
     width:100%;
     height: 20rem;
-    border:1px solid black;
 `
 
 export const ImgRowWrap = styled.div`
@@ -64,7 +63,7 @@ export const Boxes = styled.div`
 export const ListBtn = styled.div`
     width: 160px;
     height: 55px;
-    border: 3px solid green;
+    border: 3px solid rgba(30, 130, 76);
     border-radius: 50px;
     line-height:55px;
     text-align:center;
@@ -72,7 +71,7 @@ export const ListBtn = styled.div`
     font-size: 20px;
     
     :hover {
-        background-color: green;
+        background-color: rgba(30, 130, 76);
         color: white;
     }
 `
@@ -80,7 +79,7 @@ export const ListBtn = styled.div`
 export const SubmitBtn = styled.button`
     width: 160px;
     height: 55px;
-    border: 3px solid green;
+    border: 3px solid  rgba(30, 130, 76);
     border-radius: 50px;
     line-height:55px;
     text-align:center;
@@ -89,7 +88,7 @@ export const SubmitBtn = styled.button`
     cursor: pointer;
     
     :hover {
-        background-color: green;
+        background-color: rgba(30, 130, 76);
         color: white;
     }
 `
@@ -100,7 +99,6 @@ export const RowWrap = styled.div`
     flex-direction:row;
     justify-content:space-between;
     align-items:center;
-    border:1px solid black;
     margin-bottom:100px;
     cursor: pointer;    
 `

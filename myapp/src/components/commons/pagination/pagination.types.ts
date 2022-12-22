@@ -1,5 +1,5 @@
 import { ChangeEvent, MouseEvent } from "react"
-import { OperationVariables ,ApolloQueryResult } from "@apollo/client"
+
 
 export interface PaginationPropsUI {
     onClickPage: (event: any) => void
@@ -13,9 +13,10 @@ export interface PaginationPropsUI {
     MoveToPage: (event: MouseEvent<HTMLDivElement>) => void
     // keywordCheck: boolean
     onClickBasket: (basket: any) => () => void
-
+    // isActive : boolean;
+    onClickBtn: () => void
 }
 
 export interface PaginationBasketProps {
-    onClickBasket: (basket: any) => () => void
+    onClickBasket: (basket: any) => () => void;
 }

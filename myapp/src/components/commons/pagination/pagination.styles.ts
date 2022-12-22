@@ -1,10 +1,14 @@
 import styled from "@emotion/styled";
 import { breakPoints } from "../../../commons/styles/media";
-
+import {  HeartTwoTone } from '@ant-design/icons';
 
 export interface PaginationNum {
     backColor: boolean;
 }
+
+// export const HeartIcon = styled(HeartTwoTone)`
+//     color: ${(props:PaginationNum) => props.isActive ? "#eb2f96" : "#D3D3D3"};
+// `
 
 export const Wrapper = styled.div`
     margin-top:60px;

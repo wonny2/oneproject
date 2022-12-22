@@ -4,10 +4,17 @@ import { CREATE_USER } from './signup.queries'
 import * as S from './signup.styles'
 import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import { useState } from 'react'
+import { useRef, useEffect } from 'react'
 import { useRouter } from 'next/router'
 
 export default function SignUpPage() {
+
+    // const inputRef = useRef<HTMLInputElement>(null);
+    
+    // useEffect(() => {
+    //     inputRef.current.focus()
+    //     // console.log(inputRef)
+    // },[])
     
     const router = useRouter();
     const [createUser] = useMutation(CREATE_USER)
@@ -30,11 +37,6 @@ export default function SignUpPage() {
         resolver: yupResolver(schema),
         mode: 'onChange'
     });
-
-    // const onChangeValues = () => {
-    //     register.name
-    // }
-console.log(formState.isValid)
 
     const onClickSignUp = async (data:any) => {
         try {
@@ -70,6 +72,7 @@ console.log(formState.isValid)
                             type='text'
                             placeholder='@를 포함한 이메일을 입력해주세요'
                             {...register("email")}
+                            // ref={inputRef}
                             />
                     </S.ColumnWrap>
 

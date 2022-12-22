@@ -7,6 +7,7 @@
 
 import { gql, useQuery } from "@apollo/client"
 import styled from "@emotion/styled"
+import { useState } from "react"
 import {v4 as uuidv4} from 'uuid'
 import Pagination from "../pagination/pagination.container"
 
@@ -42,7 +43,8 @@ const Button = styled.button`
 export default function Basket() {
     
     const {data} = useQuery(FETCH_BOARDS);
-
+    const [isActive, setIsActive] = useState(false);
+    
 
 // const onClickBtn = a => b => {return a + b}
 
@@ -54,6 +56,9 @@ export default function Basket() {
 
 
     const onClickBasket = (basket:any) => () => {
+        setIsActive(true);
+        console.log("장바구니로!")
+
         console.log(basket)
 
         // 1. 기존 장바구니("basket"이란 이름을 가진) 데이터 가져오기!!!
@@ -72,11 +77,12 @@ export default function Basket() {
         const { __typename, ...rest } = basket; // __typename을 삭제하고 나머지 항목을 보여주기 위해서,, 라는데,, 기옥이,,,
         baskets.push(rest)
         localStorage.setItem("baskets", JSON.stringify(baskets)) // 로컬스토리지에 담을 때는 JSON방식으로 담아줘야 한다. {"name" : "길동"} => key값에도 따옴표!!
-    }
+    };
 
     return(
 
-            <Pagination onClickBasket={onClickBasket}/>
+            <Pagination
+                onClickBasket={onClickBasket} />
         // <Col>
         //     {data?.fetchBoards.map((el:any) => (
         //         <Col key={el._id}>

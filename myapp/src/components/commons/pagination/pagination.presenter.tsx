@@ -20,8 +20,8 @@ export default function PaginationPresenter(props:PaginationPropsUI) {
                                 <P.ContentsWrap  id={el._id}>
                                     <P.Title id={el._id}>{el.title}</P.Title>
                                     <P.Writer id={el._id}>{el.writer}</P.Writer>
-                                    <HeartTwoTone twoToneColor="#D3D3D3" />
-                                    {/* <HeartTwoTone twoToneColor="#D5D5D5" #eb2f96 /> */}
+                                    <HeartTwoTone id={el._id} onClick={props.onClickBasket(el._id)} twoToneColor="#d5d5d5" />
+                                    {/* <HeartTwoTone twoToneColor="#030303" #eb2f96 /> */}
                                     <P.Date id={el._id}>{getDate(el.createdAt)}</P.Date>
                             </P.ContentsWrap>
                         </P.ColumnWrap>
