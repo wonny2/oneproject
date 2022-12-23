@@ -5,8 +5,8 @@ import { useEffect, useRef, useState } from "react";
 import { IQuery, IQueryFetchBoardArgs } from "../../../../commons/types/generated/types";
 import BoardDetailPresenter from "./boardDetail.presenter";
 import { DELETE_BOARD, FETCH_BOARD } from "./boardDetail.queries"
-import { message } from "antd";
-import 'antd/dist/reset.css';
+import {  message } from 'antd';
+
 
 
 export default function BoardDetailContainer() {
@@ -15,6 +15,7 @@ export default function BoardDetailContainer() {
     const [deleteBoard] = useMutation(DELETE_BOARD)
 
     const [isActive, setIsActive] = useState(false);
+
 
     const {data} = useQuery<Pick<IQuery, "fetchBoard">, IQueryFetchBoardArgs>(FETCH_BOARD, {
         variables: {boardId: String(router.query.boardId)}
@@ -48,21 +49,16 @@ const onClickUpdate = () => {
 };
 
 
-const [messageApi, contextHolder] = message.useMessage();
-
-const onClickBasket = (basket:any) => () => {
-    console.log("클릭")
-    // console.log(basket)
-
-    
+const onClickBasket = (basket:any) => () => {   
             // 1. 기존 장바구니("basket"이란 이름을 가진) 데이터 가져오기!!!
             const baskets = JSON.parse(localStorage.getItem("baskets") || "[]")
             console.log(`초기 장바구니 확인하기 ${basket}`)
 
             // // 2. 이미 장바구니에 담겨져 있는 상품인지 확인하기
             const temp = baskets.filter((el:any) => el._id === basket._id)
+            
             if(temp.length === 1) {
-                alert("이미 담으신 물품입니다.")
+                message.error('이미 담으신 물품입니다.');
                 return;
             }
 
@@ -72,27 +68,16 @@ const onClickBasket = (basket:any) => () => {
             baskets.push(rest)
             localStorage.setItem("baskets", JSON.stringify(baskets)) // 로컬스토리지에 담을 때는 JSON방식으로 담아줘야 한다. {"name" : "길동"} => key값에도 따옴표!!
 
-
-        // messageApi.open({
-        //     type: 'success',
-        //     content: '장바구니 저장됨',
-        // });
+            // setAlready(prev => !prev)
+            message.success('장바구니에 담겼습니다.');
 };
 
 
-const success = () => {
-    messageApi.open({
-      type: 'success',
-      content: 'This is a success message',
-    });
-    console.log("클릭")
-  };
-
-const onClickCancelBtn = (board:object) => () => {
-    alert("장바구니에서 삭제하시겠습니까?")
-    setIsActive(prev => !prev)
-    localStorage.removeItem("baskets");
-};
+// const onClickCancelBtn = (board:object) => () => {
+//     message.success('장바구니에서 삭제되었습니다.');
+//     localStorage.removeItem("baskets");
+//     setAlready(prev => !prev)
+// };
 
 
     return(
@@ -103,8 +88,8 @@ const onClickCancelBtn = (board:object) => () => {
             onClickUpdate={onClickUpdate}
             onClickBasket={onClickBasket}
             isActive={isActive}
-            onClickCancelBtn={onClickCancelBtn}
-            success={success}
+            // alReady={alReady}
+            // onClickCancelBtn={onClickCancelBtn}
         />
     )
 }

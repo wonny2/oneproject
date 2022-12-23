@@ -7,7 +7,7 @@ import Slider from "react-slick"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Button } from 'antd';
-import 'antd/dist/reset.css';
+
 
 export default function BoardDetailPresenter(props: IBoardDetailUIProps) {
     const settings = {
@@ -57,7 +57,7 @@ export default function BoardDetailPresenter(props: IBoardDetailUIProps) {
                         <div style={{display: "flex", justifyContent:"end"}}>
 
                             {/* <D.BasketBtn>장바구니 담기</D.BasketBtn> */}
-                            <Button onClick={props.success}>장바구니 담기</Button>
+                            <Button onClick={props.onClickBasket(props.data?.fetchBoard)}>장바구니 담기</Button>
                         </div>
                     </D.ContentsWrap>
                 </D.RowWrap>

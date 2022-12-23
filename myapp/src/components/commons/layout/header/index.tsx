@@ -2,6 +2,8 @@ import { useRouter } from 'next/router'
 import * as H from './header.styles'
 import { useMutation, useQuery } from '@apollo/client';
 import { FETCH_USER_LOGGED_IN , LOG_OUT_USER} from './header.queries';
+import { useState } from 'react';
+import { Badge } from 'antd';
 
 export default function Header() {
 
@@ -33,6 +35,8 @@ export default function Header() {
         }
     };
 
+    const [show, setShow] = useState(true);
+
 
     return(
         <H.Wrapper>
@@ -43,7 +47,15 @@ export default function Header() {
                         ? <H.Title onClick={MoveToLogin}>로그인</H.Title>
                         : <H.Title onClick={Logout}>{data.fetchUserLoggedIn.name}님 <br/>로그아웃</H.Title>
                     }
-                    <H.Title onClick={MoveToSignUp}>회원가입</H.Title>
+                    {!data
+                        ? <H.Title onClick={MoveToSignUp}>회원가입</H.Title>
+                        :
+                        <H.BasketWrap>
+                            <H.Title>장바구니</H.Title>
+                            <Badge count={show ? 2 : 0} />
+                        </H.BasketWrap>
+                        
+                    }
                 </H.LogPart>
             </H.TitleWrap>
         </H.Wrapper>

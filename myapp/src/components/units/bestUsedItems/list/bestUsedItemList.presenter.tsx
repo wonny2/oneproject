@@ -12,7 +12,7 @@ export default function BestUsedItemPresenter(props: IBestBoardsPropsUI) {
                 <L.TopFour>Best UsedItem</L.TopFour>
                 <L.CardWrap>
                     {props.usedItems?.fetchUseditemsOfTheBest.map((item:any, index:number) => (
-                        <L.Card key={item._id} id={item._id} onClick={props.onClickDetail}> 
+                        <L.Card key={index} id={item._id} onClick={props.onClickDetail}> 
                                 <L.Image src={`https://storage.googleapis.com/${item.images[0]}`} />
                                 <L.Name>{item.name}</L.Name>
                                 <L.Contents dangerouslySetInnerHTML={{__html: String(item.contents) }} />

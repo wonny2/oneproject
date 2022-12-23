@@ -52,5 +52,14 @@ export const LogPart = styled.div`
     display:flex;
     justify-content:space-between;
     align-items:center;
-    width:120px;
+    width:170px;
+    border:1px solid black;
+`
+
+
+export const BasketWrap = styled.div`
+    width:47%;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
 `

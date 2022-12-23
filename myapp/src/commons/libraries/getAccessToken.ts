@@ -22,7 +22,6 @@ export async function getAccessToken() {
         
         // 새롭게 받은 accessToken임
         const newAccessToken = result.restoreAccessToken.accessToken // GraphqlClient는 result하고 data를 안 적어도 된다.
-    
             return newAccessToken;
 
     } catch(error) {

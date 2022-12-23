@@ -37,8 +37,8 @@ useEffect(() => {
   getAccessToken().then((newAccessToken) => {
     setAccessToken(newAccessToken)
   })
-  console.log("새로고침할 때마다 반짤")
-},[])
+  console.log(accessToken)
+},[]);
 
 
     // onError는 Apollo-client/link에 있는 기능

@@ -101,9 +101,6 @@ export const Card = styled.div`
     border-radius:15px;
     transition: all 0.2s ease-out;
     cursor: pointer;
-    z-index: 999;
-
-
 
     :hover{
         transform: translateY(-20px);
