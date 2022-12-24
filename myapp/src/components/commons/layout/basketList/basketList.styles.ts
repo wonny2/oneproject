@@ -6,22 +6,25 @@ export const Wrapper = styled.div`
     flex-direction:column;
     align-items:center;
     width:120px;
-    height:250px;
+    height:270px;
     padding:10px;
     border: 3px solid black;
     z-index: 999;
     position:fixed;
     top:550px;
     right: 50px;
-    z-index:999;
+    background-color: lightcyan;
     /* top: 600px; */
 `
 
 export const Title = styled.div`
     font-size: 18px;
+    margin-bottom: 10px;
 `
 
 export const Item = styled.img`
-    width: 100%;
+    width: 5rem;
     height: 60px;
+    margin-bottom:10px;
+    z-index:999;
 `

@@ -55,7 +55,7 @@ const onClickBasket = (basket:any) => () => {
             console.log(`초기 장바구니 확인하기 ${basket}`)
 
             // // 2. 이미 장바구니에 담겨져 있는 상품인지 확인하기
-            const temp = baskets.filter((el:any) => el._id === basket._id)
+            let temp = baskets.filter((el:any) => el._id === basket._id)
             
             if(temp.length === 1) {
                 message.error('이미 담으신 물품입니다.');
@@ -66,12 +66,21 @@ const onClickBasket = (basket:any) => () => {
             // 장바구니에 추구할 게시글 데이터(el)에서 필요없는 내용을 제거한다.
             const { __typename, ...rest } = basket; // __typename을 삭제하고 나머지 항목을 보여주기 위해서,, 라는데,, 기옥이,,,
             baskets.push(rest)
+
+            // if(temp.length >= 3) {
+            //     const resultList = [];
+            //     for(let i = temp.length - 3; i < temp.length; i++){
+            //         resultList.push(temp[i]);
+            //     }
+            //         temp = resultList
+            // };
+
             localStorage.setItem("baskets", JSON.stringify(baskets)) // 로컬스토리지에 담을 때는 JSON방식으로 담아줘야 한다. {"name" : "길동"} => key값에도 따옴표!!
 
             // setAlready(prev => !prev)
             message.success('장바구니에 담겼습니다.');
-};
 
+};
 
 // const onClickCancelBtn = (board:object) => () => {
 //     message.success('장바구니에서 삭제되었습니다.');
