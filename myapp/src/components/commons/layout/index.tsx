@@ -3,6 +3,7 @@ import styled from "@emotion/styled"
 import { ReactNode } from "react";
 import Slick from "../slick";
 import { useRouter } from "next/router";
+import BasketList from "./basketList";
 
 
 const Body = styled.div`
@@ -29,6 +30,7 @@ export default function Layout(props: ILayoutProps) {
         <>
             {/* {!hiddenHeader && <Header />} */}
             <Header />
+            <BasketList />
             <Body>{props.children}</Body>
         </>
     )
