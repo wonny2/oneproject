@@ -16,23 +16,23 @@ export default function BasketList() {
     // console.log(num)
 
     // 이건 값이 뜨는데
-    // console.log(baskets.filter(item => item).map((el,index) => el)[0].images)
+    console.log(baskets)
 
     // 뒤에 [0]붙이면 undefined나옴
     // console.log(baskets.filter(item => item).map((el) => el[0]))
+    // 하아,, 왜냐하면 el얘는 객체쟈나!!!!!! 안경까지 쓰고 뭘 보는 거니...? 당연히 undefined지!!!
+    // 그리고 filter를 굳이 붙일 이유가 없음,,하아,,
 
-    // console.log(`https://storage.googleapis.com/${baskets[0].images.filter(item => item)}`)
+    
 
     return(
         <B.Wrapper>
             <B.Title>장바구니</B.Title>
-            {baskets.filter((item:any) => item).map((el:any ,index:number) => (
+            {baskets.map((el:any ,index:number) => (
                     <>
-                    <div>{el._id}</div>
                     <div>{el.title}</div>
-                    <div>{el.contents}</div>
                     {/* <img src={"https://storage.googleapis.com/codecamp-file-storage/2022/12/22/영국사진1.jpeg"} /> */}
-                    <img src={`https://storage.googleapis.com/${el.images}`} />
+                    <B.Item src={`https://storage.googleapis.com/${el.images.filter(item => item)}`} />
                     </>
             ))}
         </B.Wrapper>
