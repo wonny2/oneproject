@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
     width:120px;
     height:270px;
     padding:10px;
-    border: 3px solid black;
+    border: 1px solid black;
     z-index: 999;
     position:fixed;
     top:550px;
@@ -19,12 +19,12 @@ export const Wrapper = styled.div`
 
 export const Title = styled.div`
     font-size: 18px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 `
 
 export const Item = styled.img`
-    width: 5rem;
-    height: 60px;
-    margin-bottom:10px;
-    z-index:999;
+    width: 80px;
+    height: 70px;
+    margin-bottom:20px;
+    object-fit: cover;
 `

@@ -53,7 +53,6 @@ export const LogPart = styled.div`
     justify-content:space-between;
     align-items:center;
     width:170px;
-    border:1px solid black;
 `
 
 

@@ -85,29 +85,35 @@ export default function CommentListItemsPresenter(props:ICommentItemProps) {
     return(
         <C.Wrapper>
             <C.RowWrap>
-                <C.Text>댓글</C.Text>
-                <C.UpdateBtn onClick={show}>수정</C.UpdateBtn>
-                {isEdit
-                    ?
-                                       
-                        <>
-                            수정할 내용 : <input onChange={onChangeContents}type="text"/> 
-                            댓글 비밀번호 :<input onChange={onChangePassword} type="password" />
-                            <button onClick={onClickUpdateComment}>수정하기</button>
-                        </>
-
-                    :
-                        <></>}
+                <C.TopWrap>
+                    <C.Text>댓글</C.Text>
+                    <C.UpdateOpenBtn onClick={show}>{isEdit ? "닫 기" : "수 정"}</C.UpdateOpenBtn>
+                </C.TopWrap>
                 <ModalContainer 
                     onChangePassword={onChangePassword}
                     onClickDeleteComment={onClickDeleteComment}
                     open={open}
-                    onClickOpen={onClickOpen}
-                            />
+                    onClickOpen={onClickOpen} />
             </C.RowWrap>
-            <C.Writer>{props.el._id}</C.Writer>
+                {isEdit
+                    ?             
+                        <C.UpdateCommentWrap>
+                            <C.ContentsWrap>
+                                <C.Text2>수정할 내용</C.Text2>
+                                <C.Inputs onChange={onChangeContents}type="text"/> 
+                            </C.ContentsWrap>
+                            
+                            <C.ContentsWrap>
+                                <C.Text2>댓글 비밀번호</C.Text2>
+                                <C.Inputs onChange={onChangePassword} type="password" />
+                            </C.ContentsWrap>
+                            <div style={{display:"flex", justifyContent:"end"}}>
+                                <C.UpdateBtn onClick={onClickUpdateComment}>수 정 하 기</C.UpdateBtn>
+                            </div>
+                        </C.UpdateCommentWrap>
+                    : <></>}            
             {props.isBoard ?
-                <Rate allowHalf value={props.el.rating} defaultValue={2.5}/>
+                <Rate allowHalf value={props.el.rating} defaultValue={2.5} />
                 :
                 <></>}
             {/* Rate -> value에 값을 넣어야 별점이 고정된다. */}

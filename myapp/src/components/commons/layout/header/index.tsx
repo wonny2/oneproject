@@ -23,6 +23,10 @@ export default function Header() {
     const MoveToSignUp = () => {
         router.push('/boards/signup')
     }
+    
+    const MoveToBaskets = () => {
+        router.push('/boards/baskets')
+    }
 
     const Logout = async () => {
         try{
@@ -51,7 +55,7 @@ export default function Header() {
                         ? <H.Title onClick={MoveToSignUp}>회원가입</H.Title>
                         :
                         <H.BasketWrap>
-                            <H.Title>장바구니</H.Title>
+                            <H.Title onClick={MoveToBaskets}>장바구니</H.Title>
                             <Badge count={show ? 2 : 0} />
                         </H.BasketWrap>
                         

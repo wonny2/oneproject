@@ -33,7 +33,7 @@ export const ContentWrap = styled.div`
         height: 3.15rem;
         font-size: 20px;
         outline-color: black;
-        
+        padding-left:20px;
     }
 `
 
@@ -60,24 +60,26 @@ export const Boxes = styled.div`
     height:100px;
 `
 
-export const ListBtn = styled.div`
-    width: 160px;
-    height: 55px;
-    border: 3px solid rgba(30, 130, 76);
-    border-radius: 50px;
-    line-height:55px;
-    text-align:center;
-    background-color: #fff;
-    font-size: 20px;
-    
-    :hover {
-        background-color: rgba(30, 130, 76);
-        color: white;
-    }
+export const RowWrap = styled.div`
+    width: 10rem;
+    display:flex;
+    align-items:center;
+    margin-bottom:100px;
+    cursor: pointer;    
 `
 
-export const SubmitBtn = styled.button`
-    width: 160px;
+export const ButtonWrap = styled.div`
+    width: 18rem;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:100px;
+    cursor: pointer; 
+`
+
+export const Buttons = styled.button`
+    width: 8.125rem;
     height: 55px;
     border: 3px solid  rgba(30, 130, 76);
     border-radius: 50px;
@@ -93,18 +95,8 @@ export const SubmitBtn = styled.button`
     }
 `
 
-export const RowWrap = styled.div`
-    width: 350px;
-    display:flex;
-    flex-direction:row;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:100px;
-    cursor: pointer;    
-`
-
 export const ErrorMsg = styled.div`
     color: red;
-    font-size:12px;
+    font-size: 12px;
     margin-left: 10px;
 `

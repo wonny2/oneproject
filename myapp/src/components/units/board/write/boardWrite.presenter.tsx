@@ -28,13 +28,13 @@ export default function BoardWritePresenter(props: IBoardsWritePropsUI) {
 
                 <W.ContentWrap>
                     <W.RowWrap>
-                        <div>태그</div>
+                        <div>작성자</div>
                         <W.ErrorMsg>{props.formState.errors.writer?.message}</W.ErrorMsg>
                     </W.RowWrap>
                     <input
                         {...props.register("writer")}
                         type="text"
-                        placeholder='#태그를 입력해주세요'
+                        placeholder='작성자를 입력해주세요'
                         defaultValue={props.data?.fetchBoard.writer || ""}
                         />
                 </W.ContentWrap>
@@ -61,10 +61,10 @@ export default function BoardWritePresenter(props: IBoardsWritePropsUI) {
                         />
                     ))}
                 </W.ImgRowWrap>
-                <W.RowWrap>
-                    <W.ListBtn onClick={props.MoveToList}>목 록 으 로</W.ListBtn>
-                    <W.SubmitBtn>{props.isEdit ? '수 정 하 기' : '등 록 하 기'}</W.SubmitBtn>
-                </W.RowWrap>
+                <W.ButtonWrap>
+                    <W.Buttons onClick={props.MoveToList}>목 록 으 로</W.Buttons>
+                    <W.Buttons>{props.isEdit ? '수 정 하 기' : '등 록 하 기'}</W.Buttons>
+                </W.ButtonWrap>
 
             </W.SecondWrap>
             </form>
