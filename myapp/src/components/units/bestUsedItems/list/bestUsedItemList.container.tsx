@@ -17,7 +17,6 @@ const MoveToWrite = () => {
 const onClickDetail = (event: MouseEvent<HTMLDivElement>) => {
         if(!(event.currentTarget instanceof HTMLDivElement)) return;
         router.push(`/bestItems/${event.currentTarget.id}`)
-        console.log("클릭")
     };
 
     return(

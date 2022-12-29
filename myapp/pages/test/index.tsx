@@ -22,7 +22,6 @@ export default function TestPage() {
           type: 'success',
           content: 'This is a success message',
         });
-        console.log("클릭")
       };
 
     

@@ -5,7 +5,7 @@ import { useRecoilState } from "recoil"
 import { accessTokenState } from "../../../commons/atom"
 import { IMutation, IMutationLoginUserArgs, IMutationLoginUserExampleArgs } from "../../../commons/types/generated/types"
 import LoginPresenter from "./login.presenter"
-import { LOGIN_USER, LOGIN_USER_EXAMPLE } from "./login.queries"
+import { LOGIN_USER } from "./login.queries"
 
 
 
@@ -58,9 +58,11 @@ export default function LoginContainer() {
                 return alert("로그인을 다시 시도해주세요")
             };
 
+            console.log("토큰여기!" + accessToken);
+
             setAccessToken(accessToken);
             alert("로그인 성공하였습니다");
-            router.push("/")
+            // router.push("/")
         }catch(error){
             if(error instanceof Error) {
                 alert("로그인을 다시 시도해주세요")

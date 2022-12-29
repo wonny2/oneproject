@@ -21,8 +21,6 @@ export default function BoardDetailContainer() {
         variables: {boardId: String(router.query.boardId)}
     });
 
-    console.log(data?.fetchBoard.images)
-
     const onClickMoveToList = () => {
         router.push('/')
     }
@@ -52,10 +50,11 @@ const onClickUpdate = () => {
 const onClickBasket = (basket:any) => () => {   
             // 1. 기존 장바구니("basket"이란 이름을 가진) 데이터 가져오기!!!
             const baskets = JSON.parse(localStorage.getItem("baskets") || "[]")
-            console.log(`초기 장바구니 확인하기 ${basket}`)
 
             // // 2. 이미 장바구니에 담겨져 있는 상품인지 확인하기
             let temp = baskets.filter((el:any) => el._id === basket._id)
+
+            console.log(baskets.filter((el:any) => el._id === basket._id))
             
             if(temp.length === 1) {
                 message.error('이미 담으신 물품입니다.');
@@ -81,12 +80,6 @@ const onClickBasket = (basket:any) => () => {
             message.success('장바구니에 담겼습니다.');
 
 };
-
-// const onClickCancelBtn = (board:object) => () => {
-//     message.success('장바구니에서 삭제되었습니다.');
-//     localStorage.removeItem("baskets");
-//     setAlready(prev => !prev)
-// };
 
 
     return(

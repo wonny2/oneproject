@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react"
 import styled from "@emotion/styled"
+import { basketsLength } from "../../../src/commons/atom"
+import { useRecoilState } from "recoil"
+import {  message } from 'antd';
+
 
 const Wrapper = styled.div`
     width: 100%;
@@ -48,26 +52,42 @@ const Contents = styled.div`
 export default function BasketsPage() {
 
 const [basketsList, setBasketsList] = useState([] as any)
-
+const [basketLength, setBasketLength] = useRecoilState(basketsLength)
 
 
 useEffect(() => {
     // 장바구니에 들어가 있는 객체들(값들)
     const result = JSON.parse(localStorage.getItem("baskets") || "[]")
     setBasketsList(result)
+    setBasketLength(result.length)
 },[])
+
+
+
+// const onClickCancelBtn = (board:any) => () => {
+//     const baskets = JSON.parse(localStorage.getItem("baskets") || "[]")
+
+//     let temp = baskets.filter((el:any) => el._id === board._id)
+
+//     if(temp) {
+//         localStorage.removeItem("baskets")
+//     }
+// };
 
 
     return(
         <Wrapper>
             <Basket>장바구니 목록</Basket>
-            {basketsList.map((el:any) => (
-                <SecondWrap>
+            {basketsList.length >= 1 ? basketsList.map((el:any, index:number) => (
+                <SecondWrap key={index}>
                     <Title>{el.title}</Title>
                     <Contents>{el.writer}</Contents>
                     <Contents dangerouslySetInnerHTML={{__html: String(el.contents) }} />
                 </SecondWrap>
-            ))}
+            ))
+                :
+                <div>장바구니가 비었습니다.</div>
+        }
         </Wrapper>
     )
 }

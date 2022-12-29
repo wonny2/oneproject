@@ -10,3 +10,8 @@ export const accessTokenState = atom({
     key: "accessTokenState",
     default: "",
 });
+
+export const basketsLength = atom({
+    key: "basketsLength",
+    default: 0,
+});

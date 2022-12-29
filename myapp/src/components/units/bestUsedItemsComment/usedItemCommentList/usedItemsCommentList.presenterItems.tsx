@@ -34,8 +34,6 @@ export default function UsedItemsCommentPresenterItems(props:IPresenterItemsProp
     const answers = data?.fetchUseditemQuestionAnswers.map((i:any) => i.contents);
     const names = data?.fetchUseditemQuestionAnswers.map((i:any) => i.user.name)
     const createdAt = data?.fetchUseditemQuestionAnswers.map((i:any) => i.createdAt)
-
-    console.log(createdAt)
     
     // console.log(data?.fetchUseditemQuestionAnswers[0]?.user.name);
     // console.log(data?.fetchUseditemQuestionAnswers)

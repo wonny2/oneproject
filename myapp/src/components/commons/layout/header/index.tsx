@@ -4,6 +4,9 @@ import { useMutation, useQuery } from '@apollo/client';
 import { FETCH_USER_LOGGED_IN , LOG_OUT_USER} from './header.queries';
 import { useState } from 'react';
 import { Badge } from 'antd';
+import { basketsLength } from '../../../../commons/atom';
+import { useRecoilState } from 'recoil';
+
 
 export default function Header() {
 
@@ -41,6 +44,7 @@ export default function Header() {
 
     const [show, setShow] = useState(true);
 
+    const [count,setCount] = useRecoilState(basketsLength)
 
     return(
         <H.Wrapper>
@@ -56,7 +60,7 @@ export default function Header() {
                         :
                         <H.BasketWrap>
                             <H.Title onClick={MoveToBaskets}>장바구니</H.Title>
-                            <Badge count={show ? 2 : 0} />
+                            <Badge count={count} />
                         </H.BasketWrap>
                         
                     }

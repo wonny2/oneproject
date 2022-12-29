@@ -133,6 +133,8 @@ export const Name = styled.div`
 export const Contents = styled.div`
     font-size:15px;
     margin-bottom: 15px;
+    overflow:hidden;
+    height: 18px;
 `
 
 export const Time = styled.div`

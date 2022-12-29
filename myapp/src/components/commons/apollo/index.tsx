@@ -9,7 +9,7 @@ import { useEffect , ReactNode} from "react";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../../commons/atom";
 import { getAccessToken } from "../../../commons/libraries/getAccessToken";
-
+import { basketsLength } from "../../../commons/atom";
 
 
 interface IApolloSettingProps {
@@ -19,25 +19,16 @@ interface IApolloSettingProps {
 export default function ApolloSetting(props: IApolloSettingProps) {
     
     const APOLLO_CACHE = new InMemoryCache()
-    const [accessToken, setAccessToken] = useRecoilState(accessTokenState)
-
-//     // 새로운 accessToken 발급해주는 API
-//     const RESTORE_ACCESS_TOKEN = gql`
-//       mutation restoreAccessToken {
-//         restoreAccessToken {
-//           accessToken
-//         }
-//       }
-// `
+    const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
 
 // 이 부분이 있어야 로그인 후 새로고침 할 때 state값이 안 날라감!!!
 // 프리렌더링이 이루워질 때에는 LocalStorage(브라우저영역)가 존재하지 않기 때문에 오류가 발생함
 // 브라우저에서 페이지가 새로고침시에 해당 코드가 실행되도록..!
+
 useEffect(() => {
   getAccessToken().then((newAccessToken) => {
     setAccessToken(newAccessToken)
   })
-  console.log(accessToken)
 },[]);
 
 
@@ -82,7 +73,7 @@ useEffect(() => {
   
     // apollo 업로드&인증 셋팅 
     const uploadLink = createUploadLink({
-      uri: "https://backend08.codebootcamp.co.kr/graphql",
+      uri: "https://backend10.codebootcamp.co.kr/graphql",
       headers: { Authorization : `Bearer ${accessToken}` },
       credentials: "include",    // credentials는 백엔드와 쿠키를 주고 받을 때 "쿠키에 담겨져 있는 내용은 중요하다."라고 알리는 기능. 이 부분이 있어야 백엔드에 전달이 된다.
     });
