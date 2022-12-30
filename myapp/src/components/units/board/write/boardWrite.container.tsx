@@ -110,7 +110,6 @@ export default function BoardWriteContainer(props:any) {
             })
             console.log(data.contents);
             alert("수정되었습니다.");
-            alert(`${updatedValue.title}`)
             router.push(`/boards/${result.data?.updateBoard._id}`);
         } catch(error) {
             if(error instanceof Error) {

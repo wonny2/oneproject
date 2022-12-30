@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import * as H from './header.styles'
 import { useMutation, useQuery } from '@apollo/client';
 import { FETCH_USER_LOGGED_IN , LOG_OUT_USER} from './header.queries';
-import { useState } from 'react';
+import { useState} from 'react';
 import { Badge } from 'antd';
 import { basketsLength } from '../../../../commons/atom';
 import { useRecoilState } from 'recoil';
@@ -12,6 +12,10 @@ export default function Header() {
 
     const {data} = useQuery(FETCH_USER_LOGGED_IN)
     const [logoutUser] = useMutation(LOG_OUT_USER)
+
+
+
+    const [basketLength, setBasketLength] = useRecoilState(basketsLength)
 
     const router = useRouter();
 
@@ -61,6 +65,7 @@ export default function Header() {
                         <H.BasketWrap>
                             <H.Title onClick={MoveToBaskets}>장바구니</H.Title>
                             <Badge count={count} />
+                            {/* <div>{count}</div> */}
                         </H.BasketWrap>
                         
                     }

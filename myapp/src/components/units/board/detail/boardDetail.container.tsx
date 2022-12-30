@@ -6,6 +6,9 @@ import { IQuery, IQueryFetchBoardArgs } from "../../../../commons/types/generate
 import BoardDetailPresenter from "./boardDetail.presenter";
 import { DELETE_BOARD, FETCH_BOARD } from "./boardDetail.queries"
 import {  message } from 'antd';
+import { useRecoilState } from "recoil";
+import { basketsLength } from "../../../../commons/atom";
+
 
 
 
@@ -13,6 +16,7 @@ export default function BoardDetailContainer() {
     const router = useRouter();
 
     const [deleteBoard] = useMutation(DELETE_BOARD)
+
 
     const [isActive, setIsActive] = useState(false);
 
@@ -53,8 +57,6 @@ const onClickBasket = (basket:any) => () => {
 
             // // 2. 이미 장바구니에 담겨져 있는 상품인지 확인하기
             let temp = baskets.filter((el:any) => el._id === basket._id)
-
-            console.log(baskets.filter((el:any) => el._id === basket._id))
             
             if(temp.length === 1) {
                 message.error('이미 담으신 물품입니다.');

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import styled from "@emotion/styled"
 import { basketsLength } from "../../../src/commons/atom"
 import { useRecoilState } from "recoil"
-import {  message } from 'antd';
+
 
 
 const Wrapper = styled.div`
@@ -45,8 +45,6 @@ const Contents = styled.div`
     text-overflow: ellipsis;
     overflow:hidden;
     white-space:nowrap;
-    /* border: 1px solid rgba(30, 130, 76);
-    border-radius:10px; */
 `
 
 export default function BasketsPage() {

@@ -5,11 +5,11 @@
 import { ApolloClient, ApolloLink, ApolloProvider, fromPromise, gql, InMemoryCache } from "@apollo/client";
 import {onError} from '@apollo/client/link/error'
 import { createUploadLink } from "apollo-upload-client";
-import { useEffect , ReactNode} from "react";
+import { useEffect , ReactNode, useState} from "react";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../../commons/atom";
 import { getAccessToken } from "../../../commons/libraries/getAccessToken";
-import { basketsLength } from "../../../commons/atom";
+
 
 
 interface IApolloSettingProps {
@@ -20,6 +20,7 @@ export default function ApolloSetting(props: IApolloSettingProps) {
     
     const APOLLO_CACHE = new InMemoryCache()
     const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
+
 
 // 이 부분이 있어야 로그인 후 새로고침 할 때 state값이 안 날라감!!!
 // 프리렌더링이 이루워질 때에는 LocalStorage(브라우저영역)가 존재하지 않기 때문에 오류가 발생함
@@ -32,9 +33,7 @@ useEffect(() => {
 },[]);
 
 
-    // onError는 Apollo-client/link에 있는 기능
-    // error가 발생하면 이 함수가 활성화 된다.
-    const errorLink = onError(({graphQLErrors , operation, forward}) => {
+const errorLink = onError(({graphQLErrors , operation, forward}) => {
       // Apollo를 활용한 useQuery, useMutation에 에러가 생길 때 이 부분이 실행된다. (axios는 상관이 없다.)
 
       // 1-1. 1단계 | 에러를 캐치하기
@@ -85,6 +84,14 @@ useEffect(() => {
       cache: APOLLO_CACHE,
       connectToDevTools: true,
     })
+
+
+    const [length, setLength] = useState()
+
+    useEffect(() => {
+      const result = JSON.parse(localStorage.getItem("baskets") || "[]").length
+      setLength(result)
+    },[])
 
     return(
         <ApolloProvider client={client}>
