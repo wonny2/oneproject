@@ -19,11 +19,11 @@ export default function Slick() {
       };
 
       const items = [
-        { id: 1, url: "https://cdn.pixabay.com/photo/2017/09/25/13/12/puppy-2785074_1280.jpg"},
-        { id: 2, url: "https://images.mypetlife.co.kr/content/uploads/2021/10/26155738/flouffy-DI6blvti51g-unsplash-edited-scaled.jpg" },
-        { id: 3, url: "https://images.mypetlife.co.kr/content/uploads/2021/10/26160036/pexels-ron-lach-9985937-edited-scaled.jpg" },
-        { id: 4, url: "https://images.mypetlife.co.kr/content/uploads/2021/10/26155651/nathan-hanna-7hxC83Qcuwo-unsplash-edited-scaled.jpg" },
-        { id: 5, url: "https://p4.wallpaperbetter.com/wallpaper/663/437/134/best-friends-bulldog-cute-dog-photos-dog-images-wallpaper-preview.jpg" }
+        { id: 1, url: "/images/1.jpeg"},
+        { id: 2, url: "/images/2.png" },
+        { id: 3, url: "/images/3.png" },
+        { id: 4, url: "/images/4.png" },
+        { id: 5, url: "/images/5.png" }
       ];
 
       const [currentSlide, setCurrentSlide] = useState(0)
