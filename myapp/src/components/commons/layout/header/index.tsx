@@ -38,6 +38,7 @@ export default function Header() {
     const Logout = async () => {
         try{
             await logoutUser()
+            router.push('/')
             location.reload()
         } catch(error) {
             if(error instanceof Error){

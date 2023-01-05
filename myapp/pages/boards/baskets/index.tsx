@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import styled from "@emotion/styled"
 import { basketsLength } from "../../../src/commons/atom"
 import { useRecoilState } from "recoil"
-
+import { Color } from "../../../src/commons/utils/utils"
 
 
 const Wrapper = styled.div`
@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 const SecondWrap = styled.div`
     width: 300px;
     height: 200px;
-    border: 3px solid rgba(30, 130, 76);
+    border: 3px solid ${Color.colors.green};
     border-radius:10px;
     margin-bottom: 50px;
     text-align:center;
@@ -29,7 +29,7 @@ const Basket = styled.div`
 const Title = styled.div`
     font-size: 25px;
     font-weight: 700;
-    border-bottom: 2px solid rgba(30, 130, 76);
+    border-bottom: 2px solid ${Color.colors.green};
     padding: 0 20px;
     height: 50px;
     line-height: 50px;

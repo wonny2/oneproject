@@ -1,3 +1,4 @@
+import { Color } from "../../../../commons/utils/utils";
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
@@ -68,7 +69,7 @@ export const CommentOpen = styled.div`
     height: 40px;
     line-height:40px;
     text-align:center;
-    background-color: rgba(30, 130, 76);
+    background-color: ${Color.colors.green};
     border-radius: 10px;
     color: white;
     cursor: pointer;
@@ -96,7 +97,7 @@ export const AnswerBtn = styled.div`
     height: 30px;
     line-height:30px;
     text-align:center;
-    background-color: rgba(30, 130, 76);
+    background-color: ${Color.colors.green};
     border-radius: 10px;
     color: white;
     margin-left: 40px;

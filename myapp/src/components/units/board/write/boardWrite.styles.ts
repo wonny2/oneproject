@@ -1,3 +1,4 @@
+import { Color } from "../../../../commons/utils/utils";
 import styled from "@emotion/styled";
 import dynamic from "next/dynamic";
 import 'react-quill/dist/quill.snow.css';
@@ -81,7 +82,7 @@ export const ButtonWrap = styled.div`
 export const Buttons = styled.button`
     width: 8.125rem;
     height: 55px;
-    border: 3px solid  rgba(30, 130, 76);
+    border: 3px solid ${Color.colors.green};
     border-radius: 50px;
     line-height:55px;
     text-align:center;
@@ -90,7 +91,7 @@ export const Buttons = styled.button`
     cursor: pointer;
     
     :hover {
-        background-color: rgba(30, 130, 76);
+        background-color: ${Color.colors.green};
         color: white;
     }
 `

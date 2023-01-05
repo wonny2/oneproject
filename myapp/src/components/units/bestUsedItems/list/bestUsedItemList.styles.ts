@@ -1,3 +1,4 @@
+import { Color } from "../../../../commons/utils/utils";
 import { breakPoints } from "../../../../commons/styles/media";
 import styled from "@emotion/styled";
 
@@ -126,7 +127,7 @@ export const Image = styled.img`
 export const Name = styled.div`
     font-size:23px;
     font-weight: 700;
-    color: rgba(30, 130, 76);
+    color: ${Color.colors.green};
     margin-bottom: 15px;
 `
 
@@ -149,7 +150,7 @@ export const Time = styled.div`
 export const MenuBar = styled.div`
     width:100%;
     height: 2.6rem;
-    background-color: rgba(30, 130, 76);
+    background-color: ${Color.colors.green};
     display:flex;
     justify-content:end;
     align-items:center;

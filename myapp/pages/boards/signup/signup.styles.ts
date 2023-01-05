@@ -1,4 +1,6 @@
 import styled from "@emotion/styled";
+import { Color } from "../../../src/commons/utils/utils";
+
 
 interface BackColorProps {
     isActive: boolean;
@@ -40,7 +42,7 @@ export const Belt = styled.div`
     line-height: 3.42rem;
     color: white;
     font-size: 30px;
-    background-color: rgba(30, 130, 76);
+    background-color: ${Color.colors.green};
     padding:0 20px;
 `
 
@@ -56,7 +58,7 @@ export const Inputs = styled.input`
     height:2rem;
     padding-left:15px;
     border-radius:10px;
-    border: 1px solid rgba(30, 130, 76);
+    border: 1px solid ${Color.colors.green};
 `
 
 export const SignUpBtn = styled.button`
@@ -65,7 +67,7 @@ export const SignUpBtn = styled.button`
     line-height: 2.47rem;
     text-align:center;
     font-size: 18px;
-    border: 2px solid rgba(30, 130, 76);
+    border: 2px solid ${Color.colors.green};
     border-radius: 10px;
     cursor: pointer;
     /* background-color: white; */

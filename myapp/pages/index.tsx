@@ -1,46 +1,39 @@
-import styled from '@emotion/styled'
-import BestUsedItemContainer from '../src/components/units/bestUsedItems/list/bestUsedItemList.container';
-import Pagination from '../src/components/commons/pagination/pagination.container';
-import Slick from '../src/components/commons/slick';
-import { css } from '@emotion/react'; 
-import { useState } from 'react';
+import LandingFirst from "../src/components/commons/landing/landingFirst";
+import styled from "@emotion/styled";
+import { useCallback, useState } from "react";
+import LandingSecond from "../src/components/commons/landing/landingSecond";
+import LandingThird from "../src/components/commons/landing/landingThird";
 
 
-const Wrapper = styled.div`
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+const Wrapper = styled.section`
+    overflow: scroll;
+    scroll-snap-type: y mandatory; // 한 페이지씩 보이도록 scroll조정!
     width:100%;
-    /* background-color: black; */
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
 
-    @media (prefers-color-scheme: dark) {
+    ::-webkit-scrollbar { // 스크롤바 안보이게 함!
+    width: 0;
+    background-color: transparent;
+  }
 
-        body {
-            background-color: black;
-        }
-    }
-`
-
-const darkMode = css`
-    body {
-        background-color: black;
+    & > div {
+        scroll-snap-align: start;
     }
 `
 
 
 export default function Main() {
 
-    const [toggle, setToggle] = useState(false)
-
-    const onClick = () => {
-        setToggle(prev => !prev)
-    }
-
     return(
         <Wrapper>
-            <Slick />
-            <BestUsedItemContainer />
-            <Pagination />
+            <LandingFirst />
+            <LandingSecond />
+            <LandingThird />
         </Wrapper>
     )
-}
+};

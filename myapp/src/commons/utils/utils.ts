@@ -145,4 +145,38 @@ function timeForToday(value: any) {
     }
 
     return `${Math.floor(betweenTimeDay / 365)}년전`;
+};
+
+export const Color = {
+    colors: {
+        white: "#fff",
+        green: "rgba(30, 130, 76)",
+        lightGreen: "rgba(107, 182, 142)",
+        green1: "#a3d5a3"
+    }
 }
+
+export const FontList = {
+    // fonts: {
+    //     first: `@font-face {
+    //                 font-family: 'KyoboHandwriting2021sjy';
+    //                 src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KyoboHandwriting2021sjy.woff2') format('woff2');
+    //                 font-weight: normal;
+    //                 font-style: normal;}`,
+    // }
+    fonts: [
+       ` @font-face {
+        font-family: 'KyoboHandwriting2021sjy';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KyoboHandwriting2021sjy.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }`,
+        `@font-face {
+            font-family: "EarlyFontDiary";
+            src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_220508@1.0/EarlyFontDiary.woff2")
+              format("woff2");
+            font-weight: normal;
+            font-style: normal;
+          }`
+    ]
+    }

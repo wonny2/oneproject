@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 import { breakPoints } from "../../../commons/styles/media";
 import {  HeartTwoTone } from '@ant-design/icons';
+import { Color } from "../../../commons/utils/utils";
+
 
 export interface PaginationNum {
     backColor: boolean;
@@ -47,7 +49,7 @@ export const Input = styled.input`
     font-size:13px;
 
     :focus {
-        border-color:rgba(30, 130, 76);
+        border-color: ${Color.colors.green};
         outline:none;
     }
 
@@ -108,7 +110,7 @@ export const ContentsWrap = styled.div`
 
 export const Title = styled.div`
     font-size: 20px;
-    color: rgba(30, 130, 76);
+    color: ${Color.colors.green};
     font-weight: 700;
     margin-bottom: 15px;
     overflow:hidden;

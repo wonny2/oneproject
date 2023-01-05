@@ -1,3 +1,4 @@
+import { Color } from "../../../../commons/utils/utils";
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
@@ -33,7 +34,7 @@ export const UpdateOpenBtn = styled.div`
     cursor: pointer;
     width: 90px;
     height: 35px;
-    background-color: rgba(30, 130, 76);
+    background-color: ${Color.colors.green};
     color: white;
     border-radius: 10px;
     font-size: 16px;
@@ -76,7 +77,7 @@ export const UpdateBtn = styled.div`
     width: 85px;
     height: 35px;
     line-height:35px;
-    background-color: rgba(30, 130, 76);
+    background-color: ${Color.colors.green};
     color: white;
     border-radius: 10px;
     font-size: 16px;

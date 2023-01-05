@@ -1,3 +1,4 @@
+import { Color } from "../../../../commons/utils/utils";
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
@@ -67,7 +68,7 @@ export const SubmitBtn = styled.button`
     line-height:40px;
     text-align:center;
     font-weight: 500;
-    background-color: rgba(30, 130, 76);
+    background-color: ${Color.colors.green};
     border-radius: 10px;
     border: none;
     color: white;

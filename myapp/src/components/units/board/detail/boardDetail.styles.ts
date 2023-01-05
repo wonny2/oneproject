@@ -1,3 +1,4 @@
+import { Color } from "../../../../commons/utils/utils";
 import styled from "@emotion/styled";
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css";
@@ -133,14 +134,14 @@ export const Button = styled.div`
     border-radius: 40px;
     line-height:40px;
     text-align:center;
-    background-color: rgba(30, 130, 76);
+    background-color: ${Color.colors.green};
     color: white;
     font-size: 16px;
     margin: 0 15px;
     cursor: pointer;
     
     :hover {
-        border: 3px solid rgba(30, 130, 76);
+        border: 3px solid ${Color.colors.green};
         background-color: #fff;
         color: black;
     }

@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Color } from "../../../../commons/utils/utils";
 
 export const Wrapper = styled.div`
     width:100%;
@@ -52,14 +53,14 @@ export const Button = styled.div`
     line-height:35px;
     text-align:center;
     border-radius: 20px;
-    background-color: rgba(30, 130, 76);
+    background-color: ${Color.colors.green};
     color: white;
     margin-bottom: 70px;
     font-size: 16px;
     cursor: pointer;
 
     :hover {
-        border: 3px solid rgba(30, 130, 76);
+        border: 3px solid ${Color.colors.green};
         background-color: #fff;
         color: black;
     }
