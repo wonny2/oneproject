@@ -62,7 +62,7 @@ export default function LoginContainer() {
 
             setAccessToken(accessToken);
             alert("로그인 성공하였습니다");
-            router.push("/")
+            router.push("/boards")
         }catch(error){
             if(error instanceof Error) {
                 alert("로그인을 다시 시도해주세요")

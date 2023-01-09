@@ -72,7 +72,7 @@ const errorLink = onError(({graphQLErrors , operation, forward}) => {
   
     // apollo 업로드&인증 셋팅 
     const uploadLink = createUploadLink({
-      uri: "https://backend10.codebootcamp.co.kr/graphql",
+      uri: "https://backend09.codebootcamp.co.kr/graphql",
       headers: { Authorization : `Bearer ${accessToken}` },
       credentials: "include",    // credentials는 백엔드와 쿠키를 주고 받을 때 "쿠키에 담겨져 있는 내용은 중요하다."라고 알리는 기능. 이 부분이 있어야 백엔드에 전달이 된다.
     });
@@ -100,4 +100,4 @@ const errorLink = onError(({graphQLErrors , operation, forward}) => {
     )
 }
 
-// props.children은 app.tsx에 global, layout,component이런 애들이 children에 들어오게 되는 것이다!!
+// props.children은 app.tsx에 global, layout,component이런 애들이 children에 들어오게 되는 것이다!!록

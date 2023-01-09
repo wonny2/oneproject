@@ -6,13 +6,12 @@ import { IQuery, IQueryFetchBoardArgs } from "../../../../commons/types/generate
 import BoardDetailPresenter from "./boardDetail.presenter";
 import { DELETE_BOARD, FETCH_BOARD } from "./boardDetail.queries"
 import {  message } from 'antd';
-import { useRecoilState } from "recoil";
-import { basketsLength } from "../../../../commons/atom";
+import { withAuth } from "../../../../commons/hocs/withAuth";
 
 
 
 
-export default function BoardDetailContainer() {
+function BoardDetailContainer() {
     const router = useRouter();
 
     const [deleteBoard] = useMutation(DELETE_BOARD)
@@ -26,7 +25,7 @@ export default function BoardDetailContainer() {
     });
 
     const onClickMoveToList = () => {
-        router.push('/')
+        router.push('/boards')
     }
 
     const onClickDelete = async () => {
@@ -35,7 +34,7 @@ export default function BoardDetailContainer() {
                 await deleteBoard({
                     variables : {boardId : router.query.boardId}
                 })
-                router.push('/');
+                router.push('/boards');
             } catch(error) {
                 if(error instanceof Error) {
                     alert(error.message)
@@ -96,4 +95,6 @@ const onClickBasket = (basket:any) => () => {
             // onClickCancelBtn={onClickCancelBtn}
         />
     )
-}
+};
+
+export default withAuth(BoardDetailContainer);

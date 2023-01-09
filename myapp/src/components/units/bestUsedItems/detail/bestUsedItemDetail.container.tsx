@@ -15,7 +15,7 @@ export default function BestItemDetailContainer() {
 
 
     const MoveToList = () => {
-        router.push('/')
+        router.push('/boards')
     }
 
 

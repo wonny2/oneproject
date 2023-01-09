@@ -57,11 +57,15 @@ export const Name = styled.div`
 `
 
 export const Contents = styled.div`
-    width: 100%;
+    width: 70%;
     height: 130px;
     padding: 20px 38px;
     font-size: 19px;
-    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
 `
 
 export const CommentOpen = styled.div`

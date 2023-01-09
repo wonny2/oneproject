@@ -179,4 +179,4 @@ export const FontList = {
             font-style: normal;
           }`
     ]
-    }
+    };

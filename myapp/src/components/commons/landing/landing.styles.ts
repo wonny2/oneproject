@@ -1,7 +1,7 @@
 import { Color, FontList } from './../../../commons/utils/utils';
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
-
+import 'animate.css';
 
 const Fade = keyframes`
   from {
@@ -69,9 +69,9 @@ export const ContentsWrap = styled.div`
   	color: ${Color.colors.lightGreen};
 
 	.isActive {
-    	animation: fadeInDown;
+    	animation: bounceIn;
     	animation-duration: 2s;
-  }
+  };
 `
 
 export const H1 = styled.h1`
@@ -91,6 +91,11 @@ export const Img = styled.img`
 	height: 70vh;
 	object-fit: cover;
 	box-shadow: 5px 0px 5px -2px  gray;
+
+	.isActive {
+    	animation: fadeInLeft;
+    	animation-duration: 2s;
+  }
 `
 
 export const ScrollWrap = styled.a`

@@ -48,7 +48,7 @@ export default function SignUpPage() {
                 }}
             })
             alert(`${result.data?.createUser.name}님 회원가입 되셨습니다.`)
-            router.push('/')
+            router.push('/boards')
         } catch(error) {
             if(error instanceof Error){
                 alert(error.message)

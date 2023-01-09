@@ -20,7 +20,7 @@ export default function Header() {
     const router = useRouter();
 
     const MoveToHome = () => {
-        router.push('/')
+        router.push('/boards')
     }
 
     const MoveToLogin = () => {
@@ -38,7 +38,7 @@ export default function Header() {
     const Logout = async () => {
         try{
             await logoutUser()
-            router.push('/')
+            router.push('/boards')
             location.reload()
         } catch(error) {
             if(error instanceof Error){

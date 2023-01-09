@@ -14,7 +14,8 @@ export interface PaginationNum {
 
 export const Wrapper = styled.div`
     margin-top:60px;
-    max-width:1200px;
+    /* max-width:1200px; */
+    width: 100%;
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -29,11 +30,10 @@ export const Wrapper = styled.div`
 `
 
 export const RowWrap = styled.div`
-    width:100%;
+    width: 1220px;
     display:flex;
     flex-direction:row;
     margin-bottom:30px;
-
 
     @media ${breakPoints.mobile} {
         width: 22.438rem ;
