@@ -15,3 +15,8 @@ export const basketsLength = atom({
     key: "basketsLength",
     default: 0,
 });
+
+export const cost = atom({
+    key: "cost",
+    default: 0,
+})

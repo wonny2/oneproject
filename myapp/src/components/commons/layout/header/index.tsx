@@ -40,6 +40,10 @@ export default function Header(props: PayMentProps) {
         router.push('/boards/baskets')
     }
 
+    const MoveToMemberShip = () => {
+        router.push('/memberships')
+    }
+
     const Logout = async () => {
         try{
             await logoutUser()
@@ -75,9 +79,8 @@ export default function Header(props: PayMentProps) {
                             <H.Title onClick={MoveToBaskets}>장바구니</H.Title>
                             <Badge count={count} />
                         </>
-                        
-                        
                     }
+                    <H.Title onClick={MoveToMemberShip}>멤버십</H.Title>
                 </H.LogPart>
             </H.TitleWrap>
         </H.Wrapper>

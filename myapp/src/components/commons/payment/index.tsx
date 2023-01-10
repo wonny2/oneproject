@@ -1,12 +1,21 @@
 import Head from 'next/head'
-import {Title} from '../layout/header/header.styles' 
+import { useRouter } from 'next/router';
+import { useRecoilState } from 'recoil';
+import { cost } from '../../../commons/atom';
+
 
 declare const window: typeof globalThis & {IMP: any}
 //선언할 거다. window에 대하여 : typeof는 globalThis에 IMP에가 추가가 되면 {IMP의 타입을: 안에 init도 등등 있는데 일단은 any로 만들기}
 
 export default function PayMentPage() {
 
+    const router = useRouter();
+
+    const [costs, setCosts] = useRecoilState(cost);
+    
     const onClickPayment = () => {
+
+
         var IMP = window.IMP; // 생략 가능, 처음에 IMP에 오류가 뜨는 이유는 window에는 IMP가 없음. 근데 이번 결제로 인해서 인위적으로 생기게 만드는 거니까 위에 declare!추가하기
         IMP.init("imp35605844"); // 예: imp00000000
 
@@ -15,7 +24,7 @@ export default function PayMentPage() {
             pay_method: "card",
             // merchant_uid: "ORD20180131-0000011", // 상품ID
             name: "노르웨이 회전 의자",
-            amount: 100,   // 결제금액
+            amount: {costs},   // 결제금액
             buyer_email: "gildong@gmail.com",
             buyer_name: "홍길동",
             buyer_tel: "010-4242-4242",
@@ -28,7 +37,7 @@ export default function PayMentPage() {
                 // 성공 후 백엔드에 결제 관련 데이터 넘겨주기,
                 // createPointTransactionOfLoading API 사용하면 해당 유저에 포인트 저장된다.
                 console.log(rsp)
-                console.log("결제 클릭")
+                router.push('/boards')
             } else {
               // 결제 실패 시 로직,
             
@@ -38,12 +47,11 @@ export default function PayMentPage() {
     };
     
     return(
-        <div>
+        <>
             <Head>
                 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
                 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
             </Head>
-            <Title onClick={onClickPayment}>결제하기</Title>
-        </div>
+        </>
     )
 }
