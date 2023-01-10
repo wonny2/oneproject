@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import {Title} from '../layout/header/header.styles' 
+
 
 declare const window: typeof globalThis & {IMP: any}
 //선언할 거다. window에 대하여 : typeof는 globalThis에 IMP에가 추가가 되면 {IMP의 타입을: 안에 init도 등등 있는데 일단은 any로 만들기}
@@ -7,7 +7,7 @@ declare const window: typeof globalThis & {IMP: any}
 export default function PayMentPage() {
 
     const onClickPayment = () => {
-        var IMP = window.IMP; // 생략 가능, 처음에 IMP에 오류가 뜨는 이유는 window에는 IMP가 없음. 근데 이번 결제로 인해서 인위적으로 생기게 만드는 거니까 위에 declare!추가하기
+        const IMP = window.IMP; // 생략 가능, 처음에 IMP에 오류가 뜨는 이유는 window에는 IMP가 없음. 근데 이번 결제로 인해서 인위적으로 생기게 만드는 거니까 위에 declare!추가하기
         IMP.init("imp35605844"); // 예: imp00000000
 
         IMP.request_pay({
@@ -20,8 +20,7 @@ export default function PayMentPage() {
             buyer_name: "홍길동",
             buyer_tel: "010-4242-4242",
             buyer_addr: "서울특별시 강남구 신사동",
-            buyer_postcode: "01181",
-            m_redirect_url: "http://localhost:3000/boards" // 결제 후 다른 페이지로 가지않도록! 특히 모바일에서!
+            buyer_postcode: "01181"
           }, (rsp:any) => { // callback // rsp에 결제 결과값이 담긴다!!
             if (rsp.success) {
                 // 결제 성공 시 로직,
@@ -33,17 +32,18 @@ export default function PayMentPage() {
               // 결제 실패 시 로직,
             
               alert("결제 실패했습니다. 다시 시도해 주세요!")
+              console.log(Error)
             }
           });
     };
     
     return(
-        <div>
+        <>
             <Head>
                 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
                 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
             </Head>
-            <Title onClick={onClickPayment}>결제하기</Title>
-        </div>
+            <button onClick={onClickPayment}>결제하기</button>
+        </>
     )
 }

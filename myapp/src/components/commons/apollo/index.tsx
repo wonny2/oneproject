@@ -25,7 +25,6 @@ export default function ApolloSetting(props: IApolloSettingProps) {
 // 이 부분이 있어야 로그인 후 새로고침 할 때 state값이 안 날라감!!!
 // 프리렌더링이 이루워질 때에는 LocalStorage(브라우저영역)가 존재하지 않기 때문에 오류가 발생함
 // 브라우저에서 페이지가 새로고침시에 해당 코드가 실행되도록..!
-
 useEffect(() => {
   getAccessToken().then((newAccessToken) => {
     setAccessToken(newAccessToken)

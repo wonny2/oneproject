@@ -6,6 +6,9 @@ import { useState} from 'react';
 import { Badge } from 'antd';
 import { basketsLength } from '../../../../commons/atom';
 import { useRecoilState } from 'recoil';
+import Head from 'next/head';
+import PayMentPage from '../../payment';
+
 
 interface PayMentProps {
     onClickPayment: () => void
@@ -15,7 +18,6 @@ export default function Header(props: PayMentProps) {
 
     const {data} = useQuery(FETCH_USER_LOGGED_IN)
     const [logoutUser] = useMutation(LOG_OUT_USER)
-
 
 
     const [basketLength, setBasketLength] = useRecoilState(basketsLength)
@@ -54,6 +56,7 @@ export default function Header(props: PayMentProps) {
 
     const [count,setCount] = useRecoilState(basketsLength)
 
+
     return(
         <H.Wrapper>
             <H.TitleWrap>
@@ -67,7 +70,8 @@ export default function Header(props: PayMentProps) {
                         ? <H.Title onClick={MoveToSignUp}>회원가입</H.Title>
                         :
                         <>
-                            <H.Title onClick={props.onClickPayment}>포인트<br />충전</H.Title>
+                            <PayMentPage />
+                            {/* <H.Title onClick={props.onClickPayment}>포인트충전</H.Title> */}
                             <H.Title onClick={MoveToBaskets}>장바구니</H.Title>
                             <Badge count={count} />
                         </>
