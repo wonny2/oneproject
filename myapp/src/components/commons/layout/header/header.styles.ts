@@ -32,6 +32,7 @@ export const TitleWrap = styled.div`
 export const Title = styled.div`
     color: white;
     cursor: pointer;
+    text-align:center;
 
     @media ${breakPoints.mobile} {
         font-size: 15px;
@@ -52,13 +53,13 @@ export const LogPart = styled.div`
     display:flex;
     justify-content:space-between;
     align-items:center;
-    width:170px;
+    width: 200px;
 `
 
 
-export const BasketWrap = styled.div`
-    width:47%;
-    display:flex;
-    flex-direction:row;
-    justify-content:space-around;
-`
+// export const BasketWrap = styled.div`
+//     /* width:47%; */
+//     display:flex;
+//     flex-direction:row;
+//     justify-content:space-around;
+// `

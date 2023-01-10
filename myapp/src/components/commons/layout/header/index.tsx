@@ -7,8 +7,11 @@ import { Badge } from 'antd';
 import { basketsLength } from '../../../../commons/atom';
 import { useRecoilState } from 'recoil';
 
+interface PayMentProps {
+    onClickPayment: () => void
+}
 
-export default function Header() {
+export default function Header(props: PayMentProps) {
 
     const {data} = useQuery(FETCH_USER_LOGGED_IN)
     const [logoutUser] = useMutation(LOG_OUT_USER)
@@ -63,11 +66,12 @@ export default function Header() {
                     {!data
                         ? <H.Title onClick={MoveToSignUp}>회원가입</H.Title>
                         :
-                        <H.BasketWrap>
+                        <>
+                            <H.Title onClick={props.onClickPayment}>포인트<br />충전</H.Title>
                             <H.Title onClick={MoveToBaskets}>장바구니</H.Title>
                             <Badge count={count} />
-                            {/* <div>{count}</div> */}
-                        </H.BasketWrap>
+                        </>
+                        
                         
                     }
                 </H.LogPart>
