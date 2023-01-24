@@ -1,13 +1,12 @@
 import { useMutation } from "@apollo/client";
 import { useEffect, useState } from "react";
 import BoardWritePresenter from "./boardWrite.presenter";
-import { CREATE_BOARD ,UPDATE_BOARD} from "./boardWrite.queries";
+import { CREATE_BOARD ,CREATE_USED_ITEM,UPDATE_BOARD} from "./boardWrite.queries";
 import { useForm } from "react-hook-form";
 import * as yup from 'yup'
 import {yupResolver} from '@hookform/resolvers/yup'
 import { useRouter } from "next/router";
 import { IRegisterDataType, IUpdateInputValue } from "./boardWrite.types";
-import { writer } from "repl";
 
 export default function BoardWriteContainer(props:any) {
 
@@ -16,7 +15,10 @@ export default function BoardWriteContainer(props:any) {
     const [createBoard] = useMutation(CREATE_BOARD);
     const [updateBoard] = useMutation(UPDATE_BOARD);
 
+    const [createUseditem] = useMutation(CREATE_USED_ITEM)
+
     const [fileUrls, setFileUrls] = useState(["", "", ""])
+    const [openModal, setOpenModal] = useState(false)
 
     // yup 에러조건, 에러메세지 생성
     const schema = yup.object().shape({
@@ -50,7 +52,6 @@ export default function BoardWriteContainer(props:any) {
         console.log(value)
     };
 
-
     // 게시글 등록
     const onClickCreateBoard = async (data:IRegisterDataType) => {
         
@@ -69,7 +70,6 @@ export default function BoardWriteContainer(props:any) {
                         title : data.title,
                         contents : data.contents,
                         images: fileUrls,
-                        password: "1234",
                         writer: data.writer
                     }
                 }
@@ -82,6 +82,38 @@ export default function BoardWriteContainer(props:any) {
             }
         };
     };
+
+
+    // 상품 등록하기
+    const onClickCreateUsedItem = async (data:any) => {
+        try{
+            const result = await createUseditem({
+                variables: {
+                    createUseditemInput: {
+                        name: data.name,
+                        remarks: data.remarks,
+                        contents: data.contents,
+                        price: data.price,
+                        images: fileUrls,
+                        useditemAddress: {
+                            zipcode: data.zipcode,
+                            address: data.address,
+                            addressDetail: data.addressDetail,
+                            lat: data.lat,
+                            lng: data.lng
+                        }
+                    }
+                }
+            });
+            alert("상품이 등록되었습니다.")
+            router.push(`/boards/${result.data?.createUesditem._id}`)
+            console.log(result.data?.createUseditem)
+        } catch(error) {
+            if(error instanceof Error) {
+                alert(error.message)
+            }
+        }
+    }
 
     // 수정하기
     const onClickUpdate = async (data:any) => {
@@ -105,7 +137,6 @@ export default function BoardWriteContainer(props:any) {
                         images: fileUrls,
                     },
                     boardId: String(router.query.boardId),
-                    password: "1234"
                 }
             })
             console.log(data.contents);
@@ -126,7 +157,16 @@ export default function BoardWriteContainer(props:any) {
     },[props.data])
 
     const MoveToList = () => {
-        router.push('/')
+        router.push('/boards')
+    }
+
+    const onClickOpenModal = () => {
+        setOpenModal(prev => !prev)
+    };
+
+    const addressInfo = (data:any) => {
+        // setAddress(data.address)
+        console.log(data)
     }
 
 
@@ -143,6 +183,9 @@ export default function BoardWriteContainer(props:any) {
         onClickUpdate={onClickUpdate}
         data={props.data}
         MoveToList={MoveToList}
+        openModal={openModal}
+        onClickOpenModal={onClickOpenModal}
+        addressInfo={addressInfo}
         />
     )
 }

@@ -12,5 +12,6 @@ export interface ICommentListPropsUI {
 // items에 있는 type
 export interface ICommentItemProps {
     el: IBoardComment
-    isBoard: boolean;
+    isBoard: boolean
+    createdAt: any
 }

@@ -85,10 +85,22 @@ export const UpdateBtn = styled.div`
     text-align:center;
 `
 
+export const SecondWrap = styled.div`
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items: center;
+    width: 100%;
+`
+
 export const Writer = styled.div`
     font-size: 23px;
     font-weight: 600;
     margin:20px 0;
+`
+export const Date = styled.div`
+    color: gray;
+    font-size: 15px;
 `
 
 export const Contents = styled.div`

@@ -26,3 +26,24 @@ export const UPDATE_BOARD = gql`
         }
     }
 `
+
+export const CREATE_USED_ITEM = gql`
+    mutation createUseditem($createUseditemInput: CreateUseditemInput!) {
+        createUseditem(createUseditemInput: $createUseditemInput){
+            _id
+            name
+            remarks
+            contents
+            price
+            images
+            pickedCount
+            useditemAddress{
+                address
+                addressDetail
+                zipcode
+                lat
+                lng
+            }
+        }
+    }
+`

@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client"
 import { useState } from "react";
-import { FETCH_BOARDS, FETCH_BOARDS_COUNT } from "./pagination.queries"
+import { FETCH_BOARDS, FETCH_BOARDS_COUNT, FETCH_USED_ITEM } from "./pagination.queries"
 import * as P from './pagination.styles'
 import { debounce } from "lodash";
 import { ChangeEvent, MouseEvent } from "react";
@@ -18,8 +18,10 @@ export default function Pagination( ) {
     const [keyword, setKeyword] = useState("");
 
     const {data, refetch} = useQuery(FETCH_BOARDS);
+    // const {data, refetch} = useQuery(FETCH_USED_ITEM)
 
     const {data: dataBoardsCount} = useQuery(FETCH_BOARDS_COUNT)
+    
 
     const lastPage = Math.ceil(dataBoardsCount?.fetchBoardsCount / 10)
 

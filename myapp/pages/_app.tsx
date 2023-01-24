@@ -6,7 +6,7 @@ import { RecoilRoot } from 'recoil'
 import ApolloSetting from '../src/components/commons/apollo'
 
 
-function MyApp({ Component, pageProps }:AppProps) {
+function MyApp({Component,pageProps}: AppProps) {
 
   return (
     <RecoilRoot>

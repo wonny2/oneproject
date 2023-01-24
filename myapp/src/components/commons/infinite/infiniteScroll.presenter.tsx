@@ -11,14 +11,13 @@ export default function Infinite(props: IInfiniteScrollPropsUI) {
             <L.ContentsWrap>
                 <InfiniteScroll pageStart={0} loadMore={props.onFetchMore} hasMore={true}>
                     <L.CardWrap>
-                        {props.data?.fetchBoards.map((item:any, index:number) => (
-                            <L.Card key={uuidv4()}>
-                                <L.Title id={item._id} onClick={props.moveToDetail}>{item.title}</L.Title>
-                                {/* <L.Img src={`https://storage.googleapis.com/${item.images[0]}`} /> */}
-                                {item.images.filter((el:string) => el).length === 0 || item.images.filter((el:string) => el)[0].includes("https://storage.googleapis.com/")
-                                    ? <L.Img src="https://4.bp.blogspot.com/-cSvXzzpivuk/WHooE5mM6QI/AAAAAAAAG-o/nMUgzKFu03QqKxsdQ6Ns78ye3v7DXH3KgCLcB/s1600/ms004.jpg" />
-                                    : <L.Img src={`https://storage.googleapis.com/${item.images.filter((el:any) => el)[0]}`} />
-                                }
+                        {props.data?.fetchUseditems.map((item:any) => (
+                            <L.Card key={uuidv4()} id={item._id} onClick={props.moveToDetail}>
+                                <L.Img src={item.images.length === 0
+                                    ? 'https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg' 
+                                    :`https://storage.googleapis.com/${item.images.filter((i:any) => i)[0]}`
+                                } />
+                                <L.Title>{item.name}</L.Title>
                                 <L.Time>{getDate(item.createdAt)}</L.Time>
                             </L.Card>
                         ))}
@@ -28,3 +27,6 @@ export default function Infinite(props: IInfiniteScrollPropsUI) {
         </L.Wrapper>
     )
 };
+
+// 소문자, 대문자 조심!
+// 받아올 값들 이름 확인!

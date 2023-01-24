@@ -13,6 +13,20 @@ export const FETCH_BOARD = gql`
     }
 `
 
+export const FETCH_USED_ITEM = gql`
+    query fetchUseditem($useditemId: ID!) {
+        fetchUseditem(useditemId: $useditemId) {
+            _id
+            name
+            remarks
+            contents
+            price
+            createdAt
+            images
+        }
+    }
+`
+
 export const DELETE_BOARD = gql`
     mutation deleteBoard($boardId: ID!) {
         deleteBoard(boardId: $boardId)

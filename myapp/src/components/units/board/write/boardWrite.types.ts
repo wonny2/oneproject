@@ -13,6 +13,9 @@ export interface IBoardsWritePropsUI {
     isEdit: boolean
     data:any
     MoveToList: () => void
+    openModal: boolean
+    onClickOpenModal: () => void
+    addressInfo: (data: any) => void
 }
 
 export interface IUpdateInputValue {
@@ -28,4 +31,13 @@ export interface IRegisterDataType {
     writer: String
     password: String
     images: string[]
+}
+
+export interface ICreateItem {
+    name: String,
+    remarks: String,
+    contents: String,
+    price: Number,
+    images: string[],
+    
 }

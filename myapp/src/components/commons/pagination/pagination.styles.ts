@@ -90,7 +90,7 @@ export const ColumnWrap = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
     border-radius: 8px;
-    box-shadow: .3px .3px 3px gray;
+    dow: .3px .3px 3px gray;
     cursor: pointer;
 `
 

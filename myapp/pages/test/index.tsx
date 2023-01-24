@@ -1,34 +1,32 @@
-import { Button,message } from "antd";
-import { useEffect, useRef, useState } from "react"
-import 'antd/dist/reset.css';
-
+import { Button, Modal } from 'antd';
+import { useState } from 'react';
+import { useDaumPostcodePopup , DaumPostcodeEmbed} from 'react-daum-postcode';
 
 
 export default function TestPage() {
-    const [messageApi, contextHolder] = message.useMessage();
-    
-    const [count, setCount] = useState(1);
 
-    const renderCount = useRef(1);
+    const [openModal, setOpenModal] = useState(false)
+    const [address, setAddress] = useState('')
 
-    useEffect(() => {
-        renderCount.current = renderCount.current + 1
-        console.log( "렌더링 수 :" ,renderCount)
-    },[])
+    const onClickOpenModal = () => {
+        setOpenModal(prev => !prev)
+        
+    };
 
-
-    const success = () => {
-        messageApi.open({
-          type: 'success',
-          content: 'This is a success message',
-        });
-      };
-
-    
+    const addressInfo = (data:any) => {
+        setAddress(data.address)
+        console.log(data)
+    }
     return(
-        <div>
-            <div>count : {count}</div>
-            <Button onClick={success}>올려!</Button>
-        </div>
+        <>
+            <Button onClick={onClickOpenModal}>주소검색</Button>
+            {openModal
+            ?   <Modal open={openModal} onCancel={onClickOpenModal} onOk={onClickOpenModal}>
+                    <DaumPostcodeEmbed onClose={onClickOpenModal} style={{padding: "0px 15px"}} onComplete={addressInfo} />
+                </Modal>
+            : <></>
+        }
+            <div>{address}</div>
+        </>
     )
 }

@@ -2,16 +2,15 @@ import { useMutation, useQuery } from "@apollo/client"
 import { route } from "next/dist/server/router";
 import { useRouter } from "next/router"
 import { useEffect, useRef, useState } from "react";
-import { IQuery, IQueryFetchBoardArgs } from "../../../../commons/types/generated/types";
+import { IQuery, IQueryFetchBoardArgs, IQueryFetchUseditemArgs } from "../../../../commons/types/generated/types";
 import BoardDetailPresenter from "./boardDetail.presenter";
-import { DELETE_BOARD, FETCH_BOARD } from "./boardDetail.queries"
+import { DELETE_BOARD, FETCH_BOARD, FETCH_USED_ITEM } from "./boardDetail.queries"
 import {  message } from 'antd';
-import { withAuth } from "../../../../commons/hocs/withAuth";
 
 
 
 
-function BoardDetailContainer() {
+export default function BoardDetailContainer() {
     const router = useRouter();
 
     const [deleteBoard] = useMutation(DELETE_BOARD)
@@ -20,9 +19,11 @@ function BoardDetailContainer() {
     const [isActive, setIsActive] = useState(false);
 
 
-    const {data} = useQuery<Pick<IQuery, "fetchBoard">, IQueryFetchBoardArgs>(FETCH_BOARD, {
-        variables: {boardId: String(router.query.boardId)}
-    });
+    // const {data} = useQuery<Pick<IQuery, "fetchBoard">, IQueryFetchBoardArgs>(FETCH_BOARD, {
+    //     variables: {boardId: String(router.query.boardId)}
+    // });
+
+    const {data} = useQuery<Pick<IQuery,'fetchUseditem'>, IQueryFetchUseditemArgs>(FETCH_USED_ITEM,{variables: {useditemId: String(router.query.boardId)}})
 
     const onClickMoveToList = () => {
         router.push('/boards')
@@ -50,7 +51,10 @@ const onClickUpdate = () => {
 };
 
 
-const onClickBasket = (basket:any) => () => {   
+const onClickBasket = (basket:any) => () => { 
+        
+            console.log(basket)
+
             // 1. 기존 장바구니("basket"이란 이름을 가진) 데이터 가져오기!!!
             const baskets = JSON.parse(localStorage.getItem("baskets") || "[]")
 
@@ -62,24 +66,15 @@ const onClickBasket = (basket:any) => () => {
                 return;
             }
 
-            // // // 3. 장바구니에 담기
+            // 3. 장바구니에 담기
             // 장바구니에 추구할 게시글 데이터(el)에서 필요없는 내용을 제거한다.
-            const { __typename, ...rest } = basket; // __typename을 삭제하고 나머지 항목을 보여주기 위해서,, 라는데,, 기옥이,,,
+            const { __typename, ...rest } = basket; // 콘솔 찍어보면 객체 안에 __typename이라고 뜸. 객체 안에서 요거 빼고 rest만 들어가겠끔!
             baskets.push(rest)
-
-            // if(temp.length >= 3) {
-            //     const resultList = [];
-            //     for(let i = temp.length - 3; i < temp.length; i++){
-            //         resultList.push(temp[i]);
-            //     }
-            //         temp = resultList
-            // };
+            console.log(rest)
 
             localStorage.setItem("baskets", JSON.stringify(baskets)) // 로컬스토리지에 담을 때는 JSON방식으로 담아줘야 한다. {"name" : "길동"} => key값에도 따옴표!!
 
-            // setAlready(prev => !prev)
             message.success('장바구니에 담겼습니다.');
-
 };
 
 
@@ -91,10 +86,6 @@ const onClickBasket = (basket:any) => () => {
             onClickUpdate={onClickUpdate}
             onClickBasket={onClickBasket}
             isActive={isActive}
-            // alReady={alReady}
-            // onClickCancelBtn={onClickCancelBtn}
         />
     )
 };
-
-export default withAuth(BoardDetailContainer);

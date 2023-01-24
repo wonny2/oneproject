@@ -11,3 +11,22 @@ export const FETCH_BOARDS = gql`
         }
     }
 `
+
+export const FETCH_USED_ITEMS = gql`
+    query fetchUseditems($page: Int) {
+        fetchUseditems(page: $page) {
+            _id
+            contents
+            name
+            pickedCount
+            images
+            createdAt
+        }
+    }
+`
+
+// query fetchUseditems($page: Int) {
+//     fetchUseditems(page: $page){
+//         _id
+//     }
+// }

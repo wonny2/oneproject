@@ -6,8 +6,6 @@ import Script from 'next/script'
 export default function MemberShipPresenter(props:MemberShipProps) {
     return(
         <>
-
-
         <Script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></Script>
         <Script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></Script>
 
@@ -44,7 +42,7 @@ export default function MemberShipPresenter(props:MemberShipProps) {
                 </M.ColumnWrap>
 
                 <M.Title2>충전 할 금액 : {props.costs}</M.Title2>
-                <M.Btn onClick={props.onClickPayment}>충 천 하 기</M.Btn>
+                <M.Btn onClick={props.onClickPayment}>충 전 하 기</M.Btn>
             </M.MembersWrap>
         </M.Wrapper>
         </>

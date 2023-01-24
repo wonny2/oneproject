@@ -113,9 +113,22 @@ export const Contents = styled.div`
     text-overflow:ellipsis;
     white-space:nowrap;
     margin-bottom: 20px;
-    padding-left: 40px;
+    padding: 0 40px;
     border: 1px solid gray;
     border-radius: 10px;
+`
+
+export const LongContents = styled.div`
+    width:100%;
+    font-size: 18px;
+    min-height: 3.125rem;
+    max-height: 15.625rem;
+    overflow-x: auto;
+    overflow-y: auto;
+    padding: 0 40px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin-bottom: 20px;
 `
 
 export const ButtonWrap = styled.div`

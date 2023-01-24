@@ -58,7 +58,7 @@ export const getDate = (value:any) => {
 // };
 
 
-export function getMonthDay() {
+export function getMonthDay(value:any) {
     const date = new Date();
     const day = date.getDate();
     const month = date.getMonth() + 1;
@@ -124,7 +124,7 @@ export const checkEmail = (email: string) => {
 
 
 
-function timeForToday(value: any) {
+export function timeForToday(value: any) {
     const today = new Date();
     const timeValue = new Date(value);
 

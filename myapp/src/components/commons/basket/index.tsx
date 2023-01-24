@@ -43,37 +43,24 @@ const Button = styled.button`
 export default function Basket() {
     
     const {data} = useQuery(FETCH_BOARDS);
-    
-
-// const onClickBtn = a => b => {return a + b}
-
-// const onClickBtn = function(a) {
-    // return function(b) {
-        // return a + b
-//    }
-//}
 
 
     const onClickBasket = (basket:any) => () => {
 
-        console.log("장바구니로!")
-
-        console.log(basket)
-
-        // 1. 기존 장바구니("basket"이란 이름을 가진) 데이터 가져오기!!!
+        // 1. 기존 장바구니("baskets"이란 이름을 가진) 데이터 가져오기!!!
         const baskets = JSON.parse(localStorage.getItem("baskets") || "[]")
-        console.log(`초기 장바구니 확인하기 ${basket}`)
 
-        // // 2. 이미 장바구니에 담겨져 있는 상품인지 확인하기
-        const temp = baskets.filter((el:any) => el._id === basket._id)
+        // 2. 이미 장바구니에 담겨져 있는 상품인지 확인하기
+        const temp = baskets.filter((el:any) => el._id === basket._id) // el은 이미 장바구니에 담겨있는 객체들
         if(temp.length === 1) {
             alert("이미 담으신 물품입니다.")
             return;
         }
 
-        // // // 3. 장바구니에 담기
-        // 장바구니에 추구할 게시글 데이터(el)에서 필요없는 내용을 제거한다.
-        const { __typename, ...rest } = basket; // __typename을 삭제하고 나머지 항목을 보여주기 위해서,, 라는데,, 기옥이,,,
+        // 3. 장바구니에 담기
+        // 장바구니에 추가할 게시글 데이터(el)에서 필요없는 내용을 제거한다.
+        const { __typename, ...rest } = basket;
+        console.log(`typename: ${__typename}`)
         baskets.push(rest)
         localStorage.setItem("baskets", JSON.stringify(baskets)) // 로컬스토리지에 담을 때는 JSON방식으로 담아줘야 한다. {"name" : "길동"} => key값에도 따옴표!!
     };

@@ -6,6 +6,8 @@ import { ICommentItemProps } from "./commentList.types";
 import { Rate } from "antd";
 import * as C from './commentList.styles'
 import ModalContainer from "../../../commons/modal/modal.container";
+import {getMonthDay} from '../../../../commons/utils/utils'
+
 
 // 이곳은 댓글 수정,삭제 할 때 나타나는 presenter
 export default function CommentListItemsPresenter(props:ICommentItemProps) {
@@ -117,7 +119,10 @@ export default function CommentListItemsPresenter(props:ICommentItemProps) {
                 :
                 <></>}
             {/* Rate -> value에 값을 넣어야 별점이 고정된다. */}
-            <C.Writer>{props.el.writer}</C.Writer>
+            <C.SecondWrap>
+                <C.Writer>{props.el.writer}</C.Writer>
+                <C.Date>{getMonthDay(props.createdAt)}</C.Date>
+            </C.SecondWrap>
             <C.Contents>{props.el.contents}</C.Contents>
         </C.Wrapper>
     )

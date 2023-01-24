@@ -1,10 +1,8 @@
 import * as W from './boardWrite.styles'
 import { IBoardsWritePropsUI } from './boardWrite.types'
 import UploadContainer from '../../../commons/imageUpload/01/upload01.container'
-
-
-
-
+import { Button, Modal } from 'antd';
+import { DaumPostcodeEmbed} from 'react-daum-postcode';
 export default function BoardWritePresenter(props: IBoardsWritePropsUI) {
 
     return(
@@ -15,30 +13,50 @@ export default function BoardWritePresenter(props: IBoardsWritePropsUI) {
                 <W.ContentWrap>
                     <W.Title>{props.isEdit ? '수정하기' : '등록하기'}</W.Title>
                     <W.RowWrap>
-                        <div>제목</div>
+                        <div>상품이름</div>
                         <W.ErrorMsg>{props.formState.errors.title?.message}</W.ErrorMsg>
                     </W.RowWrap>
                     <input
-                        {...props.register("title")}
+                        {...props.register("name")}
                         type="text"
-                        placeholder='제목을 입력해주세요'
+                        placeholder='상품 이름을 입력해주세요'
                         defaultValue={props.data?.fetchBoard.title || ""}
                         />
                 </W.ContentWrap>
 
                 <W.ContentWrap>
                     <W.RowWrap>
-                        <div>작성자</div>
+                        <div>Remarks</div>
                         <W.ErrorMsg>{props.formState.errors.writer?.message}</W.ErrorMsg>
                     </W.RowWrap>
                     <input
-                        {...props.register("writer")}
+                        {...props.register("remarks")}
                         type="text"
-                        placeholder='작성자를 입력해주세요'
+                        placeholder='Remarks을 입력해주세요'
                         defaultValue={props.data?.fetchBoard.writer || ""}
                         />
                 </W.ContentWrap>
 
+                <W.ContentWrap>
+                    <W.RowWrap>
+                        <div>가격</div>
+                        <W.ErrorMsg>{}</W.ErrorMsg>
+                    </W.RowWrap>
+                    <input
+                        {...props.register("price")}
+                        type="text"
+                        placeholder='가격을 입력해주세요'
+                        defaultValue={props.data?.fetchBoard.writer || ""}
+                        />
+                </W.ContentWrap>
+
+                <Button onClick={props.onClickOpenModal}>주소 검색</Button>
+                {props.openModal
+                    ?   <Modal open={props.openModal} onCancel={props.onClickOpenModal} onOk={props.onClickOpenModal}>
+                            <DaumPostcodeEmbed onClose={props.onClickOpenModal} style={{padding: "0px 15px"}} onComplete={props.addressInfo} />
+                        </Modal>
+                    : <></> 
+                }
                 <W.ContentWrap>
                     <W.RowWrap>
                         <div>내용</div>
@@ -49,7 +67,6 @@ export default function BoardWritePresenter(props: IBoardsWritePropsUI) {
                         defaultValue={props.data?.fetchBoard.contents || ""}
                         placeholder="내용을 입력해주세요"
                         />
-
                 </W.ContentWrap>
                 <W.ImgRowWrap>
                 {props.fileUrls.map((el,index) => (

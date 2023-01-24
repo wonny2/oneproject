@@ -28,7 +28,7 @@ export default function BoardDetailPresenter(props: IBoardDetailUIProps) {
                 <D.RowWrap>
                     <D.ImgWrap>
                         <Slider {...settings}>
-                            {props.data?.fetchBoard.images?.filter(item => item).map((el) => (
+                            {props.data?.fetchUseditem.images?.filter(item => item).map((el) => (
                                     <D.Images key={uuidv4()}>
                                         {!el || el.includes('https://storage.googleapis.com/')
                                             ? <D.Img src="https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg" />
@@ -41,23 +41,23 @@ export default function BoardDetailPresenter(props: IBoardDetailUIProps) {
                     <D.ContentsWrap>
                         <D.ColumnWrap>
                             <D.Title>작성자</D.Title>
-                            <D.Contents>{props.data?.fetchBoard.writer}</D.Contents>
+                            <D.Contents>{props.data?.fetchUseditem.name}</D.Contents>
                         </D.ColumnWrap>
 
                         <D.ColumnWrap>
                             <D.Title>제목 | TITLE</D.Title>
-                            <D.Contents>{props.data?.fetchBoard.title}</D.Contents>
+                            <D.Contents>{props.data?.fetchUseditem.price}</D.Contents>
                         </D.ColumnWrap>
 
                         <D.ColumnWrap>
                             <D.Title>내용</D.Title>
-                            <D.Contents 
-                                dangerouslySetInnerHTML={{__html: String(props.data?.fetchBoard.contents) }} />
+                            <D.LongContents 
+                                dangerouslySetInnerHTML={{__html: String(props.data?.fetchUseditem.contents) }} />
                         </D.ColumnWrap>
                         <div style={{display: "flex", justifyContent:"end"}}>
 
                             {/* <D.BasketBtn>장바구니 담기</D.BasketBtn> */}
-                            <Button onClick={props.onClickBasket(props.data?.fetchBoard)}>장바구니 담기</Button>
+                            <Button onClick={props.onClickBasket(props.data?.fetchUseditem)}>장바구니 담기</Button>
                         </div>
                     </D.ContentsWrap>
                 </D.RowWrap>

@@ -36,7 +36,7 @@ export const Title = styled.div`
 export const Contents = styled.div`
     font-size: 18px;
     width:100%;
-    height: 50px;
+    min-height: 50px;
     line-height:50px;
     overflow:hidden;
     text-overflow:ellipsis;
