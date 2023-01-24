@@ -16,6 +16,9 @@ export interface IBoardsWritePropsUI {
     openModal: boolean
     onClickOpenModal: () => void
     addressInfo: (data: any) => void
+    zipcode: string
+    address: string
+    onClickCreateUsedItem: (data: any) => Promise<void>
 }
 
 export interface IUpdateInputValue {

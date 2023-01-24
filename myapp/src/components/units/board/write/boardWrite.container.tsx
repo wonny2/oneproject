@@ -24,7 +24,7 @@ export default function BoardWriteContainer(props:any) {
     const schema = yup.object().shape({
         title: yup.string().min(2, "최소 1자리 이상 입력해주세요").max(100,"최대 100자리까지 입력 가능합니다."),
         contents : yup.string().min(2, "내용을 입력해주세요"),
-        writer : yup.string().required("작성자를 입력해주세요")
+        // writer : yup.string().required("작성자를 입력해주세요")
     });
 
 
@@ -93,20 +93,18 @@ export default function BoardWriteContainer(props:any) {
                         name: data.name,
                         remarks: data.remarks,
                         contents: data.contents,
-                        price: data.price,
+                        price: Number(data.price),
                         images: fileUrls,
                         useditemAddress: {
-                            zipcode: data.zipcode,
-                            address: data.address,
+                            zipcode: zipcode,
+                            address: address,
                             addressDetail: data.addressDetail,
-                            lat: data.lat,
-                            lng: data.lng
                         }
                     }
                 }
             });
             alert("상품이 등록되었습니다.")
-            router.push(`/boards/${result.data?.createUesditem._id}`)
+            // router.push(`/boards/${result.data?.createUesditem._id}`)
             console.log(result.data?.createUseditem)
         } catch(error) {
             if(error instanceof Error) {
@@ -164,8 +162,12 @@ export default function BoardWriteContainer(props:any) {
         setOpenModal(prev => !prev)
     };
 
+    const [address, setAddress] = useState("")
+    const [zipcode, setZipcode] = useState("")
+
     const addressInfo = (data:any) => {
-        // setAddress(data.address)
+        setAddress(data.address)
+        setZipcode(data.zonecode)
         console.log(data)
     }
 
@@ -186,6 +188,10 @@ export default function BoardWriteContainer(props:any) {
         openModal={openModal}
         onClickOpenModal={onClickOpenModal}
         addressInfo={addressInfo}
+        address={address}
+        zipcode={zipcode}
+        onClickCreateUsedItem={onClickCreateUsedItem}
+
         />
     )
 }

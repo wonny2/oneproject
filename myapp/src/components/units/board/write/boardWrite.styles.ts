@@ -2,6 +2,7 @@ import { Color } from "../../../../commons/utils/utils";
 import styled from "@emotion/styled";
 import dynamic from "next/dynamic";
 import 'react-quill/dist/quill.snow.css';
+import { Button } from 'antd';
 
 const ReactQuill = dynamic( () => import('react-quill'), { ssr : false})
 
@@ -67,6 +68,52 @@ export const RowWrap = styled.div`
     align-items:center;
     margin-bottom:100px;
     cursor: pointer;    
+`
+
+export const AddressWrap = styled.div`
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 150px;
+    border:1px solid black;
+`
+export const ZipWrap = styled.div`
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 240px;
+`
+
+export const Zipcode = styled.div`
+    width: 100px;
+    height: 40px;
+    line-height:40px;
+    text-align:center;
+    border: 1px solid black;
+    font-size: 20px;
+`
+
+export const Btn = styled(Button)`
+    width: 100px;
+    height: 40px;
+`
+
+export const Address = styled.div`
+    width: 40%;
+    height: 40px;
+    border: 1px solid black;
+    line-height:40px;
+    padding: 0 20px;
+    font-size: 20px;
+`
+
+export const AddressDetail = styled.input`
+    width: 40%;
+    height: 40px;
+    font-size: 20px;
+    padding-left:20px;
+    outline-color: black;
 `
 
 export const ButtonWrap = styled.div`

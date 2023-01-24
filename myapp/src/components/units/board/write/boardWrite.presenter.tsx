@@ -8,7 +8,7 @@ export default function BoardWritePresenter(props: IBoardsWritePropsUI) {
     return(
         
         <W.Wrapper>
-            <form onSubmit={props.handleSubmit(props.isEdit ? props.onClickUpdate : props.onClickCreateBoard)}>
+            <form onSubmit={props.handleSubmit(props.isEdit ? props.onClickUpdate : props.onClickCreateUsedItem)}>
             <W.SecondWrap>
                 <W.ContentWrap>
                     <W.Title>{props.isEdit ? '수정하기' : '등록하기'}</W.Title>
@@ -49,14 +49,28 @@ export default function BoardWritePresenter(props: IBoardsWritePropsUI) {
                         defaultValue={props.data?.fetchBoard.writer || ""}
                         />
                 </W.ContentWrap>
+                
+                <W.AddressWrap>
+                    <W.ZipWrap>
+                        <W.Zipcode>{props.zipcode}</W.Zipcode>
+                        <W.Btn onClick={props.onClickOpenModal}>주소 검색</W.Btn>
+                    </W.ZipWrap>
+                    {props.openModal
+                        ?   <Modal open={props.openModal} onCancel={props.onClickOpenModal} onOk={props.onClickOpenModal}>
+                                <DaumPostcodeEmbed 
+                                    onClose={props.onClickOpenModal}
+                                    style={{padding: "0px 15px"}}
+                                    onComplete={props.addressInfo} />
+                            </Modal>
+                        : <></> 
+                    }
+                    <W.Address>{props.address}</W.Address>
+                    <W.AddressDetail
+                        {...props.register("addressDetail")}
+                        placeholder='상세 주소를 입력해주세요'
+                        type='text' />
+                </W.AddressWrap>
 
-                <Button onClick={props.onClickOpenModal}>주소 검색</Button>
-                {props.openModal
-                    ?   <Modal open={props.openModal} onCancel={props.onClickOpenModal} onOk={props.onClickOpenModal}>
-                            <DaumPostcodeEmbed onClose={props.onClickOpenModal} style={{padding: "0px 15px"}} onComplete={props.addressInfo} />
-                        </Modal>
-                    : <></> 
-                }
                 <W.ContentWrap>
                     <W.RowWrap>
                         <div>내용</div>

@@ -10,7 +10,6 @@ export default function TestPage() {
 
     const onClickOpenModal = () => {
         setOpenModal(prev => !prev)
-        
     };
 
     const addressInfo = (data:any) => {
