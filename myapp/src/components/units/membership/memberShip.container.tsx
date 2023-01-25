@@ -7,7 +7,7 @@ import { useRecoilState } from "recoil";
 import { useMutation } from "@apollo/client";
 import { CREATE_POINT_TRANSACTION_OF_LOADING } from "./memberShip.queries";
 import { IMutation, IMutationCreatePointTransactionOfLoadingArgs } from "../../../commons/types/generated/types";
-
+import Head from 'next/head'
 
 declare const window: typeof globalThis & {IMP: any}
 
@@ -38,7 +38,7 @@ export default function MemberShipContainer() {
         }
 
         var IMP = window.IMP; // 생략 가능, 처음에 IMP에 오류가 뜨는 이유는 window에는 IMP가 없음. 근데 이번 결제로 인해서 인위적으로 생기게 만드는 거니까 위에 declare!추가하기
-        IMP.init("imp35605844"); // 예: imp00000000
+        IMP.init("imp49910675"); // 예: imp00000000
 
         IMP.request_pay({
             pg: "nice",
@@ -52,18 +52,19 @@ export default function MemberShipContainer() {
             buyer_addr: "서울특별시 강남구 신사동",
             buyer_postcode: "01181",
             m_redirect_url: "http://localhost:3000/boards" // 결제 후 다른 페이지로 가지않도록! 특히 모바일에서!
-          }, (rsp:any) => { // callback // rsp에 결제 결과값이 담긴다!!
+          },
+            async (rsp:any) => { // callback // rsp에 결제 결과값이 담긴다!!
             if (rsp.success) {
                 // 결제 성공 시 로직,
                 // 성공 후 백엔드에 결제 관련 데이터 넘겨주기,
                 // createPointTransactionOfLoading API 사용하면 해당 유저에 포인트 저장된다.
 
-                // const result = createPointTransactionOfLoading({
-                //     variables: {
-                //         impUid: rsp.imp_uid
-                //     }
-                // })
-                // setCharge(rsp.paid_amount)
+                await createPointTransactionOfLoading({
+                    variables: {
+                        impUid: rsp.imp_uid
+                    }
+                })
+                setCharge(rsp.paid_amount)
                 alert("충전이 완료되었습니다")
                 console.log(rsp)
                 router.push('/boards')
@@ -76,11 +77,15 @@ export default function MemberShipContainer() {
 
     return(
         <>
+        <Head>
+            <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+            <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+        </Head>
             <MemberShipPresenter
                 onClickPayment={onClickPayment}
                 onChangeState={onChangeState}
                 costs={costs}
-            />
+        />
         </>
     )
 }

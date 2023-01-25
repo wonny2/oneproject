@@ -76,13 +76,12 @@ export const AddressWrap = styled.div`
     justify-content: space-between;
     width: 100%;
     height: 150px;
-    border:1px solid black;
 `
 export const ZipWrap = styled.div`
     display:flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 240px;
+    width: 210px;
 `
 
 export const Zipcode = styled.div`

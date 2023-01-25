@@ -1,5 +1,8 @@
 import { atom } from 'recoil';
 // Recoil에서는 Atom으로 state의 일부를 보여준다.
+import { recoilPersist } from 'recoil-persist';
+
+const { persistAtom } = recoilPersist();
 
 export const textState = atom({
     key: "textState",
@@ -9,6 +12,7 @@ export const textState = atom({
 export const accessTokenState = atom({
     key: "accessTokenState",
     default: "",
+    effects_UNSTABLE: [persistAtom]
 });
 
 export const basketsLength = atom({

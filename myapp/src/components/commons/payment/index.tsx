@@ -17,7 +17,7 @@ export default function PayMentPage() {
 
 
         var IMP = window.IMP; // 생략 가능, 처음에 IMP에 오류가 뜨는 이유는 window에는 IMP가 없음. 근데 이번 결제로 인해서 인위적으로 생기게 만드는 거니까 위에 declare!추가하기
-        IMP.init("imp35605844"); // 예: imp00000000
+        IMP.init("imp35605844"); 
 
         IMP.request_pay({
             pg: "nice",
