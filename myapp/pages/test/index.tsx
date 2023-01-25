@@ -29,7 +29,7 @@ export default function TestPage() {
           // 여기서 직접 다운로드 받고, 다 받을때까지 기다렸다가 그려주기!!
           const script = document.createElement("script"); // html에 script라는 태그(Element)를 만든다.
           script.src =
-            "//dapi.kakao.com/v2/maps/sdk.js?appkey='키입력'&autoload=false";
+            "//dapi.kakao.com/v2/maps/sdk.js?appkey='키입력22'&autoload=false";
           document.head.appendChild(script);
         
           script.onload = () => {
