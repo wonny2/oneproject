@@ -151,8 +151,9 @@ export const Color = {
     colors: {
         white: "#fff",
         green: "rgba(30, 130, 76)",
-        lightGreen: "rgba(107, 182, 142)",
-        green1: "#a3d5a3"
+        lightgreen: "rgba(107, 182, 142)",
+        green1: "#a3d5a3",
+        blue: "#3041DF",
     }
 }
 

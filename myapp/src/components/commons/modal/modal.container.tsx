@@ -5,7 +5,7 @@ import styled from "@emotion/styled";
 
 const Input = styled.input`
     outline:none;
-    border: 1px solid green;
+    border: 1px solid blue;
     height: 24px;
     width: 23%;
     border-radius: 8px;

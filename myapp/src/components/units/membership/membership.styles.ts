@@ -17,7 +17,7 @@ export const MembersWrap = styled.div`
     align-items:center;
     justify-content:space-between;
     border-radius: 8px;
-    border: 1px solid ${Color.colors.green};
+    border: 1px solid ${Color.colors.blue};
     padding: 30px;
 `
 
@@ -28,7 +28,7 @@ export const Box = styled.div`
     display:flex;
     flex-direction:column;
     justify-content:center;
-    border: 1px solid ${Color.colors.lightGreen};
+    border: 1px solid ${Color.colors.lightblue};
     border-radius: 8px;
     cursor: pointer;
 `
@@ -72,7 +72,7 @@ export const Btn = styled.div`
     text-align:center;
     font-weight: 600;
     font-size: 30px;
-    background-color: ${Color.colors.green};
+    background-color: ${Color.colors.blue};
     color: white;
     border-radius: 8px;
     cursor: pointer;

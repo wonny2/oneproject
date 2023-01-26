@@ -9,7 +9,7 @@ export default function BestUsedItemPresenter(props: IBestBoardsPropsUI) {
     return(
         <L.Wrapper>
             <L.ContentsWrap>
-                <L.TopFour>Best UsedItem</L.TopFour>
+                {/* <L.TopFour>Best UsedItem</L.TopFour> */}
                 <L.CardWrap>
                     {props.usedItems?.fetchUseditemsOfTheBest.map((item:any, index:number) => (
                         <L.Card key={index} id={item._id} onClick={props.onClickDetail}> 

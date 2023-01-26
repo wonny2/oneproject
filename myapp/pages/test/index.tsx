@@ -2,7 +2,7 @@ import { Button, Modal } from 'antd';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import { DaumPostcodeEmbed} from 'react-daum-postcode';
-import Link from 'next/link';
+import Script from 'next/script';
 
 declare const window: typeof globalThis & {
     kakao: any;
@@ -48,9 +48,9 @@ export default function TestPage() {
         <>
             <div>지도</div>
             <div id="map" style={{width:"500px", height: "400px"}}></div>
-            <Head>
-                <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=02d08b860a5e9190e50c1d066917609a"></script>
-            </Head>
+
+                <Script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=02d08b860a5e9190e50c1d066917609a"></Script>
+
             
             <Button onClick={onClickOpenModal}>주소검색</Button>
             {openModal

@@ -34,7 +34,7 @@ export const UpdateOpenBtn = styled.div`
     cursor: pointer;
     width: 90px;
     height: 35px;
-    background-color: ${Color.colors.green};
+    background-color: ${Color.colors.blue};
     color: white;
     border-radius: 10px;
     font-size: 16px;
@@ -68,7 +68,7 @@ export const Inputs = styled.input`
     height: 40px;
     border-radius: 7px;
     outline:none;
-    border:1px solid green;
+    border:1px solid blue;
     padding-left: 20px;
 `
 
@@ -77,7 +77,7 @@ export const UpdateBtn = styled.div`
     width: 85px;
     height: 35px;
     line-height:35px;
-    background-color: ${Color.colors.green};
+    background-color: ${Color.colors.blue};
     color: white;
     border-radius: 10px;
     font-size: 16px;

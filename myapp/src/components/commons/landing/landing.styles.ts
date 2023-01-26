@@ -19,8 +19,8 @@ export const Wrapper = styled.div`
   width:100%;
   height: 100vh;
   display:flex;
-  flex-direction: column;
-  justify-content: space-between;
+  justify-content:center;
+  align-items:center;
   animation: ${Fade} 2s;
 
 	*{
@@ -31,11 +31,42 @@ export const Wrapper = styled.div`
 
 `
 
-export const WholeWrap = styled.div`
+export const WholeWrapFirst = styled.div`
 	width:100%;
   	height: 100vh;
   	display:flex;
   	flex-direction: column;
+	background-image: url('/images/help1.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	opacity: 0.65;
+`
+
+export const WholeWrapSecond = styled.div`
+	width:100%;
+  	height: 100vh;
+  	display:flex;
+  	flex-direction: column;
+	background-image: url('/images/help2.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	opacity: 0.45;
+`
+
+export const WholeWrapThird = styled.div`
+	width:100%;
+  	height: 100vh;
+  	display:flex;
+  	flex-direction: column;
+	background-image: url('/images/help6.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	opacity: 0.45;
+`
+
+export const ThirdImg = styled.img`
+	height:100%;
+	opacity: 0.75;
 `
 
 export const Wrap = styled.div`
@@ -66,7 +97,6 @@ export const ContentsWrap = styled.div`
   	justify-content: center;
   	align-items:center;
   	font-size: 30px;
-  	color: ${Color.colors.lightGreen};
 
 	.isActive {
     	animation: bounceIn;
@@ -82,7 +112,7 @@ export const H1 = styled.h1`
 
 export const Bold = styled.div`
 	font-size: 100px;
-	border-bottom: 10px double ${Color.colors.green};
+	border-bottom: 10px double ${Color.colors.blue};
 `
 
 
@@ -103,32 +133,32 @@ export const ScrollWrap = styled.a`
 	flex-direction:column;
 	align-items:center;
 	position: relative;
-	/* top: -150px; */
+	bottom: -85%;
 	font-weight: 800;
-	height: 160px;
 `
 
 export const Text = styled.div`
   font-size: 18px;
-  color: ${Color.colors.green};
+  color: ${Color.colors.blue};
 `
 
 
 export const Scroll = styled.div`
-	width: 33px;
-	height: 60px;
-	border: 2px solid ${Color.colors.green};
+	width: 35px;
+	height: 70px;
+	border: 2px solid ${Color.colors.blue};
 	border-radius: 60px;
+	position: relative;
 
 	&::before {
 		content: '';
 		width: 12px;
 		height: 12px;
 		position: absolute;
-		top: 25px;
+		top: 8px;
 		left: 50%;
 		transform: translateX(-50%);
-		background-color: ${Color.colors.green};
+		background-color: ${Color.colors.blue};
 		border-radius: 50%;
 		opacity: 1;
 		animation: wheel 2s infinite;
@@ -136,19 +166,12 @@ export const Scroll = styled.div`
 	}
 
 
-@keyframes wheel {
-	to {
-		opacity: 0;
-		top: 60px;
+	@keyframes wheel {
+		to {
+			opacity: 0;
+			top: 50px;
+		}
 	}
-}
-
-@-webkit-keyframes wheel {
-	to {
-		opacity: 0;
-		top: 60px;
-	}
-}
 `
 
 export const Arrow = styled.div`
@@ -164,35 +187,35 @@ export const Arrow = styled.div`
 		left: 25%;
 		width: 15px;
 		height: 15px;
-		border-left: 1px solid ${Color.colors.lightGreen};
-  		border-bottom: 1px solid ${Color.colors.lightGreen};
+		border-left: 1px solid ${Color.colors.blue};
+  		border-bottom: 1px solid ${Color.colors.blue};
 		transform: rotate(-45deg);
 	}
 
 
-@keyframes down {
-	0% {
-		transform: translate(0);
+	@keyframes down {
+		0% {
+			transform: translate(0);
+		}
+		20% {
+			transform: translateY(15px);
+		}
+		40% {
+			transform: translate(0);
+		}
 	}
-	20% {
-		transform: translateY(15px);
-	}
-	40% {
-		transform: translate(0);
-	}
-}
 
-@-webkit-keyframes down {
-	0% {
-		transform: translate(0);
-	}
-	20% {
-		transform: translateY(15px);
-	}
-	40% {
-		transform: translate(0);
-	}
-}
+	/* @-webkit-keyframes down {
+		0% {
+			transform: translate(0);
+		}
+		20% {
+			transform: translateY(15px);
+		}
+		40% {
+			transform: translate(0);
+		}
+	} */
 `
 
 export const Linear = styled.img`

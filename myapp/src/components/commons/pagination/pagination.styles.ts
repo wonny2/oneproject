@@ -49,7 +49,7 @@ export const Input = styled.input`
     font-size:13px;
 
     :focus {
-        border-color: ${Color.colors.green};
+        border-color: ${Color.colors.blue};
         outline:none;
     }
 
@@ -110,7 +110,7 @@ export const ContentsWrap = styled.div`
 
 export const Title = styled.div`
     font-size: 20px;
-    color: ${Color.colors.green};
+    color: ${Color.colors.blue};
     font-weight: 700;
     margin-bottom: 15px;
     overflow:hidden;
@@ -150,7 +150,7 @@ export const PageNum = styled.div`
     width:20px;
     text-align:center;
     line-height:20px;
-    background-color: ${(props:PaginationNum) => props.backColor ?  "green" : "none"};
+    background-color: ${(props:PaginationNum) => props.backColor ?  "blue" : "none"};
     color: ${(props:PaginationNum) => props.backColor ?  "white" : "black"};
     border-radius:15px;
     cursor: pointer;

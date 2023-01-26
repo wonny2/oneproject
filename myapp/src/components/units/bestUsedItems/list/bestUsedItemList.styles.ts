@@ -35,32 +35,32 @@ export const ContentsWrap = styled.div`
     }
 `
 
-export const TopFour = styled.div`
-    height: 5rem;
-    width: 35rem;
-    line-height:5rem;
-    font-size: 5.32rem;
-    text-align:center;
-    background: linear-gradient(to right top, #1e824c, white );
-    color: transparent;
-    background-clip: text;
-    margin-bottom: 25px;
+// export const TopFour = styled.div`
+//     height: 5rem;
+//     width: 35rem;
+//     line-height:5rem;
+//     font-size: 5.32rem;
+//     text-align:center;
+//     background: linear-gradient(to right top, #1e824c, white );
+//     color: transparent;
+//     background-clip: text;
+//     margin-bottom: 25px;
 
 
-    @media ${breakPoints.mobile} {
-        width: 16rem;
-        height: 4rem;
-        font-size: 2.5rem;
-    }
+//     @media ${breakPoints.mobile} {
+//         width: 16rem;
+//         height: 4rem;
+//         font-size: 2.5rem;
+//     }
 
-    @media ${breakPoints.tablet} {
+//     @media ${breakPoints.tablet} {
         
-    }
+//     }
 
-    @media ${breakPoints.desktop} {
+//     @media ${breakPoints.desktop} {
         
-    }
-`
+//     }
+// `
 
 
 export const CardWrap = styled.div`
@@ -69,7 +69,7 @@ export const CardWrap = styled.div`
     flex-direction:row;
     justify-content:space-around;
     margin-bottom: 30px;
-    border-radius: 15px;
+    padding: 30px;
 
     @media ${breakPoints.mobile} {
         display:grid;
@@ -127,8 +127,14 @@ export const Image = styled.img`
 export const Name = styled.div`
     font-size:23px;
     font-weight: 700;
-    color: ${Color.colors.green};
     margin-bottom: 15px;
+    width: 100%;
+    height: 30px;
+    padding: 0 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
 `
 
 export const Contents = styled.div`
@@ -150,7 +156,7 @@ export const Time = styled.div`
 export const MenuBar = styled.div`
     width:100%;
     height: 2.6rem;
-    background-color: ${Color.colors.green};
+    background-color: ${Color.colors.blue};
     display:flex;
     justify-content:end;
     align-items:center;

@@ -23,12 +23,12 @@ export default function InfiniteScroll() {
         if(!data) return; 
 
         fetchMore({
-            variables: {page : Math.ceil(data.fetchUseditems.length / 10) + 1},
-            updateQuery: (prev, {fetchMoreResult}) => {
+            variables: { page : Math.ceil(data.fetchUseditems.length / 10) + 1 },
+            updateQuery: (prev, {fetchMoreResult}) => { // items배열(10)
                 if(!fetchMoreResult?.fetchUseditems) 
                     return {fetchUseditems: [...prev.fetchUseditems]};
             
-                    return {fetchUseditems: [...prev.fetchUseditems, ...fetchMoreResult?.fetchUseditems]
+                    return {fetchUseditems: [...prev.fetchUseditems, ...fetchMoreResult.fetchUseditems]
                 };
             },
         });

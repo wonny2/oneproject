@@ -6,15 +6,18 @@ export default function LandingThird() {
 
     const [ref, inView] = useInView({
         threshold:0,
-        triggerOnce: true,
+        root: null,
     });
+
+    // const props = useSpring({ number: Math.floor(211), from: { number: 1 } });
+
 
     return(
         <>
             <div ref={ref}>
-                <L.WholeWrap>
+                <L.WholeWrapThird>
                     
-                </L.WholeWrap>
+                </L.WholeWrapThird>
             </div>
         </>
     )

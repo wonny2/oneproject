@@ -7,14 +7,17 @@ export default function LandingSecond() {
         threshold:0,
         triggerOnce: true,
     })
-
-
+    
+    
     return(
         <>
             <div ref={ref}>
-                <L.WholeWrap>  
-                    <div>2페이지</div>
-                </L.WholeWrap>
+                <L.WholeWrapSecond>  
+                    <L.ScrollWrap>
+                        <L.Scroll />
+                        <L.Arrow />
+                    </L.ScrollWrap>
+                </L.WholeWrapSecond>
             </div>
         </>
     )

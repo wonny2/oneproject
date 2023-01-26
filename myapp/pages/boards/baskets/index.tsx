@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 const SecondWrap = styled.div`
     width: 300px;
     height: 200px;
-    border: 3px solid ${Color.colors.green};
+    border: 3px solid ${Color.colors.blue};
     border-radius:10px;
     margin-bottom: 50px;
     text-align:center;
@@ -29,7 +29,7 @@ const Basket = styled.div`
 const Title = styled.div`
     font-size: 25px;
     font-weight: 700;
-    border-bottom: 2px solid ${Color.colors.green};
+    border-bottom: 2px solid ${Color.colors.blue};
     padding: 0 20px;
     height: 50px;
     line-height: 50px;

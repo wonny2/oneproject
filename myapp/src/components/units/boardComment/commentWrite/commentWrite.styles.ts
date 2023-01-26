@@ -68,7 +68,7 @@ export const SubmitBtn = styled.button`
     line-height:40px;
     text-align:center;
     font-weight: 500;
-    background-color: ${Color.colors.green};
+    background-color: ${Color.colors.blue};
     border-radius: 10px;
     border: none;
     color: white;

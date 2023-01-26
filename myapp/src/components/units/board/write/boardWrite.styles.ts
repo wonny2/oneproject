@@ -128,7 +128,7 @@ export const ButtonWrap = styled.div`
 export const Buttons = styled.button`
     width: 8.125rem;
     height: 55px;
-    border: 3px solid ${Color.colors.green};
+    border: 3px solid ${Color.colors.blue};
     border-radius: 50px;
     line-height:55px;
     text-align:center;
@@ -137,7 +137,7 @@ export const Buttons = styled.button`
     cursor: pointer;
     
     :hover {
-        background-color: ${Color.colors.green};
+        background-color: ${Color.colors.blue};
         color: white;
     }
 `

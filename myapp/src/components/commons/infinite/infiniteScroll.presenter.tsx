@@ -15,7 +15,7 @@ export default function Infinite(props: IInfiniteScrollPropsUI) {
                             <L.Card key={uuidv4()} id={item._id} onClick={props.moveToDetail}>
                                 <L.Img src={item.images.length === 0
                                     ? 'https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg' 
-                                    :`https://storage.googleapis.com/${item.images.filter((i:any) => i)[0]}`
+                                    : `https://storage.googleapis.com/${item.images.filter((i:any) => i)[0]}`
                                 } />
                                 <L.Title>{item.name}</L.Title>
                                 <L.Time>{getDate(item.createdAt)}</L.Time>

@@ -1,13 +1,18 @@
 import styled from "@emotion/styled";
 import { breakPoints } from "../../../../commons/styles/media";
+import { Color } from "../../../../commons/utils/utils";
+
+
 
 export const Wrapper = styled.div`
     width:100%;
     height: 10vh;
-    background-color: rgba(30, 130, 76);
+    background-color: ${Color.colors.blue};
+    color: white;
     font-size: 17px;
     display:flex;
     justify-content:center;
+    /* position:fixed; */
 `
 
 export const TitleWrap = styled.div`

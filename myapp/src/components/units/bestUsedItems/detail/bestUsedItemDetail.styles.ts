@@ -53,14 +53,14 @@ export const Button = styled.div`
     line-height:35px;
     text-align:center;
     border-radius: 20px;
-    background-color: ${Color.colors.green};
+    background-color: ${Color.colors.blue};
     color: white;
     margin-bottom: 70px;
     font-size: 16px;
     cursor: pointer;
 
     :hover {
-        border: 3px solid ${Color.colors.green};
+        border: 3px solid ${Color.colors.blue};
         background-color: #fff;
         color: black;
     }

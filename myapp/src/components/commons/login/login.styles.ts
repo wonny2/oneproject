@@ -31,7 +31,7 @@ export const Belt = styled.div`
     line-height: 3.42rem;
     color: white;
     font-size: 30px;
-    background-color: ${Color.colors.green};
+    background-color: ${Color.colors.blue};
     padding:0 20px;
 `
 
@@ -61,7 +61,7 @@ export const Inputs = styled.input`
     height:2rem;
     padding-left:15px;
     border-radius:10px;
-    border: 1px solid ${Color.colors.green};
+    border: 1px solid ${Color.colors.blue};
 `
 
 export const LoginBtn = styled.button`
@@ -70,7 +70,7 @@ export const LoginBtn = styled.button`
     line-height: 2.47rem;
     text-align:center;
     font-size: 18px;
-    border: 2px solid ${Color.colors.green};
+    border: 2px solid ${Color.colors.blue};
     border-radius: 10px;
     background-color: ${(props:BackColorProps) => props.isActive ? "rgba(30, 130, 76)" : "white"};
     color: ${(props:BackColorProps) => props.isActive ? "white" : "black"};

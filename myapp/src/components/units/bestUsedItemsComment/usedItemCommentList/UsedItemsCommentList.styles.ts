@@ -73,7 +73,7 @@ export const CommentOpen = styled.div`
     height: 40px;
     line-height:40px;
     text-align:center;
-    background-color: ${Color.colors.green};
+    background-color: ${Color.colors.blue};
     border-radius: 10px;
     color: white;
     cursor: pointer;
@@ -101,7 +101,7 @@ export const AnswerBtn = styled.div`
     height: 30px;
     line-height:30px;
     text-align:center;
-    background-color: ${Color.colors.green};
+    background-color: ${Color.colors.blue};
     border-radius: 10px;
     color: white;
     margin-left: 40px;

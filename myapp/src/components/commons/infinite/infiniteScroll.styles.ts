@@ -8,6 +8,8 @@ export const Wrapper = styled.div`
 `
 export const ContentsWrap = styled.div`
     width:81.25rem;
+    overflow:hidden;
+    height:100%;
 `
 export const CardWrap = styled.div`
     display: grid;

@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import * as H from './header.styles'
 import { useMutation, useQuery } from '@apollo/client';
 import { FETCH_USER_LOGGED_IN , LOG_OUT_USER} from './header.queries';
-import { useState} from 'react';
+import { useEffect, useState} from 'react';
 import { Badge } from 'antd';
 import { basketsLength } from '../../../../commons/atom';
 import { useRecoilState } from 'recoil';
@@ -10,11 +10,10 @@ import Head from 'next/head';
 import PayMentPage from '../../payment';
 
 
-interface PayMentProps {
-    onClickPayment: () => void
-}
 
-export default function Header(props: PayMentProps) {
+
+export default function Header() {
+
 
     const {data} = useQuery(FETCH_USER_LOGGED_IN)
     const [logoutUser] = useMutation(LOG_OUT_USER)
