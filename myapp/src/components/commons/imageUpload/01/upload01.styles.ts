@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Color } from "../../../../commons/utils/utils";
 
 export const Imgs = styled.img`
     width:10.75rem;
@@ -9,9 +10,9 @@ export const Imgs = styled.img`
 
 export const UploadBtn = styled.div`
     font-size: 20px;
-    width:10.75rem;
-    height:10.75rem;
-    border: 3px solid rgba(30, 130, 76 , .8);
+    width: 150px;
+    height: 150px;
+    border: 3px solid ${Color.colors.blue};
     display:flex;
     align-items:center;
     justify-content:center;
@@ -20,7 +21,7 @@ export const UploadBtn = styled.div`
 `
 
 export const RowWrap = styled.div`
-    margin-bottom:120px;
+
 `
 
 

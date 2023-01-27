@@ -7,6 +7,8 @@ import * as yup from 'yup'
 import {yupResolver} from '@hookform/resolvers/yup'
 import { useRouter } from "next/router";
 import { IRegisterDataType, IUpdateInputValue } from "./boardWrite.types";
+import { priceTag } from "../../../../commons/utils/utils";
+
 
 export default function BoardWriteContainer(props:any) {
 
@@ -19,6 +21,13 @@ export default function BoardWriteContainer(props:any) {
 
     const [fileUrls, setFileUrls] = useState(["", "", ""])
     const [openModal, setOpenModal] = useState(false)
+    const [price, setPrice] = useState(0)
+
+    const onChangePrice = (event: number) => {
+        setPrice(event)
+    }
+
+    
 
     // yup 에러조건, 에러메세지 생성
     const schema = yup.object().shape({
@@ -191,7 +200,8 @@ export default function BoardWriteContainer(props:any) {
         address={address}
         zipcode={zipcode}
         onClickCreateUsedItem={onClickCreateUsedItem}
-
+        price={price}
+        onChangePrice={onChangePrice}
         />
     )
 }

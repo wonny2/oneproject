@@ -36,10 +36,22 @@ export const WholeWrapFirst = styled.div`
   	height: 100vh;
   	display:flex;
   	flex-direction: column;
-	background-image: url('/images/help1.jpg');
-	background-size: cover;
-	background-repeat: no-repeat;
-	opacity: 0.65;
+	position: relative;
+	z-index: 1;
+	
+	::after {
+		content: "";
+		width:100%;
+		height:100%;
+		background: url('/images/help1.jpg');
+		background-size: cover;
+		background-repeat: no-repeat;
+		opacity: 0.65;
+		z-index: -1;
+		position: absolute;
+		top: 0;
+  		left: 0;
+	}
 `
 
 export const WholeWrapSecond = styled.div`
@@ -47,10 +59,22 @@ export const WholeWrapSecond = styled.div`
   	height: 100vh;
   	display:flex;
   	flex-direction: column;
-	background-image: url('/images/help2.jpg');
-	background-size: cover;
-	background-repeat: no-repeat;
-	opacity: 0.45;
+	position: relative;
+	z-index: 1;
+	
+	::after {
+		content: "";
+		width:100%;
+		height:100%;
+		background: url('/images/help2.jpg');
+		background-size: cover;
+		background-repeat: no-repeat;
+		opacity: 0.65;
+		z-index: -1;
+		position: absolute;
+		top: 0;
+  		left: 0;
+	}
 `
 
 export const WholeWrapThird = styled.div`
@@ -58,10 +82,24 @@ export const WholeWrapThird = styled.div`
   	height: 100vh;
   	display:flex;
   	flex-direction: column;
-	background-image: url('/images/help6.jpg');
-	background-size: cover;
-	background-repeat: no-repeat;
-	opacity: 0.45;
+	align-items:center;
+	justify-content:center;
+	position: relative;
+	z-index: 1;
+	
+	::after {
+		content: "";
+		width:100%;
+		height:100%;
+		background: url('/images/help6.jpg');
+		background-size: cover;
+		background-repeat: no-repeat;
+		opacity: 0.65;
+		z-index: -1;
+		position: absolute;
+		top: 0;
+  		left: 0;
+	}
 `
 
 export const ThirdImg = styled.img`
@@ -204,18 +242,6 @@ export const Arrow = styled.div`
 			transform: translate(0);
 		}
 	}
-
-	/* @-webkit-keyframes down {
-		0% {
-			transform: translate(0);
-		}
-		20% {
-			transform: translateY(15px);
-		}
-		40% {
-			transform: translate(0);
-		}
-	} */
 `
 
 export const Linear = styled.img`
@@ -234,3 +260,73 @@ export const Linear = styled.img`
     }
 }
 `;
+
+export const ThirdContentsWrap = styled.div`
+	display:flex;
+	flex-direction: column;
+	justify-content:center;
+	align-items:center;
+	width: 900px;
+	border: 2px solid red;
+`
+
+
+export const Button = styled.div`
+	width:300px;
+	height:50px;
+	line-height: 50px;
+	text-align:center;
+    background: linear-gradient(-45deg, #33ccff 0%, #ff99cc 100%);
+    color: white;
+    background-size: 400% 400%;
+    animation: gradient1 3s ease infinite;
+	position: relative;
+    border: none;
+    display: inline-block;
+    border-radius: 10px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+
+	:hover::after {
+		letter-spacing: 4px;
+    	cursor: pointer;
+		content: "";
+		width: 30px;
+		height: 30px;
+		border-radius: 100%;
+		border: 3px solid #33ccff;
+		position: absolute;
+		z-index: 1;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		animation: ring 2s ease infinite;
+	};
+
+	@keyframes gradient1 {
+		0% {
+        	background-position: 0% 50%;
+    }
+    	50% {
+        	background-position: 100% 50%;
+    }
+    	100% {
+        	background-position: 0% 50%;
+    }
+};
+
+	@keyframes ring {
+		0% {
+        width: 30px;
+        height: 30px;
+        opacity: 1;
+    }
+    	100% {
+        width: 300px;
+        height: 300px;
+        opacity: 0;
+    }
+}
+`

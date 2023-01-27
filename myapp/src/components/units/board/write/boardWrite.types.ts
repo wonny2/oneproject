@@ -19,6 +19,8 @@ export interface IBoardsWritePropsUI {
     zipcode: string
     address: string
     onClickCreateUsedItem: (data: any) => Promise<void>
+    price: number
+    onChangePrice: (event: any) => void
 }
 
 export interface IUpdateInputValue {
