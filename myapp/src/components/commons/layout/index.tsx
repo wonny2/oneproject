@@ -7,9 +7,8 @@ import BasketList from "./basketList";
 import Footer from "./footer";
 
 
-const Body = styled.div`
-    display: flex;
-`
+const Body = styled.div``
+
 interface ILayoutProps {
     children: ReactNode;
 }
@@ -35,7 +34,7 @@ export default function Layout(props: ILayoutProps) {
         <>
             {!hiddenHeader && <Header />}
             {/* {!hiddenHeader && <BasketList />} */}
-            <Body>{props.children}</Body>
+                <Body>{props.children}</Body>
             {!hiddenFooter && <Footer />}
         </>
     )

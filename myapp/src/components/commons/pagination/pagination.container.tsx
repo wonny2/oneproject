@@ -6,6 +6,7 @@ import { debounce } from "lodash";
 import { ChangeEvent, MouseEvent } from "react";
 import PaginationPresenter from "./pagination.presenter";
 import { useRouter } from "next/router";
+import { PaginationProps } from "antd";
 
 
 
@@ -18,17 +19,17 @@ export default function Pagination( ) {
     const [keyword, setKeyword] = useState("");
 
     const {data, refetch} = useQuery(FETCH_BOARDS);
-    // const {data, refetch} = useQuery(FETCH_USED_ITEM)
+    // const {data: usedItem  refetch} = useQuery(FETCH_USED_ITEM)
 
     const {data: dataBoardsCount} = useQuery(FETCH_BOARDS_COUNT)
     
 
     const lastPage = Math.ceil(dataBoardsCount?.fetchBoardsCount / 10)
 
-    const onClickPage = (event: any) =>{
-        const atived = Number(event.target.id)
-        setActivedPage(atived)
-        refetch({page: Number(event.target.id)})
+    const onClickPage:PaginationProps['onChange'] = (event: any) =>{
+        // const atived = Number(event.target.id)
+        setActivedPage(event)
+        refetch({page: Number(event)})
     }
     
     // 여기서 start값이 바뀌는 거즤!

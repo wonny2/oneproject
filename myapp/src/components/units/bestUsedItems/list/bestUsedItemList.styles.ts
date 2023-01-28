@@ -3,25 +3,21 @@ import { breakPoints } from "../../../../commons/styles/media";
 import styled from "@emotion/styled";
 
 
-interface ImageUrlProps{
-    images: any
-};
-
-
 export const Wrapper = styled.div`
-    width:100%;
+    width: 100%;
     display:flex;
     flex-direction:column;
     align-items:center;
+    
 `
 
 export const ContentsWrap = styled.div`
-    width: 75rem; // 1200px
+    width: 80rem;
     display:flex;
-    flex-direction:column;
-    align-items:center;
+    flex-direction:row;
+    justify-content:space-between;
 
-    @media ${breakPoints.mobile} {
+    /* @media ${breakPoints.mobile} {
         width: 100%;
         font-size: 2.5rem;
     }
@@ -32,75 +28,71 @@ export const ContentsWrap = styled.div`
 
     @media ${breakPoints.desktop} {
         width: 100%;
-    }
+    } */
+
 `
 
-// export const TopFour = styled.div`
-//     height: 5rem;
-//     width: 35rem;
-//     line-height:5rem;
-//     font-size: 5.32rem;
-//     text-align:center;
-//     background: linear-gradient(to right top, #1e824c, white );
-//     color: transparent;
-//     background-clip: text;
-//     margin-bottom: 25px;
 
+// export const CardWrap = styled.div`
+//     width: 100%;
+//     display:flex;
+//     flex-direction:row;
+//     justify-content:space-around;
+//     margin-bottom: 30px;
+//     padding: 30px;
 
 //     @media ${breakPoints.mobile} {
-//         width: 16rem;
-//         height: 4rem;
-//         font-size: 2.5rem;
+//         display:grid;
+//         grid-template-columns: repeat(2, 10rem);
+//         grid-row-gap: 20px;
+//         place-items: center;
 //     }
 
 //     @media ${breakPoints.tablet} {
-        
-//     }
-
-//     @media ${breakPoints.desktop} {
-        
+//         display:grid;
+//         grid-template-columns: repeat(2, 10rem);
+//         grid-row-gap: 20px;
+//         width: 37.5rem;
+//         place-items: center;
 //     }
 // `
 
-
-export const CardWrap = styled.div`
-    width: 100%;
+export const SubTitle = styled.div`
+    font-size: 30px;
+    font-weight: 700;
     display:flex;
-    flex-direction:row;
-    justify-content:space-around;
-    margin-bottom: 30px;
-    padding: 30px;
-
-    @media ${breakPoints.mobile} {
-        display:grid;
-        grid-template-columns: repeat(2, 10rem);
-        grid-row-gap: 20px;
-        place-items: center;
-
+    flex-direction: column;
+    justify-content:center;
+    cursor: pointer;
+    
+    > span {
+        margin-bottom: 10px;
     }
+`
 
-    @media ${breakPoints.tablet} {
-        display:grid;
-        grid-template-columns: repeat(2, 10rem);
-        grid-row-gap: 20px;
-        width: 37.5rem;
-        place-items: center;
-
-    }
+export const Button = styled.div`
+    background-color: ${Color.colors.blue};
+    width: 130px;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 15px;
+    color: white;
+    font-size: 14px;
 `
 
 
 
 export const Card = styled.div`
-    width: 15rem;
-    height: 20rem;
+    width: 12rem;
+    height: 15rem;
     box-shadow: 1px 1px 3px gray;
     display:flex;
     flex-direction: column;
-    align-items:center; 
+    align-items:center;
     text-align:center;
-    border-radius:15px;
+    border-radius: 7px;
     transition: all 0.2s ease-out;
+    padding: 0 20px;
     cursor: pointer;
 
     :hover{
@@ -115,42 +107,47 @@ export const Card = styled.div`
 `
 
 export const Image = styled.img`
-    width:100% ;
-    height: 12rem;
+    width: 4.7rem;
+    height: 4.7rem;
     object-fit: cover;
-    border-top-left-radius:10px;
-    border-top-right-radius:10px;
     margin-bottom: 15px;
+    border-radius: 50%;
+    position: relative;
+    top: -14px;
     
 `
 
-export const Name = styled.div`
-    font-size:23px;
-    font-weight: 700;
-    margin-bottom: 15px;
-    width: 100%;
-    height: 30px;
-    padding: 0 20px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+// export const Name = styled.div`
+//     font-size:23px;
+//     font-weight: 700;
+//     width: 100%;
+//     height: 30px;
+//     padding: 0 20px;
+//     white-space: nowrap;
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+//     background-color: red;
+// `
 
+
+export const CardContentsWrap = styled.div`
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 130px;
 `
 
 export const Contents = styled.div`
     font-size:15px;
-    margin-bottom: 15px;
-    overflow:hidden;
-    height: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 80px;
 `
 
 export const Time = styled.div`
     width:100%;
     font-size: 12px;
     color: gray;
-    display:flex;
-    justify-content:end;
-    padding: 0 10px;
 `
 
 export const MenuBar = styled.div`

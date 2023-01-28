@@ -2,7 +2,7 @@ import { ChangeEvent, MouseEvent } from "react"
 
 
 export interface PaginationPropsUI {
-    onClickPage: (event: any) => void
+    onClickPage: (page: number, pageSize: number) => void
     onClickPrev: () => void
     onClickNext: () => void
     onChangeInput: (event: ChangeEvent<HTMLInputElement>) => void

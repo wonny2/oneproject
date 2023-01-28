@@ -9,21 +9,21 @@ export default function Slick() {
 
     const settings = {
         infinite: true,
-        speed: 400,
+        speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        arrows: false,
+        // arrows: true,
         // vertical : true, // 세로 방향 슬라이드
         beforeChange: (slide:number) => setCurrentSlide(slide)
       };
 
       const items = [
-        { id: 1, url: "/images/1.jpeg"},
-        { id: 2, url: "/images/2.png" },
-        { id: 3, url: "/images/3.png" },
-        { id: 4, url: "/images/4.png" },
-        { id: 5, url: "/images/5.png" }
+        { id: 1, url: "/images/help1.jpg"},
+        { id: 2, url: "/images/help4.jpg" },
+        { id: 3, url: "/images/help3.jpg" },
+        { id: 4, url: "/images/help5.jpg" },
+        { id: 5, url: "/images/help6.jpg" }
       ];
 
       const [currentSlide, setCurrentSlide] = useState(0)
@@ -38,7 +38,7 @@ export default function Slick() {
                         </S.ImgWrap>
                 ))}
             </Slider>
-            <S.Num>{currentSlide + 1} / {items.length}</S.Num>
+            {/* <S.Num>{currentSlide + 1} / {items.length}</S.Num> */}
         </S.Wrapper>
     )
 }

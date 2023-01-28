@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
     font-size: 17px;
     display:flex;
     justify-content:center;
-    /* position:fixed; */
+    position:sticky;
 `
 
 export const TitleWrap = styled.div`

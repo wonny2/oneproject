@@ -10,22 +10,30 @@ export default function BestUsedItemPresenter(props: IBestBoardsPropsUI) {
         <L.Wrapper>
             <L.ContentsWrap>
                 {/* <L.TopFour>Best UsedItem</L.TopFour> */}
-                <L.CardWrap>
+                
+                    <L.SubTitle>
+                        <span>지금 바로 후원 가능한</span>
+                        <span>긴급 후원</span>
+                        <L.Button>바로가기 {'>'}</L.Button>
+                    </L.SubTitle>
+
                     {props.usedItems?.fetchUseditemsOfTheBest.map((item:any, index:number) => (
                         <L.Card key={index} id={item._id} onClick={props.onClickDetail}> 
                                 <L.Image src={`https://storage.googleapis.com/${item.images[0]}`} />
-                                <L.Name>{item.name}</L.Name>
-                                <L.Contents dangerouslySetInnerHTML={{__html: String(item.contents) }} />
-                                <L.Time>{getDate(item.createdAt)}</L.Time>
+                                {/* <L.Name>{item.name}</L.Name> */}
+                                <L.CardContentsWrap>
+                                    <L.Contents dangerouslySetInnerHTML={{__html: String(item.contents) }} />
+                                    <L.Time>{getDate(item.createdAt)}</L.Time>
+                                </L.CardContentsWrap>
                         </L.Card>
                     ))}
-                </L.CardWrap>
+                
             </L.ContentsWrap>
-                <L.MenuBar>
+                {/* <L.MenuBar>
                     <L.TextWrap>
                         <div onClick={props.MoveToWrite}>글쓰기</div>
                     </L.TextWrap>
-                </L.MenuBar>
+                </L.MenuBar> */}
         </L.Wrapper>
         
     )

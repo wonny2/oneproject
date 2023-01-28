@@ -21,6 +21,10 @@ export const FETCH_USED_ITEMS_OF_THE_BEST = gql`
             contents
             images
             createdAt
+            useditemAddress{
+                address
+                addressDetail
+            }
         }
     }
 `

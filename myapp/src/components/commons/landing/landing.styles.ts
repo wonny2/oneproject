@@ -267,7 +267,6 @@ export const ThirdContentsWrap = styled.div`
 	justify-content:center;
 	align-items:center;
 	width: 900px;
-	border: 2px solid red;
 `
 
 
@@ -296,7 +295,7 @@ export const Button = styled.div`
 		width: 30px;
 		height: 30px;
 		border-radius: 100%;
-		border: 3px solid #33ccff;
+		border: 3px solid white;
 		position: absolute;
 		z-index: 1;
 		top: 50%;
