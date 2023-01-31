@@ -24,7 +24,6 @@ export default function BoardWritePresenter(props: IBoardsWritePropsUI) {
                         type="text"
                         placeholder='이름을 입력해주세요'
                         defaultValue={props.data?.fetchBoard.title || ""}
-                        
                         />
                 </W.ContentWrap>
 

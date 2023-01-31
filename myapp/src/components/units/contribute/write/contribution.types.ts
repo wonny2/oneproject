@@ -16,4 +16,5 @@ export interface IContributePresenter {
     onCreateContribution: (data: any) => Promise<void>
     priceError: string
     addressError: string
+    MoveToBack: () => void
 }

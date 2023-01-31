@@ -1,11 +1,19 @@
 import { useRouter } from 'next/router'
+import { accessTokenState } from '../../../commons/atom';
 import * as M from './main.styles'
+import { useRecoilState } from 'recoil';
 
 export default function MainPage() {
 
     const router = useRouter();
+    const [accessToken] = useRecoilState(accessTokenState)
 
     const MoveToContributeWrite = () => {
+        if(!accessToken) {
+            alert("로그인 후 작성 가능합니다.");
+            router.push('/boards/login')
+        };
+
         router.push('/contribute/new')
     }
 

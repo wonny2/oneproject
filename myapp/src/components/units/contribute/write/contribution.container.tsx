@@ -6,9 +6,12 @@ import { CREATE_USED_ITEM } from "./contribution.queries";
 import { checkFile } from "../../../../commons/utils/utils";
 import * as yup from 'yup'
 import {yupResolver} from '@hookform/resolvers/yup'
+import { useRouter } from "next/router";
 
 
 export default function ContributionContainer() {
+
+    const router = useRouter();
 
     const [createUseditem] = useMutation(CREATE_USED_ITEM);
     
@@ -23,14 +26,14 @@ export default function ContributionContainer() {
     const [addressError,setAddressError] = useState("");
 
     const addressInfo = (data:any) => {
-        setAddress(data.address)
-        setZipcode(data.zonecode)
-        console.log(data)
+        setAddress(data.address);
+        setZipcode(data.zonecode);
+        console.log(data);
     };
-
 
     const onChangePrice = (event:number) => {
         setPrice(event);
+        console.log(price)
     };
 
     const onModalOnOff = () => {
@@ -45,30 +48,39 @@ export default function ContributionContainer() {
 
     const {register, handleSubmit, formState} = useForm({
         mode: "onChange",
-        resolver: yupResolver(schema)
+        resolver: yupResolver(schema),
     });
 
     const onClickFileUrls = (fileUrl:string, index:number) => {
         const newFileUrls = [...fileUrls];
         newFileUrls[index] = fileUrl;
         setFileUrls(newFileUrls)
-};
+    };
+
+    const MoveToBack = () => {
+        router.push('/boards')
+    }
+
 
 
     // 등록하기
     const onCreateContribution = async (data:any) => {
 
-        console.log("hello")
+        if(price === 0) {
+            setPriceError("가격을 입력해주세요");
+        } else {
+            setPriceError("")
+        };
 
-        // if(price === 0) {
-        //     setPriceError("가격을 입력해주세요");
-        //     return;
-        // };
+        if(!address) {
+            setAddressError("주소를 입력해주세요")   
+        } else {
+            setAddressError("")
+        };
 
-        // if(!address) {
-        //     setAddressError("주소를 입력해주세요")
-        //     return;
-        // };
+        if(!fileUrls[0] && !fileUrls[1] && !fileUrls[2]) {
+            return alert("최소 이미지 1장 등록해주세요")
+        };
 
         try{
             const result = await createUseditem({
@@ -113,7 +125,7 @@ export default function ContributionContainer() {
             onCreateContribution={onCreateContribution}
             priceError={priceError}
             addressError={addressError}
-
+            MoveToBack={MoveToBack}
         />
     )
 }

@@ -27,6 +27,16 @@ export const SecondWrap = styled.div`
     padding: 90px 0;
 `
 
+export const Icon = styled.div`
+    width: 900px;
+
+    > img {
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+    }
+`
+
 export const BackImg = styled.div`
     width:100%;
     height: 200px;
@@ -209,7 +219,7 @@ export const ICamera = styled.img`
     height: 30px;
 `
 
-export const EnrollBtn = styled.div`
+export const EnrollBtn = styled.button`
     width: 70%;
     height: 50px;
     font-size: 23px;
@@ -218,7 +228,7 @@ export const EnrollBtn = styled.div`
     border-radius: 8px;
     color: white;
     cursor: pointer;
-    background-color: red;
+    background-color: ${Color.colors.blue};
 `
 
 // background-color: ${(props:ValidProps) => props.isActive ? "${Color.colors.blue}" : "none"};

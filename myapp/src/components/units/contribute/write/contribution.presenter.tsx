@@ -7,12 +7,14 @@ export default function ContributionPresenter(props: IContributePresenter){
 
     return(
             <W.Wrapper>
-                <form onSubmit={props.handleSubmit(props.onCreateContribution)}>
                 <W.BackImg>
                     <div>긴 급 후 원 신 청</div>
                 </W.BackImg>
-
+                <form onSubmit={props.handleSubmit(props.onCreateContribution)}>
                 <W.SecondWrap>
+                    <W.Icon>
+                        <img src='/images/backarrow.png' onClick={props.MoveToBack} />
+                    </W.Icon>
                     <W.ContentsWrap>
                         <W.Title>제목</W.Title>
                         <W.Error>{props.formState.errors.remarks?.message}</W.Error>
