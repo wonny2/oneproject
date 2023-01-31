@@ -48,16 +48,6 @@ export const getDate = (value:any) => {
     return `${yyyy}-${mm}-${dd}`
 };
 
-
-// export const getDate = (value:string) => {
-//     const date = new Date(value)
-//     const yyyy = date.getFullYear()
-//     const mm = String(date.getMonth() + 1).padStart(2, "0")
-//     const dd = String(date.getDate()).padStart(2, "0")
-//     return `${yyyy}-${mm}-${dd}`
-// };
-
-
 export function getMonthDay(value:any) {
     const date = new Date();
     const day = date.getDate();
@@ -155,7 +145,15 @@ export const Color = {
         green1: "#a3d5a3",
         blue: "#3041DF",
     }
-}
+};
+
+export const inputPadding = {
+    left: "20px",
+};
+
+export const inputFontSize = {
+    common : "13px"
+};
 
 export const FontList = {
     // fonts: {

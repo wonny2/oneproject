@@ -72,7 +72,7 @@ export const LoginBtn = styled.button`
     font-size: 18px;
     border: 2px solid ${Color.colors.blue};
     border-radius: 10px;
-    background-color: ${(props:BackColorProps) => props.isActive ? "rgba(30, 130, 76)" : "white"};
+    background-color: ${(props:BackColorProps) => props.isActive ? Color.colors.blue : "white"};
     color: ${(props:BackColorProps) => props.isActive ? "white" : "black"};
     cursor: pointer;
 `

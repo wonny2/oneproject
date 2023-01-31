@@ -22,7 +22,7 @@ export default function PaginationPresenter(props:PaginationPropsUI) {
             <P.ContentsWrap>
                 <P.TitleWords>번 호</P.TitleWords>
                 <P.TitleTitle>제 목</P.TitleTitle>
-                <P.TitleContents>내 용</P.TitleContents>
+                <P.TitleContents>이 름</P.TitleContents>
                 <P.TitleDate>날 짜</P.TitleDate>
             </P.ContentsWrap>
                 
@@ -52,6 +52,7 @@ export default function PaginationPresenter(props:PaginationPropsUI) {
                         defaultCurrent={props.startPage} 
                         total={props.lastPage * 10}
                         onChange={props.onClickPage}
+                        showSizeChanger={false}
                     />
                     {/* <div style={{cursor: "pointer"}} onClick={props.onClickPrev}>{" < "}</div>
                     {new Array(10).fill(1).map((_, index) => (

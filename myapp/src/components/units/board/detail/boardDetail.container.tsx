@@ -19,14 +19,14 @@ export default function BoardDetailContainer() {
     const [isActive, setIsActive] = useState(false);
 
 
-    // const {data} = useQuery<Pick<IQuery, "fetchBoard">, IQueryFetchBoardArgs>(FETCH_BOARD, {
-    //     variables: {boardId: String(router.query.boardId)}
-    // });
+    const {data} = useQuery<Pick<IQuery, "fetchBoard">, IQueryFetchBoardArgs>(FETCH_BOARD, {
+        variables: {boardId: String(router.query.boardId)}
+    });
 
-    const {data} = useQuery<Pick<IQuery,'fetchUseditem'>, IQueryFetchUseditemArgs>(FETCH_USED_ITEM,{variables: {useditemId: String(router.query.boardId)}})
+    // const {data} = useQuery<Pick<IQuery,'fetchUseditem'>, IQueryFetchUseditemArgs>(FETCH_USED_ITEM,{variables: {useditemId: String(router.query.boardId)}})
 
     const onClickMoveToList = () => {
-        router.push('/boards')
+        router.push('/boards/qna')
     }
 
     const onClickDelete = async () => {

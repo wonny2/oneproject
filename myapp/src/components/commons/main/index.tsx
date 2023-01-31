@@ -5,6 +5,10 @@ export default function MainPage() {
 
     const router = useRouter();
 
+    const MoveToContributeWrite = () => {
+        router.push('/contribute/new')
+    }
+
     const MoveToQNA = () => {
         router.push('/boards/qna')    
     }
@@ -17,7 +21,7 @@ export default function MainPage() {
                     <M.Title>서비스 소개</M.Title>
                 </M.IconWrap>
 
-                <M.IconWrap>
+                <M.IconWrap onClick={MoveToContributeWrite}>
                     <M.Icon src='/images/write.png'/>
                     <M.Title>긴급 후원 신청</M.Title>
                 </M.IconWrap>

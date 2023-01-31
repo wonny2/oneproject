@@ -62,11 +62,10 @@ export const SubTitle = styled.div`
     font-weight: 700;
     display:flex;
     flex-direction: column;
-    justify-content:center;
     cursor: pointer;
     
     > span {
-        margin-bottom: 10px;
+        margin-bottom: 20px;
     }
 `
 
@@ -83,8 +82,8 @@ export const Button = styled.div`
 
 
 export const Card = styled.div`
-    width: 12rem;
-    height: 15rem;
+    width: 13.5rem;
+    height: 16.5rem;
     box-shadow: 1px 1px 3px gray;
     display:flex;
     flex-direction: column;

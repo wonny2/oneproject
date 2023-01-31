@@ -3,9 +3,7 @@ import BoardDetailContainer from "../../../src/components/units/board/detail/boa
 export default function BoardDetailPage() {
     return(
         <>
-        
             <BoardDetailContainer />
-        
         </>
     )
 }
