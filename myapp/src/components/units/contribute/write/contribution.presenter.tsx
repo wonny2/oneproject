@@ -1,79 +1,102 @@
 import * as W from './contribution.styles'
+import { IContributePresenter } from './contribution.types'
+import { priceTag } from "../../../../commons/utils/utils";
+import Upload02Container from '../../../commons/imageUpload/02/upload02.container';
 
-export default function ContributionPresenter(){
+export default function ContributionPresenter(props: IContributePresenter){
+
     return(
-        <>
             <W.Wrapper>
+                <form onSubmit={props.handleSubmit(props.onCreateContribution)}>
                 <W.BackImg>
-                    <div>Enroll</div>
+                    <div>긴 급 후 원 신 청</div>
                 </W.BackImg>
 
                 <W.SecondWrap>
                     <W.ContentsWrap>
                         <W.Title>제목</W.Title>
-                        <W.Input placeholder='제목을 입력해주세요' type='text' />
+                        <W.Error>{props.formState.errors.remarks?.message}</W.Error>
+                        <W.Input 
+                            {...props.register("remarks")}
+                            placeholder='제목을 입력해주세요' 
+                            type='text' />
                     </W.ContentsWrap>
                     <W.ContentsWrap>
                         <W.Title>이름</W.Title>
-                        <W.Input placeholder='이름을 입력해주세요' type='text' />
+                        <W.Error>{props.formState.errors.name?.message}</W.Error>
+                        <W.Input 
+                            {...props.register("name")}
+                            placeholder='이름을 입력해주세요'
+                            type='text' />
                     </W.ContentsWrap>
 
                     <W.ContentsWrap>
                         <W.Title>내용</W.Title>
-                        <W.Contents placeholder='내용을 입력해주세요'/>
+                        <W.Contents 
+                            placeholder='내용을 입력해주세요'/>
                     </W.ContentsWrap>
+                
+                    <W.PriceWrap>
+                        <W.Title>후원 요청 금액</W.Title>
+                        <W.Error>{props.priceError}</W.Error>
+                        <W.PriceRowWrap>
+                            <W.Sliders
+                                min={0} 
+                                max={100000} 
+                                onChange={props.onChangePrice}
+                                // value={props.price} 
+                                step={100}
+                                tooltip={{open: false}} />
+                            <W.Price>
+                                {priceTag(props.price)}
+                                <div>원</div>
+                            </W.Price>
+                        </W.PriceRowWrap>
+                        <W.InfoMsg>키보드 좌,우키로 가격 설정이 가능합니다.</W.InfoMsg>
+                    </W.PriceWrap>
 
                     <W.AddressWrap>
-                    <W.RowWrap>
-                        <div>주소</div>
-                    </W.RowWrap>
-                    <W.ZipWrap>
-                        <W.Zipcode>{}</W.Zipcode>
-                        <W.Btn>주소 검색</W.Btn>
-                    </W.ZipWrap>
-                    {/* {props.openModal
-                        ?   <Modal open={props.openModal} onCancel={props.onClickOpenModal} onOk={props.onClickOpenModal}>
-                                <DaumPostcodeEmbed 
-                                    onClose={props.onClickOpenModal}
+                            <W.Title>주소</W.Title>
+                            <W.Error>{props.addressError}</W.Error>
+                        <W.ZipWrap>
+                            <W.Zipcode>{props.zipcode}</W.Zipcode>
+                            <W.AddressBtn onClick={props.onModalOnOff}>주소 검색</W.AddressBtn>
+                        </W.ZipWrap>
+                    {props.openModal
+                        ?   <W.DaumModal open={props.openModal} onCancel={props.onModalOnOff} onOk={props.onModalOnOff}>
+                                <W.DaumAddess 
+                                    onClose={props.onModalOnOff}
                                     style={{padding: "0px 15px"}}
                                     onComplete={props.addressInfo} />
-                            </Modal>
+                            </W.DaumModal>
                         : <></> 
-                    } */}
-                    <W.Address></W.Address>
+                    }
+                    <W.Address>{props.address}</W.Address>
                     <W.AddressDetail
-                        // {...props.register("addressDetail")}
+                        {...props.register("addressDetail")}
                         placeholder='상세 주소를 입력해주세요'
                         type='text' />
-                </W.AddressWrap>
+                    <W.Error>{props.formState.errors.addressDetail?.message}</W.Error>
+                    </W.AddressWrap>
                 <W.ContentsWrap>
                     <W.Title>이미지 등록</W.Title>
                     <W.ImgWrap>
-                        <W.ImgBtn>
-                            <W.ICamera src='/images/camera.png'/>
-                            <W.Text> / 3</W.Text>
-
-                            
-                        </W.ImgBtn>
+                    {props.fileUrls.map((el,index) => (
+                        <Upload02Container 
+                            key={index}
+                            index={index}
+                            onClickFileUrls={props.onClickFileUrls}
+                            fileUrl={el}
+                        />
+                    ))}
                     </W.ImgWrap>
                 </W.ContentsWrap>
+
+                    <W.EnrollBtn >등 록 하 기</W.EnrollBtn>
                 </W.SecondWrap>
+                </form>
             </W.Wrapper>
-        </>
     )
 };
 
-// <W.PriceWrap>
-// <W.Sliders
-//     min={1} 
-//     max={100000} 
-//     // onChange={props.onChangePrice} 
-//     // value={props.price} 
-//     tooltip={{open: false}}
-    
-//     />
-// <W.Price>
-//     {/* {priceTag(props.price)} */}
-//     <div>원</div>
-// </W.Price>
-// </W.PriceWrap>
+// // isActive={props.formState.isValid}

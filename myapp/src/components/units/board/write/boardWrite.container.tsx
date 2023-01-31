@@ -27,7 +27,6 @@ export default function BoardWriteContainer(props:any) {
         setPrice(event)
     }
 
-    
 
     // yup 에러조건, 에러메세지 생성
     const schema = yup.object().shape({
@@ -37,7 +36,7 @@ export default function BoardWriteContainer(props:any) {
     });
 
 
-
+    // 이미지 images
     // 이 부분이 01로 안 가고 여기에 있는 이유는 
     // state값이 여기에 있기 때문이다.
     const onClickFileUrls = (fileUrl:string, index:number) => {

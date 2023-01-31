@@ -20,7 +20,7 @@
 //     return true;
 // };
 
-export const checkFile = (file:File) => {
+export const checkFile = (file:any)=> {
     
     if(!file) {
         alert("파일이 존재하지 않습니다.")

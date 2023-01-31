@@ -9,13 +9,22 @@ export const CREATE_USED_ITEM = gql`
             price
             remarks
             images
-            useditemAddress{
-               zipcode
-               address
-               addressDetail
-               lat
-               lng
-            }
+            # useditemAddress{
+            #    zipcode
+            #    address
+            #    addressDetail
+            #    lat
+            #    lng
+            # }
+        }
+    }
+`
+
+export const UP_LOAD_FILE = gql`
+    mutation uploadFile($file:Upload!) {
+        uploadFile(file: $file) {
+            url
+            createdAt
         }
     }
 `

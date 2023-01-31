@@ -10,7 +10,7 @@ export default function UploadContainer(props:any) {
 
     const onClickUpload = () => {
         imgRef.current?.click();
-    }
+    };
 
     const [uploadFile] = useMutation(UP_LOAD_FILE);
 
@@ -32,8 +32,8 @@ export default function UploadContainer(props:any) {
                 alert(error + "여기서 나는 에러입니다.")
 
             }
-        }
-    }
+        };
+    };
 
 
     return(

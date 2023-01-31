@@ -3,9 +3,14 @@ import styled from "@emotion/styled";
 import { Color, inputPadding } from "../../../../commons/utils/utils";
 import dynamic from "next/dynamic";
 import 'react-quill/dist/quill.snow.css';
-import { Slider, Button } from 'antd';
+import { Slider, Button, Modal } from 'antd';
+import DaumPostcodeEmbed from 'react-daum-postcode';
 
 const ReactQuill = dynamic( () => import('react-quill'), { ssr : false})
+
+interface ValidProps {
+    isActive: boolean;
+}
 
 export const Wrapper = styled.div`
     width: 100%;
@@ -19,6 +24,7 @@ export const SecondWrap = styled.div`
     display:flex;
     flex-direction: column;
     align-items:center;
+    padding: 90px 0;
 `
 
 export const BackImg = styled.div`
@@ -28,7 +34,6 @@ export const BackImg = styled.div`
     text-align:center;
     position: relative;
 	z-index: 1;
-    margin-bottom: 100px;    
 
     > div {
         font-size: 57px;
@@ -56,6 +61,10 @@ export const BackImg = styled.div`
 
 export const RowWrap = styled.div``
 
+export const Error = styled.div`
+    font-size: 10px;
+    color:red;
+`
 
 export const ContentsWrap = styled.div`
     display:flex;
@@ -66,8 +75,8 @@ export const ContentsWrap = styled.div`
 `
 
 export const Title = styled.div`
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 800;
     margin-bottom:10px;
 `
 
@@ -87,13 +96,23 @@ export const Contents = styled(ReactQuill)`
 
 export const PriceWrap = styled.div`
     display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+    width: 70%;
+    margin-bottom: 50px;
+`
+
+export const PriceRowWrap =styled.div`
+    display:flex;
     flex-direction:row;
     justify-content: space-between;
     align-items:center;
+    width: 100%;
 `
 
 export const Sliders = styled(Slider)`
     width: 60%;
+    /* background-color: red; */
 `
 
 export const Price = styled.div`
@@ -105,6 +124,11 @@ export const Price = styled.div`
     > div {
         font-size: 14px;
     };
+`
+export const InfoMsg = styled.div`
+    font-size: 12px;
+    color: gray;
+    padding-left: 10px;
 `
 
 export const AddressWrap = styled.div`
@@ -122,6 +146,10 @@ export const ZipWrap = styled.div`
     width: 210px;
 `
 
+export const DaumModal = styled(Modal)``
+
+export const DaumAddess = styled(DaumPostcodeEmbed)``
+
 export const Zipcode = styled.div`
     width: 100px;
     height: 40px;
@@ -131,7 +159,7 @@ export const Zipcode = styled.div`
     font-size: ${inputFontSize.common};
 `
 
-export const Btn = styled(Button)`
+export const AddressBtn = styled(Button)`
     width: 100px;
     height: 40px;
 `
@@ -159,9 +187,9 @@ export const AddressDetail = styled.input`
 export const ImgWrap = styled.div`
     display:flex;
     flex-direction:row;
-    width: 65%;
-    background-color: lightblue;
-    /* background-color: red; */
+    justify-content:space-between;
+    width: 55%;
+    margin-bottom: 70px;
 `
 
 export const ImgBtn = styled.div`
@@ -181,7 +209,16 @@ export const ICamera = styled.img`
     height: 30px;
 `
 
-export const Text = styled.span`
-    font-size: 8px;
-
+export const EnrollBtn = styled.div`
+    width: 70%;
+    height: 50px;
+    font-size: 23px;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    background-color: red;
 `
+
+// background-color: ${(props:ValidProps) => props.isActive ? "${Color.colors.blue}" : "none"};

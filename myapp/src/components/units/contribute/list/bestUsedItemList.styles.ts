@@ -113,21 +113,7 @@ export const Image = styled.img`
     border-radius: 50%;
     position: relative;
     top: -14px;
-    
 `
-
-// export const Name = styled.div`
-//     font-size:23px;
-//     font-weight: 700;
-//     width: 100%;
-//     height: 30px;
-//     padding: 0 20px;
-//     white-space: nowrap;
-//     overflow: hidden;
-//     text-overflow: ellipsis;
-//     background-color: red;
-// `
-
 
 export const CardContentsWrap = styled.div`
     display:flex;
@@ -147,26 +133,4 @@ export const Time = styled.div`
     width:100%;
     font-size: 12px;
     color: gray;
-`
-
-export const MenuBar = styled.div`
-    width:100%;
-    height: 2.6rem;
-    background-color: ${Color.colors.blue};
-    display:flex;
-    justify-content:end;
-    align-items:center;
-`
-
-export const TextWrap = styled.div`
-    color: white;
-    font-size: 1.2rem;
-    width: 10rem;
-    display:flex;
-    justify-content: space-between;
-
-    > div:hover {
-        cursor: pointer;
-        border-bottom: 2px solid white;
-    }
 `
