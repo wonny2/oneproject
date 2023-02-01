@@ -1,5 +1,5 @@
 import MemberShipPresenter from "./memberShip.presenter";
-import { accessTokenState, cost } from "../../../commons/atom";
+import { accessTokenState } from "../../../commons/atom";
 import { useEffect, useState } from "react";
 import { MouseEvent } from "react";
 import { useRouter } from "next/router";
@@ -8,6 +8,7 @@ import { useMutation } from "@apollo/client";
 import { CREATE_POINT_TRANSACTION_OF_LOADING } from "./memberShip.queries";
 import { IMutation, IMutationCreatePointTransactionOfLoadingArgs } from "../../../commons/types/generated/types";
 import Head from 'next/head'
+import Script from "next/script";
 
 declare const window: typeof globalThis & {IMP: any}
 
@@ -77,10 +78,10 @@ export default function MemberShipContainer() {
 
     return(
         <>
-        <Head>
-            <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
-            <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
-        </Head>
+        {/* <Head> */}
+            <Script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></Script>
+            <Script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></Script>
+        {/* </Head> */}
             <MemberShipPresenter
                 onClickPayment={onClickPayment}
                 onChangeState={onChangeState}

@@ -8,7 +8,7 @@ export default function LoginPresenter(props: ILoginPropsUI) {
     const inputRef = useRef<HTMLInputElement>(null);
     
     useEffect(() => {
-        inputRef.current.focus()
+        inputRef.current?.focus()
     },[])
 
 

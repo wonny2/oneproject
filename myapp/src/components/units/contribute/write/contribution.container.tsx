@@ -7,9 +7,10 @@ import { checkFile } from "../../../../commons/utils/utils";
 import * as yup from 'yup'
 import {yupResolver} from '@hookform/resolvers/yup'
 import { useRouter } from "next/router";
+import { withAuth } from "../../../../commons/hocs/withAuth";
 
 
-export default function ContributionContainer() {
+const ContributionContainer = () => {
 
     const router = useRouter();
 
@@ -128,4 +129,6 @@ export default function ContributionContainer() {
             MoveToBack={MoveToBack}
         />
     )
-}
+};
+
+export default withAuth(ContributionContainer);

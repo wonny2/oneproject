@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Color } from "../../../commons/utils/utils";
+import { titleMarginBottom, Color } from "../../../commons/utils/utils";
 
 
 interface BackColorProps {
@@ -48,6 +48,7 @@ export const ColumnWrap = styled.div`
 export const Title = styled.div`
     font-size: 20px;
     font-weight:700;
+    margin-bottom: ${titleMarginBottom.bottom};
 `
 
 export const InputWrap = styled.div`

@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
-import { Color } from "../../../../commons/utils/utils";
+import { Color, titleMarginBottom } from "../../../../commons/utils/utils";
+import {HeartTwoTone} from '@ant-design/icons';
 
 export const Wrapper = styled.div`
     width:100%;
@@ -25,12 +26,26 @@ export const ColumnWrap = styled.div`
     flex-direction:column;
 `
 
+export const PickedWrap = styled.div`
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+    width:100%;
+`
+
+export const Text = styled.div`
+    font-size: 12px;
+`
+export const HeartIcon = styled(HeartTwoTone)`
+    font-size: 26px;
+    padding-top: 10px;
+    padding-right: 10px;
+`
+
 export const Title = styled.div`
-    width:200px;
-    height:50px;
-    line-height:50px;
     font-size: 30px;
     font-weight: 700;
+    margin-bottom: ${titleMarginBottom.bottom};
 `
 
 export const Contents = styled.div`

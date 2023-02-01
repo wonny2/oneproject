@@ -183,4 +183,8 @@ export const FontList = {
     export function priceTag(price:number) {
         let num = Math.floor(price / 100) * 100;
         return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    };
+
+    export const titleMarginBottom = {
+        bottom: "10px",
     }

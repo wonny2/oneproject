@@ -11,16 +11,11 @@ export const textState = atom({
 
 export const accessTokenState = atom({
     key: "accessTokenState",
-    default: "",
-    effects_UNSTABLE: [persistAtom]
+    default: '',
+    // effects_UNSTABLE: [persistAtom]
 });
 
 export const basketsLength = atom({
     key: "basketsLength",
     default: 0,
 });
-
-export const cost = atom({
-    key: "cost",
-    default: 0,
-})

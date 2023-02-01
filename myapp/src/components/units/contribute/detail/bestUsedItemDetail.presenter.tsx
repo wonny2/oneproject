@@ -4,11 +4,17 @@ import * as D from './bestUsedItemDetail.styles'
 import { IBestUsedItemDetailPropsUI } from './bestUsedItemDetail.types'
 
 export default function BestItemDetailPresenter(props: IBestUsedItemDetailPropsUI) {
+
     return(
         <D.Wrapper>
             <D.SecondeWrap>
                 <D.ColumnWrap>
-                    <D.Title>상품이름</D.Title>
+                    <D.PickedWrap>
+                        <D.Title>상품이름</D.Title>
+                        <D.HeartIcon
+                            onClick={props.onClickPicked}
+                            twoToneColor={props.pickedColor ? "#eb2f96" : "lightgray"} />
+                    </D.PickedWrap>
                     <D.Contents>{props.data?.fetchUseditem.name}</D.Contents>
                 </D.ColumnWrap>
 

@@ -8,6 +8,7 @@ export default function BestUsedItemContainer() {
 
 const {data:usedItems} = useQuery(FETCH_USED_ITEMS_OF_THE_BEST);
 
+
 const router = useRouter()
 
 const MoveToWrite = () => {
@@ -16,7 +17,7 @@ const MoveToWrite = () => {
 
 const onClickDetail = (event: MouseEvent<HTMLDivElement>) => {
         if(!(event.currentTarget instanceof HTMLDivElement)) return;
-        router.push(`/bestItems/${event.currentTarget.id}`)
+        router.push(`/contribute/${event.currentTarget.id}`)
     };
 
     return(

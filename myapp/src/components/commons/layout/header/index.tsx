@@ -6,8 +6,6 @@ import { useEffect, useState} from 'react';
 import { Badge } from 'antd';
 import { basketsLength } from '../../../../commons/atom';
 import { useRecoilState } from 'recoil';
-import Head from 'next/head';
-import PayMentPage from '../../payment';
 
 
 
@@ -73,7 +71,6 @@ export default function Header() {
                         ? <H.Title onClick={MoveToSignUp}>회원가입</H.Title>
                         :
                         <>
-                            <PayMentPage />
                             {/* <H.Title onClick={props.onClickPayment}>포인트충전</H.Title> */}
                             <H.Title onClick={MoveToBaskets}>장바구니</H.Title>
                             <Badge count={count} />

@@ -9,10 +9,10 @@ export default function MainPage() {
     const [accessToken] = useRecoilState(accessTokenState)
 
     const MoveToContributeWrite = () => {
-        if(!accessToken) {
-            alert("로그인 후 작성 가능합니다.");
-            router.push('/boards/login')
-        };
+        // if(!accessToken) {
+        //     alert("로그인 후 작성 가능합니다.");
+        //     router.push('/boards/login')
+        // };
 
         router.push('/contribute/new')
     }
@@ -25,12 +25,12 @@ export default function MainPage() {
         <div style={{width: "100%", display:"flex", justifyContent:"center"}}>
             <M.Wrapper>
                 <M.IconWrap>
-                    <M.Icon src='/images/megaphone.png'/>
+                    <M.Icon src='/images/megaphone.png' />
                     <M.Title>서비스 소개</M.Title>
                 </M.IconWrap>
 
-                <M.IconWrap onClick={MoveToContributeWrite}>
-                    <M.Icon src='/images/write.png'/>
+                <M.IconWrap>
+                    <M.Icon src='/images/write.png' onClick={MoveToContributeWrite}/>
                     <M.Title>긴급 후원 신청</M.Title>
                 </M.IconWrap>
 

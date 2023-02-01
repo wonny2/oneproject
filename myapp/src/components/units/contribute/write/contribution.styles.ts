@@ -1,4 +1,4 @@
-import { inputFontSize } from './../../../../commons/utils/utils';
+import { inputFontSize, titleMarginBottom } from './../../../../commons/utils/utils';
 import styled from "@emotion/styled";
 import { Color, inputPadding } from "../../../../commons/utils/utils";
 import dynamic from "next/dynamic";
@@ -87,7 +87,7 @@ export const ContentsWrap = styled.div`
 export const Title = styled.div`
     font-size: 20px;
     font-weight: 800;
-    margin-bottom:10px;
+    margin-bottom: ${titleMarginBottom.bottom};
 `
 
 export const Input = styled.input`

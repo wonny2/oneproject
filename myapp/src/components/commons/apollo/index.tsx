@@ -5,7 +5,7 @@
 import { ApolloClient, ApolloLink, ApolloProvider, fromPromise, gql, InMemoryCache } from "@apollo/client";
 import {onError} from '@apollo/client/link/error'
 import { createUploadLink } from "apollo-upload-client";
-import { useEffect , ReactNode, useState} from "react";
+import { useEffect , ReactNode } from "react";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../../commons/atom";
 import { getAccessToken } from "../../../commons/libraries/getAccessToken";
@@ -16,7 +16,7 @@ interface IApolloSettingProps {
     children: ReactNode;
 }
 
-const APOLLO_CACHE = new InMemoryCache()
+const APOLLO_CACHE = new InMemoryCache();
 
 export default function ApolloSetting(props: IApolloSettingProps) {
     
@@ -29,9 +29,9 @@ export default function ApolloSetting(props: IApolloSettingProps) {
 // 브라우저에서 페이지가 새로고침시에 해당 코드가 실행되도록..!
 useEffect(() => {
   getAccessToken().then((newAccessToken) => {
-    setAccessToken(newAccessToken)
-  })
-},[]);
+    setAccessToken(newAccessToken);
+  });
+}, []);
 
 
 const errorLink = onError(({graphQLErrors , operation, forward}) => {
@@ -60,9 +60,9 @@ const errorLink = onError(({graphQLErrors , operation, forward}) => {
                      });
                  }
               )).flatMap(() => forward(operation))   // 3-2 변경된 operation 재요청하기
-            }
-          }
-        }
+            };
+          };
+        };
     });
 
 
@@ -73,8 +73,8 @@ const errorLink = onError(({graphQLErrors , operation, forward}) => {
     // apollo 업로드&인증 셋팅 
     const uploadLink = createUploadLink({
       uri: "https://backend09.codebootcamp.co.kr/graphql",
-      headers: { Authorization : `Bearer ${accessToken}` },
       credentials: "include",    // credentials는 백엔드와 쿠키를 주고 받을 때 "쿠키에 담겨져 있는 내용은 중요하다."라고 알리는 기능. 이 부분이 있어야 백엔드에 전달이 된다.
+      headers: { Authorization : `Bearer ${accessToken}` },
     });
   
 
@@ -83,16 +83,8 @@ const errorLink = onError(({graphQLErrors , operation, forward}) => {
       link: ApolloLink.from([errorLink, uploadLink]),
       cache: APOLLO_CACHE,
       connectToDevTools: true,
-    })
-
-
-    const [length, setLength] = useState()
-
-    // useEffect(() => {
-    //   const result = JSON.parse(localStorage.getItem("baskets") || "[]").length
-    //   setLength(result)
-    // },[])
-
+    });
+    
     return(
         <ApolloProvider client={client}>
             {props.children}
