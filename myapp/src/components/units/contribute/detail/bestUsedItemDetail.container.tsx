@@ -19,9 +19,11 @@ export default function BestItemDetailContainer() {
         variables : {useditemId : String(router.query.useditemId)}
     });
 
-    const {data: Ipicked} = useQuery(FETCH_USED_ITEMS_I_PICKED, {
+    const {data: iPicked} = useQuery(FETCH_USED_ITEMS_I_PICKED, {
         variables: {page: 1, search: ""}
     });
+
+    console.log(iPicked?.fetchUseditemsIPicked.map(el => el._id))
 
 
     const [toggleUseditemPick] = useMutation(TOGGLE_USED_ITEM_PICK);
@@ -34,14 +36,18 @@ export default function BestItemDetailContainer() {
 
         try{
             await toggleUseditemPick({
-                variables: {useditemId: String(router.query.useditemId)}
+                variables: {useditemId: String(router.query.useditemId),},
+                refetchQueries: [{
+                    query: FETCH_USED_ITEM,
+                    variables: { useditemId: router.query.useditemId}}
+                ],
             });
-            if(!pickedColor) {
-                setPickedColor(true)
-                message.success('찜 등록 되었습니다.');
-            } else {
-                setPickedColor(false)
-            };
+                if(!pickedColor) {
+                    setPickedColor(true)
+                } else {
+                    setPickedColor(false)
+                };
+                // message.success('찜 등록 되었습니다.');
         } catch(err) {
             if (err instanceof Error) {
                 console.log(err.message)
@@ -52,20 +58,19 @@ export default function BestItemDetailContainer() {
 
     const MoveToList = () => {
         router.push('/boards')
-    }; 
+    };
+
+
+    const length = iPicked?.fetchUseditemsIPicked.filter((el:any) => el._id)
+    // console.log(length)
 
     useEffect(() => {
-        // if(Ipicked?.fetchUseditemsIPicked.length === 0) {
-        //     return setPickedColor(false);
-        // };
-
-        if(Ipicked?.fetchUseditemsIPicked.filter((el:any) => 
-            (el._id === router.query.useditemId)).length === 1){
-                setPickedColor(true)
-            } else{
-                setPickedColor(false)
-            }
-    },[]) 
+        iPicked?.fetchUseditemsIPicked.filter((el:any) => (
+            el._id === String(router.query.useditemId))).length === 1 
+        ? setPickedColor(true)
+        : setPickedColor(false)
+        // length ? setPickedColor(true) : setPickedColor(false)
+    },[]);
 
     return(
         <BestItemDetailPresenter 

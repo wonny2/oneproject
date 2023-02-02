@@ -13,7 +13,8 @@ export default function BestItemDetailPresenter(props: IBestUsedItemDetailPropsU
                         <D.Title>상품이름</D.Title>
                         <D.HeartIcon
                             onClick={props.onClickPicked}
-                            twoToneColor={props.pickedColor ? "#eb2f96" : "lightgray"} />
+                            // #eb2f96
+                            twoToneColor={props.pickedColor ? "blue" : "lightgray"} />
                     </D.PickedWrap>
                     <D.Contents>{props.data?.fetchUseditem.name}</D.Contents>
                 </D.ColumnWrap>
