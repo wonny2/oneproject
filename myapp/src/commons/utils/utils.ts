@@ -187,4 +187,8 @@ export const FontList = {
 
     export const titleMarginBottom = {
         bottom: "10px",
-    }
+    };
+
+    export const secondWrapWidth = {
+        width : "900px"
+    };

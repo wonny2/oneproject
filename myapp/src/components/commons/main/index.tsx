@@ -19,7 +19,13 @@ export default function MainPage() {
 
     const MoveToQNA = () => {
         router.push('/boards/qna')    
-    }
+    };
+
+    const MoveToList = () => {
+        router.push('/contribute/list')
+    };
+
+
     return(
         <>
         <div style={{width: "100%", display:"flex", justifyContent:"center"}}>
@@ -34,7 +40,7 @@ export default function MainPage() {
                     <M.Title>긴급 후원 신청</M.Title>
                 </M.IconWrap>
 
-                <M.IconWrap>
+                <M.IconWrap onClick={MoveToList}>
                     <M.Icon src='/images/fetch.png'/>
                     <M.Title>긴급 후원 목록</M.Title>
                 </M.IconWrap>

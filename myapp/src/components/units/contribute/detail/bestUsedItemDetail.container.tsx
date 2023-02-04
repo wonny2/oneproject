@@ -23,7 +23,7 @@ export default function BestItemDetailContainer() {
         variables: {page: 1, search: ""}
     });
 
-    console.log(iPicked?.fetchUseditemsIPicked.map(el => el._id))
+    // console.log(iPicked?.fetchUseditemsIPicked.map(el => el._id))
 
 
     const [toggleUseditemPick] = useMutation(TOGGLE_USED_ITEM_PICK);

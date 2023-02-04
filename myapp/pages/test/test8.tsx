@@ -60,19 +60,22 @@ export default function Test8() {
 
                     {data?.fetchUseditems
                         .filter((_:any, i:number) => i < add * 2)
-                        .map((el,i) => (
+                        .map((el:any,i:number) => (
                             <div key={i}>
                                 <div>{i+1}</div>
                                 <div>{el.name}</div>
                             </div>
                         ))
                     }
+                    {}
 
                     
                 </>
 
-            <button onClick={onFetchMore}>더보기</button>
-            <button onClick={onClickItemsLength}>길이 확인하기</button>
+            {/* <button onClick={onFetchMore}>더보기</button> */}
+            {add === 5 
+                ? <button onClick={onClickItemsLength}>다음 페이지</button> 
+                : <button onClick={onClickItemsLength}>더보기</button> }
         </>
     )
 }

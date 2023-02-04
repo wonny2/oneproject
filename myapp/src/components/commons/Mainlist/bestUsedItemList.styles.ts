@@ -1,5 +1,5 @@
-import { Color } from "../../../../commons/utils/utils";
-import { breakPoints } from "../../../../commons/styles/media";
+import { Color } from "../../../commons/utils/utils";
+import { breakPoints } from "../../../commons/styles/media";
 import styled from "@emotion/styled";
 
 

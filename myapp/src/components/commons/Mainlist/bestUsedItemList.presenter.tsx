@@ -1,6 +1,6 @@
 import * as L from './bestUsedItemList.styles'
 import {IBestBoardsPropsUI} from './bestUsedItemList.types'
-import { getDate } from '../../../../commons/utils/utils'
+import { getDate } from '../../../commons/utils/utils'
 
 
 
