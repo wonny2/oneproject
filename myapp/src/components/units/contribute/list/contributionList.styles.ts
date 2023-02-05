@@ -38,7 +38,6 @@ export const BackImg = styled.div`
 		top: 0;
   		left: 0;
 	};
-    
 `
 
 export const SecondWrap = styled.div`

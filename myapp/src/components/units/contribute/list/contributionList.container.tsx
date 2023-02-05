@@ -5,7 +5,7 @@ import {FETCH_USED_ITEMS} from './contributionList.queries'
 import { useRouter } from "next/router";
 
 export default function ContributionListContainer() {
-    const [add, setAdd] = useState(0);
+    const [add, setAdd] = useState(1);
     const [page, setPage] = useState(1)
 
     const router = useRouter();
@@ -15,7 +15,6 @@ export default function ContributionListContainer() {
     });
 
     const onClickItemsLength = () => {
-
         if(add === 5) {
             setPage(prev => prev + 1)
             setAdd(0)
@@ -30,8 +29,6 @@ export default function ContributionListContainer() {
 
         setPage(prev => prev - 1)
         setAdd(5)
-
-        console.log(`이전 페이지의 ${add}`)
     };
 
     const onClickDetail = (event:any) => {

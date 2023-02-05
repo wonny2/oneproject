@@ -2,6 +2,7 @@ import * as L from './contributionList.styles'
 import { ContributionListProps } from './contributionList.types'
 import { priceTag , getDate, timeForToday} from '../../../../commons/utils/utils'
 import {v4 as uuidv4} from 'uuid'
+import {Tooltip} from 'antd'
 
 export default function ContributionListPresenter(props: ContributionListProps) {
     return (
@@ -11,9 +12,12 @@ export default function ContributionListPresenter(props: ContributionListProps) 
             </L.BackImg>
 
             <L.SecondWrap>
+            <Tooltip placement="left" title={"뒤 로 가 기"}>
                 <L.Icon>
                     <img src='/images/backarrow.png' onClick={props.MoveToBack} />
                 </L.Icon>
+            </Tooltip>
+
                 {props.data?.fetchUseditems
                     .filter((_: any, i: number) => i < props.add * 2)
                     .map((el:any, i:number) => (

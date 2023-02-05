@@ -25,6 +25,10 @@ export default function MainPage() {
         router.push('/contribute/list')
     };
 
+    const MoveToReport = () => {
+        router.push('/boards/reports')
+    };
+
 
     return(
         <>
@@ -45,7 +49,7 @@ export default function MainPage() {
                     <M.Title>긴급 후원 목록</M.Title>
                 </M.IconWrap>
 
-                <M.IconWrap>
+                <M.IconWrap onClick={MoveToReport}>
                     <M.Icon src='/images/fall.png'/>
                     <M.Title>서비스 신고</M.Title>
                 </M.IconWrap>

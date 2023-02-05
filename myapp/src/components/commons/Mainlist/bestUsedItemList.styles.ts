@@ -62,7 +62,6 @@ export const SubTitle = styled.div`
     font-weight: 700;
     display:flex;
     flex-direction: column;
-    cursor: pointer;
     
     > span {
         margin-bottom: 20px;
@@ -77,6 +76,7 @@ export const Button = styled.div`
     padding-left: 15px;
     color: white;
     font-size: 14px;
+    cursor: pointer;
 `
 
 

@@ -14,7 +14,7 @@ export default function BestUsedItemPresenter(props: IBestBoardsPropsUI) {
                     <L.SubTitle>
                         <span>지금 바로 후원 가능한</span>
                         <span>긴급 후원</span>
-                        <L.Button>바로가기 {'>'}</L.Button>
+                        <L.Button onClick={props.MoveToList}>바로가기 {'>'}</L.Button>
                     </L.SubTitle>
 
                     {props.usedItems?.fetchUseditemsOfTheBest.map((item:any, index:number) => (

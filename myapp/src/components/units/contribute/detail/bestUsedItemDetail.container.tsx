@@ -57,7 +57,8 @@ export default function BestItemDetailContainer() {
 
 
     const MoveToList = () => {
-        router.push('/boards')
+        router.push('/contribute/list')
+        console.log("목록으로")
     };
 
 

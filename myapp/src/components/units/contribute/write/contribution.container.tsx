@@ -44,7 +44,7 @@ const ContributionContainer = () => {
     const schema = yup.object().shape({
         name: yup.string().min(1, "1자리 이상 입력해주세요").max(10,"최대 10자리 입니다.").required("필수 입력값 입니다."),
         remarks: yup.string().min(5, "5자리 이상 입력해주세요").max(20,"최대 20자리 입니다.").required("필수 입력값 입니다."),
-        addressDetail: yup.string().required('필수 입력값 입니다.'),
+        addressDetail: yup.string().required('나머지 주소를 입력해주세요'),
     });
 
     const {register, handleSubmit, formState} = useForm({

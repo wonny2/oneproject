@@ -2,6 +2,7 @@ import * as W from './contribution.styles'
 import { IContributePresenter } from './contribution.types'
 import { priceTag } from "../../../../commons/utils/utils";
 import Upload02Container from '../../../commons/imageUpload/02/upload02.container';
+import {Tooltip} from 'antd'
 
 export default function ContributionPresenter(props: IContributePresenter){
 
@@ -12,9 +13,11 @@ export default function ContributionPresenter(props: IContributePresenter){
                 </W.BackImg>
                 <form onSubmit={props.handleSubmit(props.onCreateContribution)}>
                 <W.SecondWrap>
+                <Tooltip placement="left" title={"뒤 로 가 기"}>
                     <W.Icon>
                         <img src='/images/backarrow.png' onClick={props.MoveToBack} />
                     </W.Icon>
+                </Tooltip>
                     <W.ContentsWrap>
                         <W.Title>제목</W.Title>
                         <W.Error>{props.formState.errors.remarks?.message}</W.Error>
