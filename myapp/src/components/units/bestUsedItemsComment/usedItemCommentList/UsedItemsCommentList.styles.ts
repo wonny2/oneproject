@@ -1,11 +1,11 @@
-import { Color } from "../../../../commons/utils/utils";
+import { Color, secondWrapWidth } from "../../../../commons/utils/utils";
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
     display:flex;
     flex-direction:column;
-    margin-top:20px;
-    padding: 0 40px;
+    width: ${secondWrapWidth.width};
+    padding: 20px 0;
 `
 
 export const ContentsWrap = styled.div`
@@ -17,12 +17,13 @@ export const UserWrap = styled.div`
     flex-direction:row;
     align-items: center;
     justify-content:space-between;
-    width:90%;
+    padding: 20px 0;
 `
 
 export const RowWrap = styled.div`
     display:flex;
     flex-direction:row;
+    align-items:center;
 `
 
 
@@ -33,12 +34,10 @@ export const ColumnWrap = styled.div`
 `
 
 export const CommentOpenWrap = styled.div`
-    width: 90%;
     display:flex;
     flex-direction:row;
     align-items:center;
     justify-content: space-between;
-    /* border: 1px solid black; */
 `
 
 export const Date = styled.div`
@@ -57,7 +56,7 @@ export const Name = styled.div`
 `
 
 export const Contents = styled.div`
-    width: 70%;
+    /* width: 70%; */
     height: 130px;
     padding: 20px 38px;
     font-size: 19px;
@@ -69,7 +68,7 @@ export const Contents = styled.div`
 `
 
 export const CommentOpen = styled.div`
-    width: 80px;
+    width: 100px;
     height: 40px;
     line-height:40px;
     text-align:center;
@@ -81,25 +80,32 @@ export const CommentOpen = styled.div`
 `
 
 export const AnswerWrap = styled.div`
+    /* height: 70px; */
     padding-left: 70px;
     display:flex;
     flex-direction:column;
+    justify-content: center;
 `
 
 export const AnswerInput = styled.input`
     width: 38rem;
     height: 35px;
-    border-radius: 20px;
-    border:1px solid #c5d5c5;
-    outline: 1px solid #c5d5c5;
+    border: none;
+    border-bottom: 1px solid ${Color.colors.blue};
+    outline: none;
     padding-left: 20px;
     font-size: 14px;
+
+    :focus {
+        border-bottom: 2px solid ${Color.colors.blue};
+    }
+
 `
 
 export const AnswerBtn = styled.div`
-    width:80px;
-    height: 30px;
-    line-height:30px;
+    width:100px;
+    height: 40px;
+    line-height:40px;
     text-align:center;
     background-color: ${Color.colors.blue};
     border-radius: 10px;
@@ -116,8 +122,7 @@ export const AnswerContents = styled.div`
 `
 
 export const Line = styled.div`
-    width: 90%;
     height: 2px;
-    border-top: 1px solid #C5D5C5;
+    border-top: 1px solid ${Color.colors.blue};
     margin: 20px 0px;
 `

@@ -79,6 +79,12 @@ export default function UsedItemsCommentPresenterItems(props:IPresenterItemsProp
                 {commentOpen
                     ?
                     <C.AnswerWrap>
+                        
+                        <C.UserWrap>
+                            <C.AnswerInput type='text' onChange={onChangeContents}/>
+                            <C.AnswerBtn onClick={onClickAnswer}>댓 글 등 록</C.AnswerBtn>
+                        </C.UserWrap>
+
                         {answers.map((i:any, index:number) => (
                             <C.ColumnWrap key={index}>
                                 <C.UserWrap>
@@ -91,10 +97,7 @@ export default function UsedItemsCommentPresenterItems(props:IPresenterItemsProp
                                 <C.AnswerContents>{i}</C.AnswerContents>
                             </C.ColumnWrap>
                         ))}
-                        <C.UserWrap>
-                            <C.AnswerInput type='text' onChange={onChangeContents}/>
-                            <C.AnswerBtn onClick={onClickAnswer}>댓글등록</C.AnswerBtn>
-                        </C.UserWrap>
+
                     </C.AnswerWrap>
                     :
                     <></>
