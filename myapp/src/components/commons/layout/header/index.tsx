@@ -61,22 +61,16 @@ export default function Header() {
     return(
         <H.Wrapper>
             <H.TitleWrap>
-                <H.LogoIcon src= '/images/icon.png' onClick={MoveToHome}/>
+                {/* <H.LogoIcon src= '/images/icon.png' onClick={MoveToHome}/> */}
                 <H.LogPart>
                     {!data
-                        ? <H.Title onClick={MoveToLogin}>로그인</H.Title>
+                        ? <H.Title onClick={MoveToLogin}>로그인 / 회원가입</H.Title>
                         : <H.Title onClick={Logout}>{data.fetchUserLoggedIn.name}님 <br/>로그아웃</H.Title>
                     }
-                    {!data
-                        ? <H.Title onClick={MoveToSignUp}>회원가입</H.Title>
-                        :
-                        <>
                             {/* <H.Title onClick={props.onClickPayment}>포인트충전</H.Title> */}
                             <H.Title onClick={MoveToBaskets}>장바구니</H.Title>
-                            <Badge count={count} />
-                        </>
-                    }
-                    <H.Title onClick={MoveToMemberShip}>멤버십</H.Title>
+                            {/* <Badge count={count} /> */}
+                    {/* <H.Title onClick={MoveToMemberShip}>멤버십</H.Title> */}
                 </H.LogPart>
             </H.TitleWrap>
         </H.Wrapper>

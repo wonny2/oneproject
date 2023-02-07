@@ -19,7 +19,7 @@ export const TitleWrap = styled.div`
     display:flex;
     width:1200px;
     align-items:center;
-    justify-content:space-between;
+    justify-content: flex-end;
 
     @media ${breakPoints.mobile} {
         justify-content: space-around;
@@ -38,6 +38,7 @@ export const Title = styled.div`
     color: white;
     cursor: pointer;
     text-align:center;
+    padding: 0 20px;
 
     @media ${breakPoints.mobile} {
         font-size: 15px;
@@ -56,9 +57,10 @@ export const LogoIcon = styled.img`
 
 export const LogPart = styled.div`
     display:flex;
-    justify-content:space-between;
+    flex-direction: row;
     align-items:center;
-    width: 200px;
+    justify-content:space-between;
+    height: 100%;
 `
 
 

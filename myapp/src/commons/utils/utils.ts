@@ -192,3 +192,10 @@ export const FontList = {
     export const secondWrapWidth = {
         width : "900px"
     };
+
+
+    export const signLog = {
+        titleFontSize : "14px",
+        inputHeight: "2.5rem",
+        borderRadius: "5px",
+    }

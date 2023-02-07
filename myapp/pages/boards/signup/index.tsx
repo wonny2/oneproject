@@ -61,7 +61,7 @@ export default function SignUpPage() {
         <S.Wrapper>
             <form onSubmit={handleSubmit(onClickSignUp)}>
                 <S.ContentsWrap>
-                    <S.Belt>Sign Up</S.Belt>
+                    <S.Belt>회원가입</S.Belt>
                     <S.ColumnWrap>
                         <S.RowWrap>
                             <div style={{color: "red"}}>*</div>
