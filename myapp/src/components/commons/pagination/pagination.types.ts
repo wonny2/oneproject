@@ -10,5 +10,7 @@ export interface PaginationPropsUI {
     startPage: number
     data: any
     activedPage: number
+    currentPage: number
     MoveToPage: (event: MouseEvent<HTMLDivElement>) => void
+    // getResult: any
 }

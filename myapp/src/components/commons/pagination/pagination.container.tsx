@@ -13,28 +13,15 @@ import { currentPages } from "../../../commons/atom";
 
 
 export default function Pagination( ) {
-
     
-
-
 
     const router = useRouter();
 
     const [startPage, setStartPage] = useState(1);
     // const [color, setColor] = useState(false);
 
-    const [activedPage, setActivedPage] = useState(1)
-    // const [currentPage, setCurrentPage] = useRecoilState(currentPages);
-
-    // const getResult = JSON.parse(localStorage.getItem("page") || "[]");    
-
-    // const setResult = JSON.stringify(localStorage.setItem("page",JSON.stringify(activedPage)));
-
-    // console.log(setResult)
-
-    // setCurrentPage(activedPage)
-
-
+    const [activedPage, setActivedPage] = useState(1);
+    // const [currentPage,setCurrentPage] = useState(1);
 
 
     const [keyword, setKeyword] = useState("");
@@ -42,18 +29,26 @@ export default function Pagination( ) {
     const {data, refetch} = useQuery(FETCH_BOARDS);
 
     const {data: dataBoardsCount} = useQuery(FETCH_BOARDS_COUNT);
-    
-    // useEffect(() => {
-    //     refetch({page : Number(getResult)})
-    // },[])
 
     const lastPage = Math.ceil(dataBoardsCount?.fetchBoardsCount / 10)
 
-    const onClickPage:PaginationProps['onChange'] = (event: any) =>{
-        // const atived = Number(event.target.id)
-        setActivedPage(event)
-        refetch({page: Number(event)})
-    }
+
+    const getResult = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem("page") || "[]") : null;
+    const [currentPage,setCurrentPage] = useState(Number(getResult));
+
+// const active = Number(event.target.id)
+    const onClickPage:PaginationProps['onChange'] = (event: any) => {
+        JSON.stringify(localStorage.setItem("page",JSON.stringify(event)));
+        console.log(`num의 값: ${event}`)
+        refetch({page: Number(event)});
+    };
+
+    useEffect(() => {
+
+        refetch({page: Number(getResult)});
+    },[])
+
+    // const getResult = JSON.parse(localStorage.getItem("page") || "[]");
     
     // 여기서 start값이 바뀌는 거즤!
     const onClickPrev = () => {
@@ -85,7 +80,8 @@ export default function Pagination( ) {
     };
 
 
- 
+
+
     return(
 
             <PaginationPresenter 
@@ -97,7 +93,9 @@ export default function Pagination( ) {
                 startPage={startPage}
                 data={data}
                 activedPage={activedPage}
+                currentPage={currentPage}
                 MoveToPage={MoveToPage}
+                // getResult={getResult}
             />
 
 

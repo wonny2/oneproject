@@ -7,7 +7,7 @@ import { getDate } from '../../../commons/utils/utils'
 
 export default function PaginationPresenter(props:PaginationPropsUI) {
 
-    const titleArray = ["번 호","제 목","내 용","날 짜"]
+    const titleArray = ["번 호","제 목","내 용","날 짜"];
 
     return(
         <P.Wrapper>
@@ -37,11 +37,11 @@ export default function PaginationPresenter(props:PaginationPropsUI) {
 
                 <P.PageNumWrap>
                     <P.Pagi 
-                        defaultCurrent={props.startPage}
+                        defaultCurrent={props.currentPage}
                         total={props.lastPage * 10}
                         onChange={props.onClickPage}
                         showSizeChanger={false}
-                />
+                        />
                 </P.PageNumWrap>
             </P.Wrapper>
     )
