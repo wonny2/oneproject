@@ -34,6 +34,23 @@ export default function PaginationPresenter(props:PaginationPropsUI) {
                         <P.Date>{getDate(el.createdAt)}</P.Date>
                 </P.MapContents>
             ))}
+
+                <P.PageNumWrap>
+                    <P.Pagi 
+                        defaultCurrent={props.startPage}
+                        total={props.lastPage * 10}
+                        onChange={props.onClickPage}
+                        showSizeChanger={false}
+                />
+                </P.PageNumWrap>
+            </P.Wrapper>
+    )
+};
+
+
+
+
+
                 {/* <P.MapWrap>    
                 {props.data?.fetchBoards?.map((el:any) => (
                         <P.ColumnWrap key={uuidv4()} onClick={props.MoveToPage} id={el._id}>
@@ -47,13 +64,6 @@ export default function PaginationPresenter(props:PaginationPropsUI) {
                 ))}
                 </P.MapWrap> */}
 
-                <P.PageNumWrap>
-                    <P.Pagi 
-                        defaultCurrent={props.startPage} 
-                        total={props.lastPage * 10}
-                        onChange={props.onClickPage}
-                        showSizeChanger={false}
-                    />
                     {/* <div style={{cursor: "pointer"}} onClick={props.onClickPrev}>{" < "}</div>
                     {new Array(10).fill(1).map((_, index) => (
                         (index+props.startPage <= props.lastPage &&  
@@ -62,7 +72,3 @@ export default function PaginationPresenter(props:PaginationPropsUI) {
                             </P.PageNum>)
                     ))}
                     <div style={{cursor: "pointer"}} onClick={props.onClickNext}>{" > "}</div> */}
-                </P.PageNumWrap>
-            </P.Wrapper>
-    )
-}

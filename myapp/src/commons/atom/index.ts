@@ -19,3 +19,9 @@ export const basketsLength = atom({
     key: "basketsLength",
     default: 0,
 });
+
+export const currentPages = atom({
+    key: "currentPages",
+    default: 0,
+    effects_UNSTABLE: [persistAtom],
+})

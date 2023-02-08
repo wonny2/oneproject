@@ -6,8 +6,7 @@ import { IQuery, IQueryFetchBoardArgs, IQueryFetchUseditemArgs } from "../../../
 import BoardDetailPresenter from "./boardDetail.presenter";
 import { DELETE_BOARD, FETCH_BOARD, FETCH_USED_ITEM } from "./boardDetail.queries"
 import {  message } from 'antd';
-
-
+import { currentPages } from "../../../../commons/atom";
 
 
 export default function BoardDetailContainer() {
@@ -27,7 +26,7 @@ export default function BoardDetailContainer() {
 
     const onClickMoveToList = () => {
         router.push('/boards/qna')
-    }
+    };
 
     const onClickDelete = async () => {
         if(confirm("삭제하시겠습니까?") === true) {
@@ -48,6 +47,7 @@ export default function BoardDetailContainer() {
 
 const onClickUpdate = () => {
     router.push(`/boards/${router.query.boardId}/edit`)
+    
 };
 
 
@@ -77,6 +77,10 @@ const onClickBasket = (basket:any) => () => {
             message.success('장바구니에 담겼습니다.');
 };
 
+// useEffect(() => {
+//     const result = JSON.stringify(localStorage.setItem("page",String(currentPages)))
+//     console.log(`디테일페이지의 ${result}`)
+// },[])
 
     return(
         <BoardDetailPresenter 

@@ -1,28 +1,51 @@
 import { useQuery } from "@apollo/client"
-import { useState } from "react";
-import { FETCH_BOARDS, FETCH_BOARDS_COUNT, FETCH_USED_ITEM } from "./pagination.queries"
+import { useEffect, useState } from "react";
+import { FETCH_BOARDS, FETCH_BOARDS_COUNT } from "./pagination.queries"
 import * as P from './pagination.styles'
 import { debounce } from "lodash";
 import { ChangeEvent, MouseEvent } from "react";
 import PaginationPresenter from "./pagination.presenter";
 import { useRouter } from "next/router";
 import { PaginationProps } from "antd";
+import { useRecoilState } from "recoil";
+import { currentPages } from "../../../commons/atom";
 
 
 
 export default function Pagination( ) {
+
+    
+
+
+
     const router = useRouter();
 
     const [startPage, setStartPage] = useState(1);
     // const [color, setColor] = useState(false);
+
     const [activedPage, setActivedPage] = useState(1)
+    // const [currentPage, setCurrentPage] = useRecoilState(currentPages);
+
+    // const getResult = JSON.parse(localStorage.getItem("page") || "[]");    
+
+    // const setResult = JSON.stringify(localStorage.setItem("page",JSON.stringify(activedPage)));
+
+    // console.log(setResult)
+
+    // setCurrentPage(activedPage)
+
+
+
+
     const [keyword, setKeyword] = useState("");
 
     const {data, refetch} = useQuery(FETCH_BOARDS);
-    // const {data: usedItem  refetch} = useQuery(FETCH_USED_ITEM)
 
-    const {data: dataBoardsCount} = useQuery(FETCH_BOARDS_COUNT)
+    const {data: dataBoardsCount} = useQuery(FETCH_BOARDS_COUNT);
     
+    // useEffect(() => {
+    //     refetch({page : Number(getResult)})
+    // },[])
 
     const lastPage = Math.ceil(dataBoardsCount?.fetchBoardsCount / 10)
 
@@ -59,7 +82,7 @@ export default function Pagination( ) {
     const MoveToPage = (event: MouseEvent<HTMLDivElement>) => {
         if(!(event.currentTarget instanceof HTMLDivElement)) return;
         router.push(`/boards/${event.currentTarget.id}`)
-    }
+    };
 
 
  
@@ -79,4 +102,4 @@ export default function Pagination( ) {
 
 
     )
-}
+};
