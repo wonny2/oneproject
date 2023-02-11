@@ -8,6 +8,11 @@ export interface MyInfoProps {
   //   onClickNickName: () => void;
   onUpdateNickName: () => void;
   nickName: string;
+  password: string;
+  onChangePassword: (event: ChangeEvent<HTMLInputElement>) => void;
+  onClickResetPassword: () => Promise<void>;
+  onClickPasswordModal: () => void;
+  passwordModal: boolean;
 }
 
 export interface MyInfoContainerProps {

@@ -78,7 +78,6 @@ export const MenuWrap = styled.div`
 
 export const MenuTitle = styled.div`
   font-size: 13px;
-  width: 100px;
   text-align: center;
   cursor: pointer;
   color: white;

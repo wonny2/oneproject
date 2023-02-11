@@ -23,7 +23,25 @@ export default function MyInfoPresenter(props: MyInfoProps) {
         <span>가 입 일</span>
         <div>{getDate(props.data?.fetchUserLoggedIn.createdAt)}</div>
       </Info.SubWrap>
-      <Info.Password>비밀번호 변경</Info.Password>
+
+      <Info.Password onClick={props.onClickPasswordModal}>
+        비밀번호 변경
+      </Info.Password>
+
+      <Modal
+        title="비밀번호 변경"
+        open={props.passwordModal}
+        onOk={props.onClickResetPassword}
+        onCancel={props.onClickPasswordModal}
+      >
+        <Info.Input
+          placeholder="변경할 비밀번호를 입력해주세요. (최소8자 이상)"
+          minLength={8}
+          value={props.password}
+          onChange={props.onChangePassword}
+        />
+      </Modal>
+
       <Modal
         title="닉네임 변경"
         open={props.openModal}

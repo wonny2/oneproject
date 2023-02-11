@@ -12,8 +12,9 @@ import MyBoardsContainer from "./myboards/myboards.container";
 import MyPickedContainer from "./mypicked/mypicked.container";
 import { useMutation } from "@apollo/client";
 import { Modal, Tooltip } from "antd";
+import { withAuth } from "../../../commons/hocs/withAuth";
 
-export default function MyPageMain() {
+const MyPageMain = () => {
   const { data } = useQuery(FETCH_USER_LOGGED_IN);
   const InfoArr = ["내 정보", "후원등록글", "찜한 게시글"];
 
@@ -90,6 +91,10 @@ export default function MyPageMain() {
 
   const onUpdateNickName = async () => {
     if (!nickName) return alert("변경할 닉네임을 입력해주세요");
+
+    if (data?.fetchUserLoggedIn.name === nickName)
+      return alert("이전 닉네임과 동일합니다.");
+
     try {
       const result = await updateUser({
         variables: {
@@ -114,13 +119,12 @@ export default function MyPageMain() {
   };
 
   // 이미지 날라가는 게 있어서
-  //   useEffect(() => {
-  //     if (data?.fetchUserLoggedIn.picture) {
-  //       setPicture(data?.fetchUserLoggedIn.picture);
-  //     }
-  //   }, [data]);
+  useEffect(() => {
+    if (data?.fetchUserLoggedIn.picture) {
+      setPicture(data?.fetchUserLoggedIn.picture);
+    }
+  }, [data]);
 
-  console.log(data?.fetchUserLoggedIn.picture);
   return (
     <M.Wrapper>
       <M.ProfileWrap>
@@ -208,27 +212,6 @@ export default function MyPageMain() {
       <M.HiddenImgButton type="file" ref={imgRef} onChange={onChangeFile} />
     </M.Wrapper>
   );
-}
+};
 
-{
-  /* <M.MenuTitle>내 정보</M.MenuTitle>
-<M.MenuTitle>후원 등록 글</M.MenuTitle>
-<M.MenuTitle>찜한 게시글</M.MenuTitle> */
-}
-
-// ) : (
-
-//     // <M.ImgWrap>
-//     //   <M.Img
-//     //     src={`https://storage.googleapis.com/${data?.fetchUserLoggedIn.picture}`}
-//     //   />
-//     //   {!iconChange ? (
-//     //     <M.Icon src="/images/profileimg.png" onClick={onClickImgRef} />
-//     //   ) : (
-//     //     <M.Icon
-//     //       src="/images/checked.png"
-//     //       onClick={onUpdateProfileImg}
-//     //     />
-//     //   )}
-//     // </M.ImgWrap>
-// //   )}
+export default withAuth(MyPageMain);

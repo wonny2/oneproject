@@ -1,3 +1,4 @@
+import Script from "next/script";
 import * as Picked from "../mypage.styles";
 
 export default function MyPickedPresenter() {
