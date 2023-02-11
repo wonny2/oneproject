@@ -29,10 +29,23 @@ export const InfoWrap = styled.div`
   width: 100%;
   /* padding-bottom: 20px; */
 `;
+
+export const ImgWrap = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const Icon = styled.img`
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+`;
+
 export const Img = styled.img`
   border-radius: 10px;
   width: 130px;
   height: 100px;
+  margin: 0 13px;
   object-fit: contain;
 `;
 
@@ -129,4 +142,8 @@ export const Input = styled.input`
   height: 40px;
   outline: none;
   padding-left: 14px;
+`;
+
+export const HiddenImgButton = styled.input`
+  display: none;
 `;

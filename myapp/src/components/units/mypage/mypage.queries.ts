@@ -18,6 +18,7 @@ export const UPDATE_USER = gql`
       email
       name
       _id
+      picture
     }
   }
 `;
@@ -25,5 +26,13 @@ export const UPDATE_USER = gql`
 export const RESET_USER_PASSWORD = gql`
   mutation resetUserPassword($password: String!) {
     resetUserPassword(password: $password)
+  }
+`;
+
+export const UPLOAD_FILE = gql`
+  mutation uploadFile($file: Upload!) {
+    uploadFile(file: $file) {
+      url
+    }
   }
 `;
