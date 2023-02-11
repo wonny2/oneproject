@@ -59,14 +59,14 @@
     "@types/react-infinite-scroller": "^1.2.3",
     "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
-    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-prettier": "^8.6.0",
     "eslint-config-standard-with-typescript": "^23.0.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.31.11",
-    "prettier": "2.7.1",
-    "typescript": "^4.7.4"
+    "prettier": "2.8.4",
+    "typescript": "^4.8.0"
   },
   "resolutions": {
     "@types/react": "17.0.2",

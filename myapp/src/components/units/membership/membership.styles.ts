@@ -28,7 +28,7 @@ export const Box = styled.div`
     display:flex;
     flex-direction:column;
     justify-content:center;
-    border: 1px solid ${Color.colors.lightblue};
+    border: 1px solid ${Color.colors.blue};
     border-radius: 8px;
     cursor: pointer;
 `

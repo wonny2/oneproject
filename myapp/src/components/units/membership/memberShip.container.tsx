@@ -45,12 +45,12 @@ export default function MemberShipContainer() {
             pg: "nice",
             pay_method: "card",
             // merchant_uid: "ORD20180131-0000011", // 상품ID
-            name: "노르웨이 회전 의자", 
+            name: "Co-try 후원 충전", 
             amount: costs,   // 결제금액
             buyer_email: "gildong@gmail.com",
             buyer_name: "홍길동",
-            buyer_tel: "010-4242-4242",
-            buyer_addr: "서울특별시 강남구 신사동",
+            // buyer_tel: "010-4242-4242",
+            // buyer_addr: "서울특별시 강남구 신사동",
             buyer_postcode: "01181",
             m_redirect_url: "http://localhost:3000/boards" // 결제 후 다른 페이지로 가지않도록! 특히 모바일에서!
           },

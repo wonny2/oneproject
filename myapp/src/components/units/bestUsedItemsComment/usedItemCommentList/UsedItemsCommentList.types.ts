@@ -1,8 +1,8 @@
 export interface IUseditemCommentProps {
-    data: any
-    onLoadMore: () => void
+  data: any;
+  onLoadMore: () => void;
 }
 
 export interface IPresenterItemsProps {
-    el: any
+  el: any;
 }

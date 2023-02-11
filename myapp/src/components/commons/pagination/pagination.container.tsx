@@ -36,15 +36,15 @@ export default function Pagination( ) {
     const getResult = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem("page") || "[]") : null;
     const [currentPage,setCurrentPage] = useState(Number(getResult));
 
+// console.log(`num의 값: ${event}`)
 // const active = Number(event.target.id)
+
     const onClickPage:PaginationProps['onChange'] = (event: any) => {
-        JSON.stringify(localStorage.setItem("page",JSON.stringify(event)));
-        console.log(`num의 값: ${event}`)
+        JSON.stringify(localStorage.setItem("page", JSON.stringify(event)));
         refetch({page: Number(event)});
     };
 
     useEffect(() => {
-
         refetch({page: Number(getResult)});
     },[])
 
