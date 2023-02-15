@@ -39,6 +39,7 @@ export default function MyInfoPresenter(props: MyInfoProps) {
           minLength={8}
           value={props.password}
           onChange={props.onChangePassword}
+          type="password"
         />
       </Modal>
 

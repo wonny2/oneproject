@@ -48,7 +48,7 @@ export default function BestItemDetailContainer() {
       } else {
         setPickedColor(false);
       }
-      // message.success('찜 등록 되었습니다.');
+      // message.success("찜 등록 되었습니다.");
     } catch (err) {
       if (err instanceof Error) {
         console.log(err.message);
@@ -58,20 +58,25 @@ export default function BestItemDetailContainer() {
 
   const MoveToList = () => {
     router.push("/contribute/list");
-    console.log("목록으로");
   };
 
-  const length = iPicked?.fetchUseditemsIPicked.filter((el: any) => el._id);
-  // console.log(length)
+  // 내가 picked한 useditem
+  const pickedItem = iPicked?.fetchUseditemsIPicked.map((el: any) => el._id);
+  console.log(`지금 픽한 id ${pickedItem}`);
+
+  // 지금 보고있는 useditem
+  const usedItemId = data?.fetchUseditem._id;
+  console.log(`지금 게시글 id ${usedItemId}`);
+
+  const length = pickedItem?.filter((el: any) => el === usedItemId).length;
+  console.log(`지금 게시글 id가 있는지 길이 ${length}`);
 
   useEffect(() => {
-    iPicked?.fetchUseditemsIPicked.filter(
-      (el: any) => el._id === String(router.query.useditemId)
-    ).length === 1
+    pickedItem?.filter((el: any) => el === usedItemId).length === 1
       ? setPickedColor(true)
       : setPickedColor(false);
-    // length ? setPickedColor(true) : setPickedColor(false)
-  }, []);
+    console.log(`useEffect의 ${length}`);
+  }, [length]);
 
   return (
     <BestItemDetailPresenter

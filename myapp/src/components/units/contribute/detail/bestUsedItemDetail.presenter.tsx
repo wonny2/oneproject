@@ -32,8 +32,8 @@ export default function BestItemDetailPresenter(
         <D.ImgWrap>
           <Slider {...settings}>
             {props.data?.fetchUseditem.images
-              ?.filter((item) => item)
-              .map((el) => (
+              ?.filter((item: any) => item)
+              .map((el: any) => (
                 <D.Images key={uuidv4()}>
                   {!el || el.includes("https://storage.googleapis.com/") ? (
                     <D.Img src="https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg" />
