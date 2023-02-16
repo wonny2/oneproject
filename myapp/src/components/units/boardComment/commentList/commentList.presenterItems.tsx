@@ -64,6 +64,8 @@ export default function CommentListItemsPresenter(props: ICommentItemProps) {
   };
 
   const onClickUpdateComment = async () => {
+    if (!contents) return alert("입력한 내용이 없습니다.");
+
     setIsEdit(false);
 
     try {
@@ -128,7 +130,8 @@ export default function CommentListItemsPresenter(props: ICommentItemProps) {
       {/* Rate -> value에 값을 넣어야 별점이 고정된다. */}
       <C.SecondWrap>
         <C.Writer>{props.el.writer}</C.Writer>
-        <C.Date>{getMonthDay(props.createdAt)}</C.Date>
+        <C.Date>{getMonthDay(props.el.createdAt)}</C.Date>
+        {/* 게시글 createdAt */}
       </C.SecondWrap>
       <C.Contents>{props.el.contents}</C.Contents>
     </C.Wrapper>
