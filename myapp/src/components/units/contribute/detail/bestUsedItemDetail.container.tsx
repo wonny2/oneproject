@@ -62,14 +62,11 @@ export default function BestItemDetailContainer() {
 
   // 내가 picked한 useditem
   const pickedItem = iPicked?.fetchUseditemsIPicked.map((el: any) => el._id);
-  console.log(`지금 픽한 id ${pickedItem}`);
 
   // 지금 보고있는 useditem
   const usedItemId = data?.fetchUseditem._id;
-  console.log(`지금 게시글 id ${usedItemId}`);
 
   const length = pickedItem?.filter((el: any) => el === usedItemId).length;
-  console.log(`지금 게시글 id가 있는지 길이 ${length}`);
 
   useEffect(() => {
     pickedItem?.filter((el: any) => el === usedItemId).length === 1
