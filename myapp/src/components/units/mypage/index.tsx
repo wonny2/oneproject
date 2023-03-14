@@ -118,6 +118,7 @@ const MyPageMain = () => {
     }
   };
 
+  console.log(data?.fetchUserLoggedIn.picture);
   // 이미지 날라가는 게 있어서
   useEffect(() => {
     if (data?.fetchUserLoggedIn.picture) {
